@@ -59,16 +59,17 @@ Default CSS
   --fontFamily: 'DM Sans', sans-serif;
   --headingFont: 'Plus Jakarta Sans', sans-serif;
   --mainColor: #6600FF;
-  --mainColor2: #43A5FE;
+  --mainColor2: #7D23F4;
   --mainColor3: #ff4800;
   --secounderyColor: #F2EDEB;
   --paragraphColor: #7A7A7A;
-  --paragraphColorSecond: #B9B9BA;
-  --gridColor: linear-gradient(94deg, var(--mainColor2) 21.18%, #0064C1 104.4%);
+  /* --paragraphColorSecond: #B9B9BA; */
+  --paragraphColorSecond: #B3B3B3;
+  --gridColor: linear-gradient(94deg, var(--mainColor2) 21.18%, #6941FF 104.4%);
   --whiteColor: #ffffff;
   --blackColor: #16171A;
   --LightBg: #fcfaf8;
-  --DarkBg: #05051E;
+  --DarkBg: #121212;
   --fontSize: 17px;
   --transition: .5s;
 }
@@ -241,6 +242,10 @@ p:last-child {
 .default-btn.style-3{
   background-color: var(--blackColor);
   border-radius: 30px;
+}
+
+.default-btn.style-grid {
+  background: var(--gridColor);
 }
 
 /*section-title*/
@@ -574,7 +579,8 @@ Hero Area 2 CSS
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding-top: 100px;
+  /* padding-top: 100px; */
+  padding: 100px 0;
 }
 
 .style-2 .default-btn{
@@ -582,31 +588,28 @@ Hero Area 2 CSS
 }
 
 .hero-content-2{
-  text-align: center;
+  /* text-align: center; */
   max-width: 900px;
-  margin: auto;
-}
-
-.hero-content-2{
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .hero-content-2 h2{
-  font-size: 75px;
-  font-weight: 800;    
+  font-size: 40px;
+  font-weight: 400;    
   margin-bottom: 40px;
   color: var(--whiteColor);
 }
 
 .hero-content-2 h2 .sub-head{
-  background: var(--gridColor);
+  /* background: var(--gridColor);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  text-fill-color: transparent; */
   display: inline-block;
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--whiteColor);
 }
 
 .hero-content-2 h2 span{
@@ -6146,4 +6149,11 @@ Go Top CSS
 .go-top:hover {
   background-color: var(--blackColor);
   color: var(--whiteColor);
+}
+
+
+
+/* 임시 */
+.en {
+  display: none;
 }
