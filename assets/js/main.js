@@ -406,27 +406,39 @@
 
 /* Include */
 	// Include external HTML files in elements with the 'includeJs' class
-    $(document).ready(function() {
-        $('.includeJs').each(function() {
-            let $this = $(this); // 현재 요소를 가리킴
-            let filePath = $this.data('include-file'); // data-include-file 속성 값 가져오기
-
-            if (filePath) {
-                // HTML 파일 로드
-                $.ajax({
-                    url: filePath,
-                    method: 'GET',
-                    dataType: 'html',
-                    success: function(data) {
-                        $this.html(data); // 가져온 내용을 현재 요소에 삽입
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(`Error loading file: ${filePath}`, error);
-                        $this.html('<p>Error loading content.</p>'); // 에러 메시지 표시
-                    }
-                });
-            }
-        });
-    });
+    $(document).ready(function () {
+		$('.includeJs').each(function () {
+			let $this = $(this);
+			let filePath = $this.data('include-file');
+	
+			if (filePath) {
+				// AJAX 요청
+				$.get(filePath)
+					.done(function (data) {
+						$this.html(data); // 파일 로드
+						console.log('Header loaded successfully.');
+	
+						// 파일 로드 후 sticky 동작 초기화
+						initStickyNavbar();
+					})
+					.fail(function (xhr, status, error) {
+						console.error(`Error loading file: ${filePath} - Status: ${status}`, error);
+						$this.html('<p>Error loading content.</p>');
+					});
+			}
+		});
+	
+		// sticky 동작 초기화 함수
+		function initStickyNavbar() {
+			$(window).on('scroll', function () {
+				if ($(this).scrollTop() > 120) {
+					$('.navbar-area').addClass('sticky');
+				} else {
+					$('.navbar-area').removeClass('sticky');
+				}
+			});
+		}
+	});
+	
 
 }(jQuery));
