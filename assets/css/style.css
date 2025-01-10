@@ -64,7 +64,7 @@ Default CSS
   --secounderyColor: #F2EDEB;
   --paragraphColor: #7A7A7A;
   /* --paragraphColorSecond: #B9B9BA; */
-  --paragraphColorSecond: #B3B3B3;
+  --paragraphColorSecond: #cecece;
   --gridColor: linear-gradient(94deg, var(--mainColor2) 21.18%, #6941FF 104.4%);
   --whiteColor: #ffffff;
   --blackColor: #16171A;
@@ -246,6 +246,19 @@ p:last-child {
 
 .default-btn.style-grid {
   background: var(--gridColor);
+}
+
+.btn-disabled {
+  background-color: #333;
+  padding: 15px 25px 15px 25px;
+  color: var(--paragraphColorSecond);
+  display: inline-block;
+  border-radius: 5px;
+  position: relative;
+  border: none;
+  font-size: var(--fontSize);
+  font-weight: 500;
+  overflow: hidden;
 }
 
 /*section-title*/
@@ -3574,6 +3587,9 @@ Section Banner Area CSS
 }
 
 .section-banner .breadcrumb-item + .breadcrumb-item::before{
+  color: var(--whiteColor);
+}
+.section-banner .breadcrumb-item + .breadcrumb-item:last-child::before{
   color: var(--mainColor2);
 }
 
@@ -5550,12 +5566,12 @@ Footer Area CSS
   top: 2px;
 }
 
-.footer-widget-info .footer-widget span {
+/* .footer-widget-info .footer-widget span {
   color: var(--paragraphColorSecond);
   font-size: 17px;
   display: block;
   margin-bottom: 30px;
-}
+} */
 
 .footer-widget-info .footer-widget .ft-mail {
   color: var(--paragraphColorSecond);
@@ -5737,12 +5753,12 @@ Footer Area CSS
   position: relative;
 }
 
-.footer-area-3 .footer-top-info .right-content span {
+/* .footer-area-3 .footer-top-info .right-content span {
   position: absolute;
   content: '';
   top: 10px;
   right: 37%;
-}
+} */
 
 .footer-area-3 .footer-top-info .right-content ul{
   list-style: none;
@@ -6155,5 +6171,8 @@ Go Top CSS
 
 /* 임시 */
 .en {
+  display: none !important;
+}
+.only-mo {
   display: none;
 }

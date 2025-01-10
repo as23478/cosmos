@@ -16,6 +16,7 @@
   border-bottom: none;
 }
 .navbar-area.sticky {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -852,7 +853,7 @@
     font-size: 32px;
   }
   .navbar-area .navbar .navbar-nav > .nav-item {
-    margin-right: 25px;
+    margin-right: 35px;
   }
   .navbar-area .navbar .navbar-nav > .nav-item .nav-link {
     font-size: 16px;
@@ -885,7 +886,7 @@
     max-width: 120px;
   }
   .navbar-area .navbar .navbar-nav > .nav-item {
-    margin-right: 30px;
+    margin-right: 40px;
   }
   .navbar-area .navbar .navbar-nav > .nav-item .nav-link {
     font-size: 17px;
@@ -917,7 +918,7 @@
     max-width: 120px;
   }
   .navbar-area .navbar .navbar-nav > .nav-item {
-    margin-right: 30px;
+    margin-right: 40px;
   }
   .navbar-area .navbar .navbar-nav > .nav-item .nav-link {
     font-size: 17px;
@@ -941,11 +942,11 @@
     margin-right: 5px;
   }
 }
-@media only screen and (min-width: 1400px) {
+/* @media only screen and (min-width: 1400px) {
   .navbar-area .navbar .navbar-nav > .nav-item {
     margin-right: 30px;
   }
-}
+} */
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
   .navbar-area .container {
     max-width: 1400px;
@@ -983,7 +984,7 @@
     top: 4px;
   }
   .navbar-area .navbar .navbar-nav > .nav-item {
-    margin-right: 24px;
+    margin-right: 50px;
   }
   .navbar-area .navbar .others-option .option-item {
     margin-left: 30px;

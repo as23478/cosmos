@@ -404,41 +404,104 @@
 
 
 
-/* Include */
+/* Include 오류 */
 	// Include external HTML files in elements with the 'includeJs' class
     $(document).ready(function () {
 		$('.includeJs').each(function () {
-			let $this = $(this);
-			let filePath = $this.data('include-file');
-	
-			if (filePath) {
-				// AJAX 요청
-				$.get(filePath)
-					.done(function (data) {
-						$this.html(data); // 파일 로드
-						console.log('Header loaded successfully.');
-	
-						// 파일 로드 후 sticky 동작 초기화
-						initStickyNavbar();
-					})
-					.fail(function (xhr, status, error) {
-						console.error(`Error loading file: ${filePath} - Status: ${status}`, error);
-						$this.html('<p>Error loading content.</p>');
-					});
-			}
+		  let $this = $(this);
+		  let filePath = $this.data('include-file');
+	  
+		  if (filePath) {
+			// AJAX 요청
+			$.get(filePath)
+			  .done(function (data) {
+				$this.html(data); // 파일 로드
+				console.log('Header loaded successfully.');
+	  
+				// 파일 로드 후 sticky 동작 초기화
+				initStickyNavbar();
+			  })
+			  .fail(function (xhr, status, error) {
+				console.error(`Error loading file: ${filePath} - Status: ${status}`, error);
+				$this.html('<p>Error loading content.</p>');
+			  });
+		  }
 		});
-	
+	  
 		// sticky 동작 초기화 함수
 		function initStickyNavbar() {
-			$(window).on('scroll', function () {
-				if ($(this).scrollTop() > 120) {
-					$('.navbar-area').addClass('sticky');
-				} else {
-					$('.navbar-area').removeClass('sticky');
-				}
-			});
+		  const $navbar = $('.navbar-area');
+		  if ($navbar.length === 0) {
+			console.error('Navbar not found after include.');
+			return;
+		  }
+	  
+		  $(window).on('scroll', function () {
+			if ($(this).scrollTop() > 120) {
+			  $navbar.addClass('sticky');
+			} else {
+			  $navbar.removeClass('sticky');
+			}
+		  });
+	  
+		  // 초기 상태 설정
+		  if ($(window).scrollTop() > 120) {
+			$navbar.addClass('sticky');
+		  }
 		}
+	  });
+	  
+	
+
+
+/* 현재 페이지(오류) */
+	document.addEventListener("DOMContentLoaded", () => {
+		const currentPath = window.location.pathname === "/" ? "/index.html" : window.location.pathname;
+		console.log('currentPath: '+currentPath);
+		
+		// **PC 대분류**
+		document.querySelectorAll(".main-link-pc").forEach(link => {
+			const href = link.getAttribute("href");
+			console.log(href);
+			if (href && currentPath.startsWith(new URL(href, window.location.origin).pathname)) {
+			link.classList.add("active");
+			}
+		});
+		
+		// **PC 소분류**
+		document.querySelectorAll(".sub-link-pc").forEach(link => {
+			const href = link.getAttribute("href");
+			if (href && currentPath === new URL(href, window.location.origin).pathname) {
+			link.classList.add("active");
+			}
+		});
+		
+		// **모바일 대분류**
+		document.querySelectorAll(".main-link-mo").forEach(link => {
+			const target = link.getAttribute("data-bs-target");
+			if (target && currentPath.startsWith(target.replace("#", ""))) {
+			link.classList.add("active");
+			}
+		});
+		
+		// **모바일 소분류**
+		document.querySelectorAll(".sub-link-mo").forEach(link => {
+			const href = link.getAttribute("href");
+			if (href && currentPath === new URL(href, window.location.origin).pathname) {
+			link.classList.add("active");
+			}
+		});
 	});
+
+	
+		  
+  
+  
+  
+  
+  
+  
+	  
 
 
 
