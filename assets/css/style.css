@@ -53,11 +53,43 @@ This files table contents are outlined below>>>>>
 /*================================================
 Default CSS
 =================================================*/
+/* 이거 왜가져왔었더라.. */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+@font-face {
+  font-family: 'CustomFont'; /* 동일한 font-family 이름 */
+  src: url('/assets/fonts/Catamaran-VariableFont_wght.ttf') format('truetype-variations');
+  unicode-range: U+0000-007F; /* 영어 유니코드 범위 */
+}
+@font-face {
+  font-family: 'CustomFontHeading'; /* 동일한 font-family 이름 */
+  src: url('/assets/fonts/Orbitron-VariableFont_wght.ttf') format('truetype-variations');
+  unicode-range: U+0000-007F; /* 영어 유니코드 범위 */
+}
+
+@font-face {
+  font-family: 'CustomFont'; /* 동일한 font-family 이름 */
+  font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+  src: url('/assets/fonts/PretendardVariable.woff2') format('woff2-variations');
+  unicode-range: U+AC00-D7A3; /* 한글 유니코드 범위 */
+}
+@font-face {
+  font-family: 'CustomFontHeading'; /* 동일한 font-family 이름 */
+  font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+  src: url('/assets/fonts/PretendardVariable.woff2') format('woff2-variations');
+  unicode-range: U+AC00-D7A3; /* 한글 유니코드 범위 */
+}
+
+
 :root {
-  --fontFamily: 'DM Sans', sans-serif;
-  --headingFont: 'Plus Jakarta Sans', sans-serif;
+  /* --fontFamily: 'DM Sans', sans-serif;
+  --headingFont: 'Plus Jakarta Sans', sans-serif; */
+  --fontFamily: 'CustomFont', sans-serif;
+  --headingFont: 'CustomFontHeading', sans-serif;
   --mainColor: #6600FF;
   --mainColor2: #7D23F4;
   --mainColor3: #ff4800;
@@ -1071,7 +1103,7 @@ Text Animation Area CSS
 Features Area CSS
 =================================================*/
 .features-section{
-  background-image: url(../img/banner/background-2.png);
+  /* background-image: url(../img/banner/background-2.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1118,11 +1150,15 @@ Features Area CSS
 Features Area 2 CSS
 =================================================*/
 .features-section-2{
-  background-image: url(../img/banner/background-5.png);
+  /* background-image: url(../img/banner/background-5.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* .features-section-2 > .container > .row {
+  overflow: hidden; 삭제
+} */
 
 .features-section-2 .feature-box{
   background: rgba(255, 255, 255, 0.01);
@@ -1134,7 +1170,13 @@ Features Area 2 CSS
   transition: var(--transition);
   z-index: 0;
   overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; /* 이거 수정 */
+  /* border-bottom: 1px solid transparent; */
 }
+
+/* .features-section-2 .feature-box::after {
+  content: ''; display: block; height: 20px; 삭제
+} */
 
 .features-section-2 .feature-box:hover:before{
   position: absolute;
@@ -1683,7 +1725,7 @@ Brand Area CSS
 Team Area CSS
 =================================================*/
 .team-section{
-  background-image: url(../img/banner/background-7.png);
+  /* background-image: url(../img/banner/background-7.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1771,6 +1813,11 @@ Team Area CSS
   z-index:1;
   overflow:hidden;
   margin-bottom: 25px;
+}
+
+.single-team img {
+  aspect-ratio: 530 / 630; /* 비율 설정 */
+  object-fit: cover;
 }
 
 .single-team::after{
@@ -2502,6 +2549,11 @@ Blog Area CSS
 .blog-card .blog-img {
   margin-bottom: 22px;
   position: relative;
+}
+
+.blog-card .blog-img img {
+  aspect-ratio: 430 / 390; /* 비율 설정 실패? 특정 사이즈 오류 - 미디어쿼리 확인 */
+  object-fit: cover;
 }
 
 .blog-card .blog-img .blog-metainfo {

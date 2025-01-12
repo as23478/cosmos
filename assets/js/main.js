@@ -455,49 +455,82 @@
 
 
 /* 현재 페이지(오류) */
+	// document.addEventListener("DOMContentLoaded", () => {
+	// 	const currentPath = window.location.pathname === "/" ? "/index.html" : window.location.pathname;
+	// 	console.log('currentPath: '+currentPath);
+		
+	// 	// // **PC 대분류**
+	// 	// document.querySelectorAll(".main-link-pc").forEach(link => {
+	// 	// 	const href = link.getAttribute("href");
+	// 	// 	console.log(href);
+	// 	// 	if (href && currentPath.startsWith(new URL(href, window.location.origin).pathname)) {
+	// 	// 	link.classList.add("active");
+	// 	// 	}
+	// 	// });
+		
+	// 	// // **PC 소분류**
+	// 	// document.querySelectorAll(".sub-link-pc").forEach(link => {
+	// 	// 	const href = link.getAttribute("href");
+	// 	// 	if (href && currentPath === new URL(href, window.location.origin).pathname) {
+	// 	// 	link.classList.add("active");
+	// 	// 	}
+	// 	// });
+		
+	// 	// // **모바일 대분류**
+	// 	// document.querySelectorAll(".main-link-mo").forEach(link => {
+	// 	// 	const target = link.getAttribute("data-bs-target");
+	// 	// 	if (target && currentPath.startsWith(target.replace("#", ""))) {
+	// 	// 	link.classList.add("active");
+	// 	// 	}
+	// 	// });
+		
+	// 	// // **모바일 소분류**
+	// 	// document.querySelectorAll(".sub-link-mo").forEach(link => {
+	// 	// 	const href = link.getAttribute("href");
+	// 	// 	if (href && currentPath === new URL(href, window.location.origin).pathname) {
+	// 	// 	link.classList.add("active");
+	// 	// 	}
+	// 	// });
+
+	// 	// 대분류 링크를 모두 가져옴
+	// 	const mainLinks = document.querySelectorAll(".main-link-pc");
+
+	// 	mainLinks.forEach(link => {
+	// 	  const href = link.getAttribute("href");
+	// 	  if (!href) return; // href가 없는 경우 무시
+	  
+	// 	  // 현재 경로에 대분류 링크의 경로가 포함되어 있으면 active 클래스 추가
+	// 	  if (currentPath.includes(new URL(href, window.location.origin).pathname)) {
+	// 		link.classList.add("active");
+	// 	  }
+	// 	});
+
+	// });
+
 	document.addEventListener("DOMContentLoaded", () => {
-		const currentPath = window.location.pathname === "/" ? "/index.html" : window.location.pathname;
-		console.log('currentPath: '+currentPath);
-		
-		// **PC 대분류**
-		document.querySelectorAll(".main-link-pc").forEach(link => {
-			const href = link.getAttribute("href");
-			console.log(href);
-			if (href && currentPath.startsWith(new URL(href, window.location.origin).pathname)) {
-			link.classList.add("active");
+		const currentPath = window.location.pathname;
+	  
+		// 탭별 경로 설정
+		const tabs = [
+		  { path: "/index.html", selector: ".home-link" }, // Home
+		  { path: "/pages/travel/", selector: ".travel-link" }, // Travel
+		  { path: "/pages/info/", selector: ".info-link" }, // Info
+		  { path: "/pages/store/", selector: ".store-link" }, // Store
+		  { path: "/pages/support/", selector: ".support-link" } // Support
+		];
+	  
+		tabs.forEach(tab => {
+		  // 현재 경로에 탭의 경로가 포함되어 있는지 확인
+		  if (currentPath.includes(tab.path)) {
+			const link = document.querySelector(tab.selector);
+			console.log('link: '+link);
+			
+			if (link) {
+				link.classList.add("active");
 			}
-		});
-		
-		// **PC 소분류**
-		document.querySelectorAll(".sub-link-pc").forEach(link => {
-			const href = link.getAttribute("href");
-			if (href && currentPath === new URL(href, window.location.origin).pathname) {
-			link.classList.add("active");
-			}
-		});
-		
-		// **모바일 대분류**
-		document.querySelectorAll(".main-link-mo").forEach(link => {
-			const target = link.getAttribute("data-bs-target");
-			if (target && currentPath.startsWith(target.replace("#", ""))) {
-			link.classList.add("active");
-			}
-		});
-		
-		// **모바일 소분류**
-		document.querySelectorAll(".sub-link-mo").forEach(link => {
-			const href = link.getAttribute("href");
-			if (href && currentPath === new URL(href, window.location.origin).pathname) {
-			link.classList.add("active");
-			}
+		  }
 		});
 	});
-
-	
-		  
-  
-  
-  
   
   
   
