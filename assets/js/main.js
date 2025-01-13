@@ -378,15 +378,21 @@
 
 /*
 -----------------------------------------------------
-	Go to Top
+	Go to Top + 챗봇
 -----------------------------------------------------
 */
 	$(function(){
 		// Scroll Event
 		$(window).on('scroll', function(){
 			var scrolled = $(window).scrollTop();
-			if (scrolled > 600) $('.go-top').addClass('active');
-			if (scrolled < 600) $('.go-top').removeClass('active');
+			if (scrolled > 600) {
+				$('.go-top').addClass('active');
+				$('.chat-bot').addClass('active');
+			}
+			if (scrolled < 600) {
+				$('.go-top').removeClass('active');
+				$('.chat-bot').removeClass('active');
+			}
 		});  
 		// Click Event
 		$('.go-top').on('click', function() {
@@ -836,8 +842,25 @@
   
   
   
-	  
+	/* 챗봇 */
+	const chatBotButton = document.querySelector('.chat-bot');
 
+	// 툴팁 생성
+	chatBotButton.addEventListener('mouseenter', () => {
+	  const chatBotTooltip = document.createElement('span');
+	  chatBotTooltip.className = 'chatBotTooltip';
+	  chatBotTooltip.innerText = 'Open Chatbot';
+	  chatBotButton.appendChild(chatBotTooltip);
+	});
+	
+	// 툴팁 제거
+	chatBotButton.addEventListener('mouseleave', () => {
+	  const chatBotTooltip = chatBotButton.querySelector('.chatBotTooltip');
+	  if (chatBotTooltip) {
+		chatBotButton.removeChild(chatBotTooltip);
+	  }
+	});
+	
 
 
 

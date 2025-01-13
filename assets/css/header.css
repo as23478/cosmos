@@ -495,6 +495,7 @@
 .responsive-navbar .offcanvas-body .accordion .accordion-item .accordion-button:hover, .responsive-navbar .offcanvas-body .accordion .accordion-item .accordion-button.active {
   color: var(--mainColor2);
 }
+
 .responsive-navbar .offcanvas-body .accordion .accordion-item .accordion-link {
   font-weight: 500;
   font-size: 16px;

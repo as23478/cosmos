@@ -1,54 +1,5 @@
 /*
-@File: Aithm Template Styles
 
-* This file contains the styling for the actual template, this
-is the file you need to edit to change the look of the
-template.
-
-This files table contents are outlined below>>>>>
-
-*******************************************
-*******************************************
-
-** - Default CSS
-** - Hero Area CSS
-** - Hero Area 2 CSS
-** - Hero Area 3 CSS
-** - Hero Area 4 CSS
-** - Text Animation Area CSS
-** - Features Area CSS
-** - Features Area 2 CSS
-** - About Area CSS
-** - Expertise Area CSS
-** - Multiple Section CSS
-** - About Area 2 CSS
-** - Testimonial Area CSS
-** - Brand Area CSS
-** - Team Area CSS
-** - Gallery Area CSS
-** - Pricing Area CSS
-** - Blog Area CSS
-** - Blog Details Area CSS
-** - Blog Section 3 Area CSS
-** - Portfolio Details CSS
-** - Service Area CSS
-** - Services Details Area CSS
-** - Section Banner Area CSS
-** - Cart Area CSS
-** - Checkout Area CSS
-** - Products Details Area CSS
-** - Products Area CSS
-** - Instagram Area CSS
-** - Video Area CSS
-** - Contact Area CSS
-** - Footer Area CSS
-** - Login Page CSS
-** - Error CSS
-** - Faq CSS
-** - Cookie CSS
-** - Go Top CSS
-** - 
-*/
 
 /*================================================
 Default CSS
@@ -6181,7 +6132,8 @@ Go Top CSS
   cursor: pointer;
   bottom: 20px;
   right: 20px;
-  background: var(--gridColor);
+  /* background: var(--gridColor); */
+  background: #555;
   color: var(--whiteColor);
   z-index: 4;
   width: 43px;
@@ -6190,10 +6142,11 @@ Go Top CSS
   opacity: 0;
   visibility: hidden;
   font-size: 27px;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
+  /* -webkit-transition: var(--transition);
+  transition: var(--transition); */
   -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 
 .go-top i {
@@ -6215,10 +6168,155 @@ Go Top CSS
 }
 
 .go-top:hover {
-  background-color: var(--blackColor);
+  /* background-color: var(--blackColor); */
+  background: #888;
   color: var(--whiteColor);
 }
 
+
+/* 챗봇 */
+.chat-bot {
+  position: fixed;
+  cursor: pointer;
+  bottom: 20px;
+  right: 20px;
+  background: var(--gridColor);
+  color: var(--whiteColor);
+  z-index: 4;
+  width: 43px;
+  text-align: center;
+  height: 45px;
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  font-size: 27px;
+  /* -webkit-transition: var(--transition);
+  transition: var(--transition); */
+  -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.chat-bot i {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chat-bot.active {
+  /* opacity: 1; */
+  /* visibility: visible; */
+  bottom: 85px;
+}
+
+.chat-bot:hover {
+  background: #D6C8FF;
+  color: var(--blackColor);
+}
+
+.chatBotTooltip {
+  position: absolute;
+  bottom: 12px;
+  left: -120%;
+  transform: translateX(-50%);
+  background: #555;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+
+
+
+/* 사이드바 */
+.sidebar-area {
+  margin-bottom: -10px;
+}
+
+.sidebar-area ul.wp-block-latest-posts {
+  margin-bottom: 0;
+}
+
+.sidebar-area ul.wp-block-latest-posts li:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-area select,
+.sidebar-area input {
+  background-color: var(--white-color);
+}
+
+.sidebar-area .widget .wp-block-search {
+  margin-bottom: 0;
+}
+
+.sidebar-area .wp-block-group__inner-container h2 {
+  font-size: 20px;
+  line-height: 1em;
+  margin-bottom: 20px;
+  margin-top: -0.07em;
+}
+
+.sidebar-area ol.wp-block-latest-comments {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-area ol.wp-block-latest-comments li {
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+}
+
+.sidebar-area ol.wp-block-latest-comments li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Medium devices */
+@media (max-width: 991px) {
+  .sidebar-area {
+    padding-top: 30px;
+  }
+  .widget {
+    --widget-padding-y: 40px;
+    --widget-padding-x: 40px;
+  }
+  .wp-block-tag-cloud a,
+  .tagcloud a {
+    padding: 10.5px 18px;
+  }
+}
+
+/* Small devices */
+@media (max-width: 767px) {
+  .widget {
+    padding: 35px 20px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .sidebar-shop .widget {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .sidebar-shop .widget {
+    margin-bottom: 24px;
+  }
+}
 
 
 /* 임시 */

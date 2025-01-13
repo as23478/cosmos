@@ -268,3 +268,28 @@
     </div>
 </div>
 <!-- End Responsive Navbar Area -->
+ <script>
+    $(document).ready(function () {
+    var currentPath = window.location.pathname;
+
+    // 서브메뉴 및 상위메뉴 활성화
+    $('.accordion-link').each(function () {
+        var linkPath = $(this).attr('href').split('?')[0];
+
+        if (currentPath === linkPath) {
+            $(this).addClass('active');
+            $(this).closest('.accordion-collapse').addClass('show');
+            $(this).closest('.accordion-item').find('.accordion-button').addClass('active');
+        }
+    });
+
+    // Bootstrap Collapse 이벤트로 동적 활성화 관리
+    $(document).on('show.bs.collapse', '.accordion-collapse', function () {
+        $(this).closest('.accordion-item').find('.accordion-button').addClass('active');
+    });
+
+    $(document).on('hide.bs.collapse', '.accordion-collapse', function () {
+        $(this).closest('.accordion-item').find('.accordion-button').removeClass('active');
+    });
+});
+ </script>

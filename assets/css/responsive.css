@@ -1,4 +1,12 @@
 /* Max width 767px */
+@media only screen and (max-width: 1100px) {
+  .mb-30{
+    margin-bottom: 30px;
+  }
+}
+
+
+/* Max width 767px */
 @media only screen and (max-width: 767px) {
 
   body {
