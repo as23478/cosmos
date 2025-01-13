@@ -790,47 +790,6 @@
 		
 		}
 	});
-
-
-
-
-	// 이게 대분류만 뜨는거 (보류)
-	// $(document).ready(function () {
-	// 	$('.includeJs').each(function () {
-	// 		const $this = $(this);
-	// 		const filePath = $this.data('include-file');
-		
-	// 		if (filePath) {
-	// 			$.get(filePath)
-	// 			.done(function (data) {
-	// 				$this.html(data); // Include 완료
-	// 				console.log(`File loaded: ${filePath}`);
-		
-	// 				// Include 완료 후 현재 페이지 표시
-	// 				const currentPath = window.location.pathname;
-		
-	// 				const tabs = [
-	// 					{ path: "/index.html", selector: ".home-link" },
-	// 					{ path: "/pages/travel/", selector: ".travel-link" },
-	// 					{ path: "/pages/info/", selector: ".info-link" },
-	// 					{ path: "/pages/store/", selector: ".store-link" },
-	// 					{ path: "/pages/support/", selector: ".support-link" }
-	// 				];
-		
-	// 				tabs.forEach(tab => {
-	// 				const link = document.querySelector(tab.selector);
-	// 				if (link && currentPath.includes(tab.path)) {
-	// 					link.classList.add("active");
-	// 					console.log(`Active class added to: ${tab.selector}`);
-	// 				}
-	// 				});
-	// 			})
-	// 			.fail(function (xhr, status, error) {
-	// 				console.error(`Error loading file: ${filePath} - ${error}`);
-	// 			});
-	// 		}
-	// 	});
-	// });
 	  
 	  
   
