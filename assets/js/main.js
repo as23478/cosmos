@@ -860,6 +860,22 @@
 		chatBotButton.removeChild(chatBotTooltip);
 	  }
 	});
+
+
+
+
+	$(".price_slider").slider({
+        range: true,
+        min: 10,
+        max: 100,
+        values: [10, 75],
+        slide: function (event, ui) {
+          $(".from").text("$" + ui.values[0]);
+          $(".to").text("$" + ui.values[1]);
+        }
+      });
+      $(".from").text("$" + $(".price_slider").slider("values", 0));
+      $(".to").text("$" + $(".price_slider").slider("values", 1));
 	
 
 
