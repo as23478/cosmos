@@ -883,3 +883,27 @@
 	
 
 }(jQuery));
+
+
+ // Quantity Plus Minus ---------------------------
+$(".quantity-plus").each(function () {
+	$(this).on("click", function (e) {
+		e.preventDefault();
+		var $qty = $(this).siblings(".qty-input");
+		var currentVal = parseInt($qty.val(), 10);
+		if (!isNaN(currentVal)) {
+			$qty.val(currentVal + 1);
+		}
+	});
+});
+
+$(".quantity-minus").each(function () {
+	$(this).on("click", function (e) {
+		e.preventDefault();
+		var $qty = $(this).siblings(".qty-input");
+		var currentVal = parseInt($qty.val(), 10);
+		if (!isNaN(currentVal) && currentVal > 1) {
+			$qty.val(currentVal - 1);
+		}
+	});
+});

@@ -27,56 +27,158 @@
         <header data-include-file="/assets/inc/header.html" class="includeJs"></header>
 
 
-        <!-- Start Sidebar Section -->
-        <div class="wtcode">
-            <aside class="sidebar-area sidebar-shop">
-                <div class="widget widget_search">
-                    <form class="search-form">
-                        <input type="text" placeholder="Enter Keyword">
-                        <button type="submit"><i class="bx bx-search"></i></button>
-                    </form>
-                </div>
-                <div class="widget widget_categories">
-                    <h3 class="widget_title">Categories</h3>
-                    <ul>
-                        <li><a href="#">Category 1</a></li>
-                        <li><a href="#">Category 2</a></li>
-                        <li><a href="#">Category 3</a></li>
-                        <li><a href="#">Category 4</a></li>
-                        <li><a href="#">Category 5</a></li>
-                        <li><a href="#">Category 6</a></li>
-                    </ul>
-                </div>
-                <div class="widget widget_price_filter">
-                    <h4 class="widget_title">Filter By Price</h4>
-                    <div class="price_slider_wrapper">
-                        <div class="price_label">
-                            Price: <span class="from">$0</span> — <span class="to">$70</span>
+        <!-- Start Section Banner Section -->
+        <div class="section-banner sbg-3 ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="banner-content">
+                            <h2>스토어</h2>
+                            <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/index.html">홈</a></li>
+                                    <li class="breadcrumb-item active">스토어</li>
+                                </ol>
+                            </nav>
                         </div>
-                        <div class="price_slider"></div>
-                        <button type="submit" class="default-btn style-grid">Filter</button>
                     </div>
                 </div>
-                <div class="widget widget_tag_cloud">
-                    <h3 class="widget_title">Tags</h3>
-                    <div class="tagcloud">
-                        <a href="#">Tag 1</a>
-                        <a href="#">Tag 2</a>
-                        <a href="#">Tag 3</a>
-                        <a href="#">Tag 4</a>
-                        <a href="#">Tag 5</a>
-                        <a href="#">Tag 6</a>
-                    </div>
-                </div>
-            </aside>
+            </div>
         </div>
-        <!-- End Sidebar Section -->
+        <!-- End Section Banner Section -->
+
+
+        <!-- Start Store Section -->
+        <div class="ptb-100">
+            <div class="container">
+                <div class="wtcode row flex-row-reverse">
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="grid-sorting row align-items-center">
+                            <div class="col-lg-6 col-md-6 result-count">
+                                <p>총 <span class="count">16</span> 개 중 1-9개 표시</p>
+                            </div>
+        
+                            <div class="col-lg-6 col-md-6 ordering">
+                                <div class="select-box">
+                                    <select>
+                                        <option>기본 정렬</option>
+                                        <option>인기순</option>
+                                        <option>최신순</option>
+                                        <option>가격: 낮은 순</option>
+                                        <option>가격: 높은 순</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-products-box">
+                                    <div class="products-image">
+                                        <a href="single-products.html" class="main-image">
+                                            <img src="/assets/img/store/store1_product_1_detail.png" class="main-image" alt="image">
+                                        </a>
+                                        <a href="cart.html" class="default-btn"><i class='bx bxs-cart-add'></i> <span>Add To Cart</span></a>
+                                    </div>
+            
+                                    <div class="products-content">
+                                        <h3><a href="single-products.html">Blue Glass Power</a></h3>
+                                        <div class="price">
+                                            <span class="old-price">$321</span>
+                                            <span class="new-price">$250</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="th-product product-grid">
+                                    <div class="product-img">
+                                        <img src="/assets/img/store/store1_product_1_detail.png" alt="Product Image">
+                                        <div class="actions">
+                                            <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
+                                            <a href="cart.html" class="icon-btn"><i class="bx bx-cart-add"></i></a>
+                                            <a href="wishlist.html" class="icon-btn"><i class="bx bx-heart"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="rating">
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star-half'></i>
+                                            <!-- <span>4.5</span> -->
+                                        </div>
+                                        <!-- <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                            <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
+                                        </div> -->
+                                        <h3 class="product-title"><a href="shop-details.html">Gaming Computer</a></h3>
+                                        <span class="price">$370.85</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 사이드바-->
+                    <div class="col-xl-3 col-lg-4">
+                        <aside class="sidebar-area sidebar-shop">
+                            <div class="widget widget_search">
+                                <form class="search-form">
+                                    <input type="text" placeholder="검색어 입력">
+                                    <button type="submit"><i class="bx bx-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="widget widget_categories">
+                                <h3 class="widget_title">카테고리</h3>
+                                <ul>
+                                    <li><a href="#">Category 1</a></li>
+                                    <li><a href="#">Category 2</a></li>
+                                    <li><a href="#">Category 3</a></li>
+                                    <li><a href="#">Category 4</a></li>
+                                </ul>
+                            </div>
+                            <!-- filter -->
+                            <div class="widget widget_price_filter  ">
+                                <h4 class="widget_title">금액</h4>
+                                <div class="price_slider_wrapper">
+                                    <div class="price_label">
+                                        Price: <span class="from">$0</span> — <span class="to">$70</span>
+                                    </div>
+                                    <div class="price_slider"></div>
+                                    <button type="submit" class="default-btn style-grid">적용</button>
+                                </div>
+                            </div>
+                            <!-- //filter -->
+                            <div class="widget widget_tag_cloud">
+                                <h3 class="widget_title">Tags</h3>
+                                <div class="tagcloud">
+                                    <a href="#">Tag 1</a>
+                                    <a href="#">Tag 2</a>
+                                    <a href="#">Tag 3</a>
+                                    <a href="#">Tag 4</a>
+                                    <a href="#">Tag 5</a>
+                                    <a href="#">Tag 6</a>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Store Section -->
         
 
         <footer data-include-file="/assets/inc/footer.html" class="includeJs"></footer>
 
         <div class="chat-bot active"><i class="bx bx-bot"></i></div>
         <div class="go-top active"><i class="bx bx-up-arrow-alt"></i></div>
+
+
+        <!-- Slider SVG -->
+        <!-- <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg> -->
 
         <!-- Links of JS files -->
         <script src="/assets/js/jquery.min.js"></script>
@@ -86,6 +188,15 @@
         <script src="/assets/js/magnific-popup.min.js"></script>
         <script src="/assets/js/jquery.mixitup.min.js"></script>
         <script src="/assets/js/owl.carousel.min.js"></script>
+        <!-- Counter Up -->
+        <script src="/assets/js/jquery.counterup.min.js"></script>
+        <!-- Range Slider -->
+        <script src="/assets/js/jquery-ui.min.js"></script>
+        
+        <!-- ScrollTrigger -->
+        <script src="/assets/js/ScrollTrigger.min.js"></script>
+        <script src="/assets/js/smooth-scroll.js"></script>
+
         <script src="/assets/js/main.js"></script>
     </body>
 </html>
