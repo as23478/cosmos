@@ -5299,7 +5299,8 @@ Contact Area CSS
 Footer Area CSS
 =================================================*/
 .footer-area{
-  background-color: var(--DarkBg);
+  /* background-color: var(--DarkBg); */
+  background-color: #1E1E1E;
 }
 
 .ft-shape{
@@ -5492,7 +5493,7 @@ Footer Area CSS
   position: absolute;
   width: 100px;
   height: 2px;
-  background: radial-gradient(circle, #43A5FE 0%, transparent 70%);
+  background: radial-gradient(circle, #7D23F4 0%, transparent 70%);
   animation: leftToRight 30s linear infinite alternate;
   z-index: 1;
   pointer-events: none;
@@ -5538,10 +5539,18 @@ Footer Area CSS
 }
 
 .footer-widget-info .footer-widget h4 {
-  font-size: 22px;
+  font-size: 26px;
   color: var(--whiteColor);
   margin-bottom: 30px;
+  max-width: 270px;
+  font-weight: 600;
+  padding: 10px;
 }
+
+/* .footer-widget-info .footer-widget h2 {
+  font-size: 38px;
+  color: var(--whiteColor);
+} */
 
 .footer-widget-info .footer-widget ul {
   padding: 0;
@@ -5565,6 +5574,22 @@ Footer Area CSS
 
 .footer-widget-info .footer-widget ul li a:hover{
   color: var(--mainColor2);
+}
+
+.footer-widget-info .footer-widget ul li a::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(https://cdn.jsdelivr.net/npm/boxicons/svg/regular/bx-chevron-right.svg);
+  background-size: contain;
+  filter: invert(1); /* svg 색상 반전 */
+  vertical-align: middle;
+  margin-right: 15px;
+  fill: currentColor;
+}
+.footer-widget-info .footer-widget ul li a::before:hover {
+  fill: var(--mainColor2);
 }
 
 .footer-widget-info .footer-widget ul li a i {
@@ -7526,4 +7551,11 @@ Go Top CSS
 }
 .only-mo {
   display: none;
+}
+
+
+.form-select,
+select {
+-webkit-appearance: none;
+-moz-appearance: none;
 }
