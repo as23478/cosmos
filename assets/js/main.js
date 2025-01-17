@@ -438,6 +438,78 @@
 
 
 
+/* 스토어 - 필터링(카테고리) */
+	// $(document).ready(function () {
+	// 	$('.filter').on('click', function (e) {
+	// 		e.preventDefault(); // 기본 링크 동작 방지
+	// 		const filter = $(this).data('filter');
+	
+	// 		$('.item').hide(); // 모든 항목 숨기기
+	// 		if (filter === 'all') {
+	// 			$('.item').show(); // '전체' 클릭 시 모든 항목 표시
+	// 		} else {
+	// 			$('.' + filter).show(); // 선택된 카테고리 항목만 표시
+	// 		}
+	// 	});
+	// });
+
+	// $(function () {
+	// 	var filterList = {
+	// 		init: function () {
+	// 			$('.item-grid').mixItUp({
+	// 				selectors: {
+	// 					target: '.item',
+	// 					filter: '.filter'
+	// 				},
+	// 				load: {
+	// 					filter: 'all',          // 초기 필터링 설정
+	// 					sort: 'default:asc'     // 초기 정렬 상태 유지
+	// 				},
+	// 				animation: {
+	// 					duration: 300          // 애니메이션 속도 (ms)
+	// 				}
+	// 			});
+	// 		}
+	// 	};
+	// 	filterList.init();
+	// });
+
+	$(document).ready(function () {
+		$('.filter-container').mixItUp({
+			selectors: {
+				target: '.item' // 필터링 대상
+			},
+			load: {
+				filter: 'all' // 초기 로드 시 모든 항목 표시
+			},
+			animation: {
+				duration: 300 // 애니메이션 효과
+			}
+		});
+	});
+	
+	
+	// $(function () {
+	// 	var filterList = {
+	// 		init: function () {
+	// 			$('.item-grid').mixItUp({
+	// 				selectors: {
+	// 				target: '.item',
+	// 				filter: '.filter'	
+	// 			},
+	// 			load: {
+	// 			  filter: 'all'
+	// 			}     
+	// 			});								
+	// 		}
+	// 	};
+	// 	filterList.init();
+	// });	
+	
+
+
+
+
 
 
 

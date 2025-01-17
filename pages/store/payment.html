@@ -4,7 +4,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Cosmos - Payment</title>
+        <title>Cosmos - Cart</title>
 
         <!-- CSS Linked -->
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -32,13 +32,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-content">
-                            <h2>결제하기</h2>
+                            <h2>장바구니</h2>
                             <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/index.html">홈</a></li>
                                     <li class="breadcrumb-item"><a href="/store.html">마이페이지</a></li>
                                     <!-- <li class="breadcrumb-item"><a href="/index.html">Figure & Model</a></li> -->
-                                    <li class="breadcrumb-item active" aria-current="page">결제하기</li>
+                                    <li class="breadcrumb-item active" aria-current="page">장바구니</li>
                                 </ol>
                             </nav>
                         </div>
@@ -48,189 +48,149 @@
         </div>
         <!-- End Section Banner Section -->
     
-    <!--============================== Cart Area ==============================-->
-    <div class="th-cart-wrapper  space-top space-extra-bottom mt-5">
-        <div class="container">
-            <div class="woocommerce-notices-wrapper">
-                <div class="woocommerce-message">Shipping costs updated.</div>
-            </div>
-            <form action="#" class="woocommerce-cart-form">
-                <table class="cart_table">
-                    <thead>
-                        <tr>
-                            <th class="cart-col-image">Image</th>
-                            <th class="cart-col-productname">Product Name</th>
-                            <th class="cart-col-price">Price</th>
-                            <th class="cart-col-quantity">Quantity</th>
-                            <th class="cart-col-total">Total</th>
-                            <th class="cart-col-remove">Remove</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="cart_item">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="/assets/img/store/store1_product_1.png" alt="Image"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-details.html">SpaceX IVA Suit Figure</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>$</span>300</bdi>USD</span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button class="quantity-minus qty-btn"><i class='bx bx-minus'></i></button>
-                                    <input type="number" class="qty-input" value="1" min="1" max="99">
-                                    <button class="quantity-plus qty-btn"><i class='bx bx-plus' ></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount"><bdi><span>$</span>300</bdi>USD</span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class='bx bx-trash' ></i></a>
-                            </td>
-                        </tr>
-                        <tr class="cart_item">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="/assets/img/store/store1_product_2.png" alt="Image"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-details.html">SpaceX Dragon Scale Model</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>$</span>300</bdi>USD</span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button class="quantity-minus qty-btn"><i class='bx bx-minus'></i></button>
-                                    <input type="number" class="qty-input" value="1" min="1" max="99">
-                                    <button class="quantity-plus qty-btn"><i class='bx bx-plus' ></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount"><bdi><span>$</span>300</bdi>USD</span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class='bx bx-trash' ></i></a>
-                            </td>
-                        </tr>
-                        <tr class="cart_item">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="/assets/img/store/store1_product_3.png" alt="Image"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-details.html">SpaceX Dragon and Starman Plush</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>$</span>60</bdi>USD</span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button class="quantity-minus qty-btn"><i class='bx bx-minus'></i></button>
-                                    <input type="number" class="qty-input" value="1" min="1" max="99">
-                                    <button class="quantity-plus qty-btn"><i class='bx bx-plus'></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount"><bdi><span>$</span>60</bdi>USD</span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class='bx bx-trash' ></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="6" class="actions">
-                                <div class="th-cart-coupon">
-                                    <input type="text" class="form-control" placeholder="Coupon Code...">
-                                    <button type="submit" class="default-btn">Apply Coupon</button>
-                                </div>
-                                <!-- <button type="submit" class="default-btn">Update cart</button> -->
-                                <a href="shop.html" class="default-btn">쇼핑 계속하기</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-            <div class="row justify-content-end">
-                <div class="col-md-8 col-lg-7 col-xl-6 mb-5">
-                    <h2 class="h4 summary-title">Cart Totals</h2>
-                    <table class="cart_totals mb-3">
-                        <tbody>
-                            <tr>
-                                <td>Cart Subtotal</td>
-                                <td data-title="Cart Subtotal">
-                                    <span class="amount"><bdi><span>$</span>47</bdi></span>
-                                </td>
-                            </tr>
-                            <tr class="shipping">
-                                <th>Shipping and Handling</th>
-                                <td data-title="Shipping and Handling">
-                                    <ul class="woocommerce-shipping-methods list-unstyled">
-                                        <li>
-                                            <input type="radio" id="free_shipping" name="shipping_method" class="shipping_method">
-                                            <label for="free_shipping">Free shipping</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="flat_rate" name="shipping_method" class="shipping_method" checked="checked">
-                                            <label for="flat_rate">Flat rate</label>
-                                        </li>
-                                    </ul>
-                                    <p class="woocommerce-shipping-destination">
-                                        Shipping options will be updated during checkout.
-                                    </p>
-                                    <form action="#" method="post">
-                                        <a href="#" class="shipping-calculator-button">Change address</a>
-                                        <div class="shipping-calculator-form">
-                                            <p class="form-row">
-                                                <select class="form-select">
-                                                    <option value="AR">Argentina</option>
-                                                    <option value="AM">Armenia</option>
-                                                    <option value="BD" selected="selected">Bangladesh</option>
-                                                </select>
-                                            </p>
-                                            <p>
-                                                <select class="form-select">
-                                                    <option value="">Select an option…</option>
-                                                    <option value="BD-05">Bagerhat</option>
-                                                    <option value="BD-01">Bandarban</option>
-                                                    <option value="BD-02">Barguna</option>
-                                                    <option value="BD-06">Barishal</option>
-                                                </select>
-                                            </p>
-                                            <p class="form-row">
-                                                <input type="text" class="form-control" placeholder="Town / City">
-                                            </p>
-                                            <p class="form-row">
-                                                <input type="text" class="form-control" placeholder="Postcode / ZIP">
-                                            </p>
-                                            <p>
-                                                <button class="default-btn">Update</button>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr class="order-total">
-                                <td>Order Total</td>
-                                <td data-title="Total">
-                                    <strong><span class="amount"><bdi><span>$</span>47</bdi></span></strong>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <div class="wc-proceed-to-checkout mb-30">
-                        <a href="checkout.html" class="default-btn">Proceed to checkout</a>
-                    </div>
+        <!-- Start Checkout Area -->
+		<section class="checkout-area ptb-100">
+            <div class="container">
+                <div class="user-actions">
+                    <i class='bx bx-log-in'></i>
+                    <span>Returning customer? <a href="login.html">Click here to login</a></span>
                 </div>
+
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="billing-details">
+                                <h3 class="title">배송정보</h3>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="create-an-account">
+                                        <label class="form-check-label" for="create-an-account">회원정보와 동일</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>이름 <span class="required">*</span></label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>성 <span class="required">*</span></label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label>주소</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>상세주소 <span class="required">*</span></label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>연락처 <span class="required">*</span></label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <textarea name="notes" id="notes" cols="30" rows="5" placeholder="배송 메시지" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-12">
+                            <div class="order-details">
+                                <h3 class="title">주문내역</h3>
+
+                                <div class="order-table table-responsive">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td class="product-name"><a href="single-products.html">SpaceX IVA Suit Figure</a></td>
+                                                <td class="product-total">
+                                                    <span class="subtotal-amount">$300 USD</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="product-name"><a href="single-products.html">SpaceX Dragon Scale Model</a></td>
+                                                <td class="product-total">
+                                                    <span class="subtotal-amount">$300 USD</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="product-name"><a href="single-products.html">SpaceX Dragon and Starman Plush</a></td>
+                                                <td class="product-total">
+                                                    <span class="subtotal-amount">$60 USD</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="order-subtotal"><span>소계</span></td>
+                                                <td class="order-subtotal-price">
+                                                    <span class="order-subtotal-amount">$660 USD</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="order-shipping"><span>배송비</span></td>
+                                                <td class="shipping-price">
+                                                    <span>$5 USD</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="total-price"><span>총계</span></td>
+                                                <td class="product-subtotal">
+                                                    <span class="subtotal-amount">$665 USD</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="payment-box">
+                                    <div class="payment-method">
+                                        <p>
+                                            <input type="radio" id="direct-bank-transfer" name="radio-group" checked>
+                                            <label for="direct-bank-transfer">계좌이체</label>
+                                            
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="paypal" name="radio-group">
+                                            <label for="paypal">수표결제</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="cash-on-delivery" name="radio-group">
+                                            <label for="cash-on-delivery">신용카드</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="cash-on-delivery" name="radio-group">
+                                            <label for="cash-on-delivery">Paypal</label>
+                                        </p>
+                                    </div>
+                                    <button type="submit" class="default-btn"><i class='bx bx-paper-plane'></i> <span>결제하기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
-    </div>
-
-    <!--============================== //Cart Area ==============================-->
-
+        </section>
+		<!-- End Checkout Area -->
 
 
         <!-- Start Instagram Section -->
