@@ -7592,6 +7592,26 @@ Go Top CSS
 
 
 
+/* 마이페이지 */
+.wtcode .sidebar-area .widget_custom {
+  padding: 20px;
+}
+
+.wtcode .sidebar-area .widget_custom h3 {
+  display: inline;
+  font-size: 22px;
+}
+
+.wtcode .sidebar-area .widget_custom i {
+  margin-right: 20px;
+}
+
+.wtcode .account-tab input {
+  background-color: var(--inputField) !important;
+}
+
+
+
 
 
 /* 임시 */
