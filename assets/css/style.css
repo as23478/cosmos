@@ -45,6 +45,7 @@ Default CSS
   --LightBg: #fcfaf8;
   --DarkBg: #121212;
   --textColor: #ffffff;
+  --subtextColor: #7A7A7A;
   --inputField: #333333;
   --sidebarBg: #1E1E1E;
   --sidebarTag: #2A2A2A;
@@ -365,7 +366,7 @@ p:last-child {
 /*form-control*/
 .form-control {
   border-radius: 0;
-  background-color: #f5f5f5 !important;
+  background-color: #f5f5f5;
   -webkit-box-shadow: unset !important;
           box-shadow: unset !important;
   -webkit-transition: var(--transition);
@@ -3546,10 +3547,10 @@ Section Banner Area CSS
   background-image: url(../img/banner/section-bg-2.png);
 }
 .sbg-3{
-  background-image: url(../img/banner/section-bg-3.png);
+  background-image: url(../img/banner/info2_bg.png);
 }
 .sbg-4{
-  background-image: url(../img/banner/section-bg-4.png);
+  background-image: url(../img/banner/info1_bg.png);
 }
 .sbg-5{
   background-image: url(../img/banner/section-bg-5.png);
@@ -7031,7 +7032,7 @@ Go Top CSS
 
 
 /* Small devices */
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .cart_table {
     text-align: left;
     min-width: auto;
@@ -7097,6 +7098,27 @@ Go Top CSS
   .cart_totals td:first-child {
     width: 17%;
     line-height: 1.4;
+  }
+
+  .mypage .product-info {
+    display: inline-flex;
+    flex-direction: row-reverse;
+  }
+  .mypage .product-info .productimage {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+  .mypage .product-info .reservation-number {
+    display: none;
+  }
+  .mypage .orders-tab .product-info a {
+    align-self: center;
+  }
+  .mypage .only-mo-reserv {
+    display: block !important;
+  }
+  .mypage .only-pc-date {
+    display: none !important;
   }
 }
 
@@ -7593,6 +7615,26 @@ Go Top CSS
 
 
 /* 마이페이지 */
+.mypage .sub-title-4 {
+  margin-bottom: 25px;
+}
+.mypage .sub-title-4 p {
+  color: var(--textColor);
+  font-size: 1.5rem;
+  position: relative;
+  padding-left: 18px;
+  font-weight: 500;
+}
+.sub-title-4 p::before {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  content: '';
+  height: 26px;
+  width: 2px;
+  background-color: var(--whiteColor);
+}
+
 .wtcode .sidebar-area .widget_custom {
   padding: 20px;
 }
@@ -7607,8 +7649,58 @@ Go Top CSS
 }
 
 .wtcode .account-tab input {
-  background-color: var(--inputField) !important;
+  background-color: var(--inputField);
+  color: var(--textColor);
 }
+
+.wtcode .account-tab label {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* 마이페이지 - 여행 예약 내역 */
+.mypage .product-info {
+  /* display: flex; */
+}
+
+.mypage .productimage {
+  margin-right: 10px;
+}
+
+.mypage .product-details {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+}
+
+.mypage .only-mo-reserv {
+  display: none;
+}
+
+.mypage .product-details .reservation-number {
+  color: var(--subtextColor);
+}
+
+/* 마이페이지 - 주문 내역 */
+.mypage .orders-tab .cart_item p {
+  margin-bottom: 0;
+}
+
+.mypage .orders-tab .cart_item .btn {
+  background-color: #595959;
+  color: var(--whiteColor);
+}
+
+/* .mypage .orders-tab .product-info {
+  justify-content: center;
+} */
+
+.mypage .orders-tab .only-pc-date {
+  display: block;
+}
+
+/* 마이페이지 - 위시리스트 */
 
 
 

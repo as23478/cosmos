@@ -4,7 +4,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Cosmos - Store</title>
+        <title>Cosmos - Mypage</title>
 
         <!-- CSS Linked -->
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -48,23 +48,25 @@
         <!-- End Section Banner Section -->
 
 
-        <!-- Start Store Section -->
+        <!-- Start Mypage Section -->
         <div class="ptb-100">
             <div class="container">
                 <div class="wtcode row flex-row-reverse">
-                    <div class="col-xl-9 col-lg-8">
+                    <div class="mypage col-xl-9 col-lg-8">
                         <!-- 탭: 계정 관리 -->
-                        <div class="row account">
+                        <div class="mypage-tabs row account-tab g-4">
+                            <div class="sub-title-4" data-aos="fade-down" data-aos-offset="100"><p>계정 관리</p></div>
+
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <label>이메일</label>
+                                    <label>이메일 <span class="required">*</span></label>
                                     <input type="text" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <label>비밀번호</label>
+                                    <label>비밀번호 <span class="required">*</span></label>
                                     <input type="text" class="form-control">
                                 </div>
                             </div>
@@ -90,6 +92,139 @@
                                 </div>
                             </div>
 
+                        </div>
+
+                        <!-- 탭: 여행 예약 내역 -->
+                        <div class="mypage-tabs booking-tab">
+                            <div class="sub-title-4" data-aos="fade-down" data-aos-offset="100"><p>여행 예약 내역</p></div>
+
+                            <form action="#" class="woocommerce-cart-form">
+                                <table class="cart_table">
+                                    <thead>
+                                        <tr>
+                                            <th class="cart-col-product">상품이름</th>
+                                            <th class="cart-col-schedule">일정</th>
+                                            <th class="cart-col-count">탑승인원</th>
+                                            <th class="cart-col-airline">항공사</th>
+                                            <!-- <th class="cart-col-price">가격</th> -->
+                                            <th class="cart-col-status">예약상태</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="cart_item">
+                                            <td data-title="예약번호" class="only-mo-reserv">
+                                                <a class="reservation-number" href="/pages/travel/travel_details_1.html">예약번호</a>
+                                            </td>
+                                            <td data-title="상품이름" class="product-info">
+                                                <a class="productimage" href="/pages/travel/travel_details_1.html"><img width="91" height="91" src="/assets/img/travel/travel_1.png" alt="Image"></a>
+                                                <div class="product-details">
+                                                    <a class="productname" href="/pages/travel/travel_details_1.html">스페이스벌룬</a>
+                                                    <a class="reservation-number" href="/pages/travel/travel_details_1.html">예약번호</a>
+                                                </div>
+                                            </td>
+                                            <td data-title="일정">2025.10.19-</td>
+                                            <td data-title="탑승인원">1</td>
+                                            <td data-title="항공사">Space Perspective</td>
+                                            <!-- <td data-title="가격"><span class="amount"><bdi><span>$</span>300</bdi>USD</span></td> -->
+                                            <td data-title="예약상태">예약완료</td>
+                                        </tr>
+                                        
+                                        <!-- <tr>
+                                            <td colspan="6" class="actions">
+                                                <a href="/store.html" class="default-btn">쇼핑 계속하기</a>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        
+                        <!-- 탭: 주문 내역 -->
+                        <div class="mypage-tabs orders-tab">
+                            <div class="sub-title-4" data-aos="fade-down" data-aos-offset="100"><p>주문 내역</p></div>
+
+                            <form action="#" class="woocommerce-cart-form">
+                                <table class="cart_table">
+                                    <thead>
+                                        <tr>
+                                            <th class="cart-col-date">주문일자(주문번호)</th>
+                                            <th class="cart-col-product">상품명</th>
+                                            <th class="cart-col-count">수량</th>
+                                            <th class="cart-col-price">금액</th>
+                                            <th class="cart-col-status">진행상태</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="cart_item">
+                                            <td data-title="예약번호">
+                                                <p class="only-pc-date">2024.12.26</p>
+                                                <p>예약번호</p>
+                                            </td>
+                                            <td data-title="상품이름" class="product-info">
+                                                <a class="productimage" href="store/store_details_1.html"><img width="91" height="91" src="/assets/img/store/store1_product_1.png" alt="Image"></a>
+                                                <a class="productname" href="store/store_details_1.html">SpaceX IVA Suit Figure</a>
+                                            </td>
+                                            <td data-title="수량">1</td>
+                                            <td data-title="금액"><span class="amount"><bdi><span>$</span>300</bdi>USD</span></td>
+                                            <td data-title="진행상태">
+                                                <p>결제확인중</p>
+                                                <a href="#" class="btn">주문취소</a>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- <tr>
+                                            <td colspan="6" class="actions">
+                                                <a href="/store.html" class="default-btn">쇼핑 계속하기</a>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+
+                        <!-- 탭: 위시리스트(보류) -->
+                        <div class="mypage-tabs whishlist-tab">
+                            <div class="sub-title-4" data-aos="fade-down" data-aos-offset="100"><p>위시리스트</p></div>
+
+                            <form action="#" class="woocommerce-cart-form">
+                                <table class="cart_table">
+                                    <thead>
+                                        <tr>
+                                            <th class="cart-col-check"></th>
+                                            <th class="cart-col-remove"></th>
+                                            <th class="cart-col-product">상품명</th>
+                                            <th class="cart-col-price">금액</th>
+                                            <th class="cart-col-count">날짜</th>
+                                            <th class="cart-col-status">재고</th>
+                                            <th class="cart-col-add"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="cart_item">
+                                            <td data-title="예약번호">
+                                                <p class="only-pc-date">2024.12.26</p>
+                                                <p>예약번호</p>
+                                            </td>
+                                            <td data-title="상품이름" class="product-info">
+                                                <a class="productimage" href="store/store_details_1.html"><img width="91" height="91" src="/assets/img/store/store1_product_1.png" alt="Image"></a>
+                                                <a class="productname" href="store/store_details_1.html">SpaceX IVA Suit Figure</a>
+                                            </td>
+                                            <td data-title="수량">1</td>
+                                            <td data-title="금액"><span class="amount"><bdi><span>$</span>300</bdi>USD</span></td>
+                                            <td data-title="진행상태">
+                                                <p>결제확인중</p>
+                                                <a href="#" class="btn">주문취소</a>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- <tr>
+                                            <td colspan="6" class="actions">
+                                                <a href="/store.html" class="default-btn">쇼핑 계속하기</a>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </form>
                         </div>
 
                     </div>
@@ -120,7 +255,7 @@
                 </div>
             </div>
         </div>
-        <!-- End Store Section -->
+        <!-- End Mypage Section -->
         
 
         <!-- <footer data-include-file="/assets/inc/footer.html" class="includeJs"></footer> -->
