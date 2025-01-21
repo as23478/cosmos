@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Cosmos - Booking</title>
+
+        <!-- CSS Linked -->
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/aos.css">
+        <link rel="stylesheet" href="/assets/css/boxicons.min.css">
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/magnific-popup.min.css">
+        <link rel="stylesheet" href="/assets/css/nice-select.min.css">
+        <link rel="stylesheet" href="/assets/css/flaticon.css">
+        <link rel="stylesheet" href="/assets/css/header.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/responsive.css">
+
+        <!-- favicon Linked -->
+        <link rel="icon" type="image/png" href="/assets/img/all-img/favicon.png">
+
+    </head>
+    <body class="dark-theme">
+
+        <header data-include-file="/assets/inc/header.html" class="includeJs"></header>
+
+        <!-- Start Section Banner Section -->
+        <div class="section-banner sbg-6 ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="banner-content">
+                            <h2>여행예약</h2>
+                            <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/index.html">홈</a></li>
+                                    <li class="breadcrumb-item"><a href="travel.html">우주여행</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">여행예약</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Section Banner Section -->
+    
+        <!-- Start Checkout Area -->
+		<section class="checkout-area ptb-100">
+            <div class="container">
+                <div class="user-actions">
+                    <i class='bx bx-log-in'></i>
+                    <span>Returning customer? <a href="../login.html">Click here to login</a></span>
+                </div>
+
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="billing-details">
+                                <h3 class="title">배송정보</h3>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="create-an-account">
+                                        <label class="form-check-label" for="create-an-account">회원정보와 동일</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>이름 <span class="required">*</span></label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>성 <span class="required">*</span></label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label>주소 <span class="required">*</span></label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>상세주소</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>연락처 <span class="required">*</span></label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-12">
+                            <div class="order-details">
+                                <h3 class="title">주문내역</h3>
+
+                                <div class="order-table table-responsive">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td class="order-subtotal"><span>소계</span></td>
+                                                <td class="order-subtotal-price">
+                                                    <span class="order-subtotal-amount">$660 USD</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="order-shipping"><span>배송비</span></td>
+                                                <td class="shipping-price">
+                                                    <span>$5 USD</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="total-price"><span>총계</span></td>
+                                                <td class="product-subtotal">
+                                                    <span class="subtotal-amount">$665 USD</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="payment-box">
+                                    <div class="payment-method">
+                                        <p>
+                                            <input type="radio" id="direct-bank-transfer" name="radio-group" checked>
+                                            <label for="direct-bank-transfer">계좌이체</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="check-payment" name="radio-group">
+                                            <label for="check-payment">수표결제</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="credit-card" name="radio-group">
+                                            <label for="credit-card">신용카드</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="paypal" name="radio-group">
+                                            <label for="paypal">Paypal</label>
+                                        </p>
+                                    </div>
+                                    <button type="submit" class="default-btn"><i class='bx bx-paper-plane'></i> <span>결제하기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+		<!-- End Checkout Area -->
+
+
+        <!-- Start Instagram Section -->
+        <div class="instagram-section">
+            <div class="container-fluid">
+                <div class="row g-0">
+                    <div class="col-lg-2 col-sm-4 col-6">
+                        <div class="insta-image">
+                            <a href="https://www.instagram.com/">
+                                <img src="/assets/img/all-img/insta-1.png" alt="image">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 col-6">
+                        <div class="insta-image">
+                            <a href="/https://www.instagram.com/">
+                                <img src="/assets/img/all-img/insta-2.png" alt="image">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 col-6">
+                        <div class="insta-image">
+                            <a href="https://www.instagram.com/">
+                                <img src="/assets/img/all-img/insta-3.png" alt="image">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 col-6">
+                        <div class="insta-image">
+                            <a href="https://www.instagram.com/">
+                                <img src="/assets/img/all-img/insta-4.png" alt="image">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 col-6">
+                        <div class="insta-image">
+                            <a href="https://www.instagram.com/">
+                                <img src="/assets/img/all-img/insta-5.png" alt="image">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 col-6">
+                        <div class="insta-image">
+                            <a href="https://www.instagram.com/">
+                                <img src="/assets/img/all-img/insta-6.png" alt="image">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Instagram Section -->
+        
+
+        <footer data-include-file="/assets/inc/footer.html" class="includeJs"></footer>
+        <div class="chat-bot active"><i class="bx bx-bot"></i></div>
+        <div class="go-top active"><i class="bx bx-up-arrow-alt"></i></div>
+
+        <!-- Links of JS files -->
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/aos.js"></script>
+        <script src="/assets/js/nice-select.min.js"></script>
+        <script src="/assets/js/magnific-popup.min.js"></script>
+        <script src="/assets/js/jquery.mixitup.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body>
+</html>
