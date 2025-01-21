@@ -1,4 +1,4 @@
-/* Max width 767px */
+/* Max width 1100px */
 @media only screen and (max-width: 1100px) {
   .mb-30{
     margin-bottom: 30px;
@@ -31,6 +31,9 @@
   }
   .pb-70 {
     padding-bottom: 30px;
+  }
+  .mb-20 {
+    margin-bottom: 20px;
   }
   .default-btn {
     padding: 12px 20px;
@@ -600,6 +603,20 @@
   }
 
   /* service details page */
+  .services-details-overview {
+    flex-direction: column;
+  }
+  .services-details-overview.custom-reverse {
+    flex-direction: column-reverse;
+  }
+  .services-details-overview .services-details-desc {
+    max-width: 100%;
+  }
+  .services-details-overview .services-details-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
   .content-title h2 {
     font-size: 35px;
     margin-bottom: 20px;
@@ -2620,6 +2637,7 @@
     font-size: 22px;
     padding-left: 30px;
   }
+
   .testimonial-section{
     padding-bottom: 0px;
   }

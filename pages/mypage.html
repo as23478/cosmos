@@ -51,10 +51,35 @@
         <!-- Start Mypage Section -->
         <div class="ptb-100">
             <div class="container">
-                <div class="wtcode row flex-row-reverse">
+                <div class="wtcode row">
+                    <!-- 사이드바-->
+                    <div class="col-xl-3 col-lg-4">
+                        <aside class="sidebar-area sidebar-shop">
+                            <div class="widget widget_custom">
+                                <h3><i class="bx bx-user" id="mypage-icon"></i>마이페이지</h3>
+                                <!-- <form class="search-form">
+                                    <input type="text" placeholder="검색어 입력">
+                                    <button type="submit"><i class="bx bx-search"></i></button>
+                                </form> -->
+                            </div>
+                            <div class="widget widget_categories mypage-categories">
+                                <h3 class="widget_title" id="mypage-title">마이페이지</h3>
+                                <ul>
+                                    <li><a href="#" class="tab-btn" data-tab="account-tab">계정 관리</a></li>
+                                    <li><a href="#" class="tab-btn" data-tab="booking-tab">여행 예약 내역</a></li>
+                                    <li><a href="#" class="tab-btn" data-tab="orders-tab">주문 내역</a></li>
+                                    <li><a href="#" class="tab-btn" data-tab="whishlist-tab">위시리스트</a></li>
+                                    <!-- <li><a href="#">내 리뷰</a></li>
+                                    <li><a href="#">내 문의 내역</a></li>
+                                    <li><a href="#">알림 관리</a></li> -->
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+
                     <div class="mypage col-xl-9 col-lg-8">
                         <!-- 탭: 계정 관리 -->
-                        <div class="mypage-tabs row account-tab g-4">
+                        <div id="account-tab" class="mypage-tabs row account-tab g-4">
                             <div class="sub-title-4" data-aos="fade-down" data-aos-offset="100"><p>계정 관리</p></div>
 
                             <div class="col-lg-12 col-md-12">
@@ -95,7 +120,7 @@
                         </div>
 
                         <!-- 탭: 여행 예약 내역 -->
-                        <div class="mypage-tabs booking-tab">
+                        <div id="booking-tab" class="mypage-tabs booking-tab">
                             <div class="sub-title-4" data-aos="fade-down" data-aos-offset="100"><p>여행 예약 내역</p></div>
 
                             <form action="#" class="woocommerce-cart-form">
@@ -140,7 +165,7 @@
                         </div>
                         
                         <!-- 탭: 주문 내역 -->
-                        <div class="mypage-tabs orders-tab">
+                        <div id="orders-tab" class="mypage-tabs orders-tab">
                             <div class="sub-title-4" data-aos="fade-down" data-aos-offset="100"><p>주문 내역</p></div>
 
                             <form action="#" class="woocommerce-cart-form">
@@ -183,7 +208,7 @@
                         </div>
 
                         <!-- 탭: 위시리스트(보류) -->
-                        <div class="mypage-tabs whishlist-tab">
+                        <div id="whishlist-tab" class="mypage-tabs whishlist-tab">
                             <div class="sub-title-4" data-aos="fade-down" data-aos-offset="100"><p>위시리스트</p></div>
 
                             <form action="#" class="woocommerce-cart-form">
@@ -228,30 +253,7 @@
                         </div>
 
                     </div>
-                    <!-- 사이드바-->
-                    <div class="col-xl-3 col-lg-4">
-                        <aside class="sidebar-area sidebar-shop">
-                            <div class="widget widget_custom">
-                                <h3><i class="bx bx-user"></i>마이페이지</h3>
-                                <!-- <form class="search-form">
-                                    <input type="text" placeholder="검색어 입력">
-                                    <button type="submit"><i class="bx bx-search"></i></button>
-                                </form> -->
-                            </div>
-                            <div class="widget widget_categories">
-                                <!-- <h3 class="widget_title">카테고리</h3> -->
-                                <ul>
-                                    <li><a href="#">계정 관리</a></li>
-                                    <li><a href="#">여행 예약 내역</a></li>
-                                    <li><a href="#">주문 내역</a></li>
-                                    <!-- <li><a href="#">위시리스트</a></li>
-                                    <li><a href="#">내 리뷰</a></li>
-                                    <li><a href="#">내 문의 내역</a></li>
-                                    <li><a href="#">알림 관리</a></li> -->
-                                </ul>
-                            </div>
-                        </aside>
-                    </div>
+                    
                 </div>
             </div>
         </div>

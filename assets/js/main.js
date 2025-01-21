@@ -504,8 +504,8 @@
 	// 		}
 	// 	};
 	// 	filterList.init();
-	// });	
-	
+	// });
+
 
 
 
@@ -734,6 +734,73 @@
 
 
 
+
+
+/* 마이페이지 - 탭 전환 기능 */
+	document.querySelectorAll('.tab-btn').forEach(button => {
+		button.addEventListener('click', () => {
+			const tabName = button.getAttribute('data-tab');
+
+			// 모든 콘텐츠 숨기기
+			document.querySelectorAll('.mypage-tabs').forEach(content => {
+				content.classList.remove('active');
+			});
+
+			// 모든 버튼에서 active 제거
+			document.querySelectorAll('.tab-btn').forEach(btn => {
+				btn.classList.remove('active');
+			});
+
+			// 선택된 콘텐츠와 버튼 활성화
+			document.getElementById(tabName).classList.add('active');
+			button.classList.add('active');
+		});
+	});
+
+	// 초기화: PC에서만 첫 번째 탭 활성화
+	function initializeTabs() {
+		const isPC = window.innerWidth >= 992; // PC 기준 너비
+		const firstTab = document.querySelector('.tab-btn[data-tab="account-tab"]');
+		const allTabs = document.querySelectorAll('.mypage-tabs');
+		const allButtons = document.querySelectorAll('.tab-btn');
+		// const tabButtons = document.querySelectorAll('.mypage-categories');
+		// const iconElement = document.querySelector('.bx-user');
+		const pcMypageTitle = document.querySelector('.widget_custom');
+		const mobileMypageTitle = document.querySelector('#mypage-title');
+
+		if (isPC && firstTab) {
+			// PC: 첫 번째 탭 활성화
+			const firstTabName = firstTab.getAttribute('data-tab');
+			allTabs.forEach(content => content.classList.remove('active'));
+			document.getElementById(firstTabName).classList.add('active');
+			// tabButtons.forEach(content => content.classList.add('active'));
+
+			// 버튼 활성화
+			allButtons.forEach(btn => btn.classList.remove('active'));
+			firstTab.classList.add('active');
+
+			// 타이틀
+			pcMypageTitle.classList.add('active');
+			mobileMypageTitle.classList.remove('active');
+		} else {
+			// 모바일: 모든 탭과 버튼 숨김
+			allTabs.forEach(content => content.classList.remove('active'));
+			allButtons.forEach(btn => btn.classList.remove('active'));
+			
+			// 사이드바
+			// tabButtons.forEach(content => content.classList.remove('active'));
+
+			// 타이틀
+			pcMypageTitle.classList.remove('active');
+			mobileMypageTitle.classList.add('active');
+		}
+	}
+
+	// 초기화 실행
+	initializeTabs();
+
+	// 화면 크기 변경 시 다시 초기화
+	window.addEventListener('resize', initializeTabs);
 	
 
 }(jQuery));
