@@ -7,8 +7,8 @@
 
 .navbar-area {
   position: sticky;
-  background-color: var(--DarkBg);
-  border-bottom: 1px solid #1A243D;
+  background-color: var(--mainBg);
+  border-bottom: 1px solid var(--navLine);
   z-index: 1000;
 }
 .navbar-area.style-2{
@@ -24,8 +24,8 @@
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   backdrop-filter: blur(10px);
-  background-color: rgba(5, 5, 30, 0.43) !important;
-  border-bottom: 1px solid #1A243D;
+  background-color: var(--navBg) !important;
+  border-bottom: 1px solid var(--navLine);
 }
 .navbar-area.style-2.sticky {
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
@@ -431,7 +431,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: var(--DarkBg);
+  background-color: var(--mainBg);
 }
 .responsive-navbar .offcanvas-header {
   margin: 20px 22px 0;

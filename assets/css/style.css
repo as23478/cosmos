@@ -43,16 +43,28 @@ Default CSS
   --gridColor: linear-gradient(94deg, var(--mainColor2) 21.18%, #6941FF 104.4%);
   --whiteColor: #ffffff;
   --blackColor: #16171A;
-  --LightBg: #fcfaf8;
-  --DarkBg: #121212;
+  --mainBg: #fcfaf8;
+  --textColor: #111111;
+  --subtextColor: #888888;
+  --inputField: #EDEDED;
+  --sidebarBg: #FAFAFA;
+  --sidebarTag: #E0E0E0;
+  --navBg: #ffffff;
+  --navLine : #ffffff;
+  --borderColor: #B9B9BA;
+  --fontSize: 17px;
+  --transition: .5s;
+}
+body.dark-theme {
+  --mainBg: #121212;
   --textColor: #ffffff;
   --subtextColor: #7A7A7A;
   --inputField: #23242C;
   --sidebarBg: #1A1B22;
   --sidebarTag: #262732;
-  --borderColor: #333333; /* #1A243D */
-  --fontSize: 17px;
-  --transition: .5s;
+  --navBg: #05051E43;
+  --navLine: #1A243D;
+  --borderColor: #333333;
 }
 
 body {
@@ -68,7 +80,7 @@ body {
 }
 
 body.dark-theme{
-  background-color: var(--DarkBg);
+  background-color: var(--mainBg);
 }
 
 body.dark-theme-2{
@@ -2235,7 +2247,7 @@ Blog Area CSS
   outline: none;
   font-size: 16px;
   color: var(--whiteColor);
-  background: var(--DarkBg);
+  background: var(--mainBg);
 }
 
 .widget-search .search-button {
@@ -2536,7 +2548,7 @@ Blog Area CSS
 }
 
 .blog-card:hover .blog-img .blog-metainfo {
-  background-color: var(--DarkBg);
+  background-color: var(--mainBg);
 }
 
 /* Blog Standard */
@@ -3154,7 +3166,7 @@ Portfolio Details CSS
   width: 100%;
   top: 0;
   z-index: 1;
-  background: var(--DarkBg);
+  background: var(--mainBg);
   left: 0;
   opacity: .4;
 }
@@ -3178,7 +3190,7 @@ Portfolio Details CSS
 }
 
 .project-dec:hover .video-btn{
-  background-color: var(--DarkBg);
+  background-color: var(--mainBg);
   color: var(--whiteColor);
 }
 
@@ -3424,7 +3436,7 @@ Service Area CSS
 .work-section .work-box:hover .content3 {
   visibility: visible;
   left: 8%;
-  background-color: var(--DarkBg);
+  background-color: var(--mainBg);
   color: var(--mainColor2);
 }
 
@@ -3616,7 +3628,7 @@ Cart Area CSS
 =================================================*/
 .cart-table table {
   margin-bottom: 0;
-  --bs-table-bg: var(--DarkBg) ;
+  --bs-table-bg: var(--mainBg) ;
 }
 
 .cart-table .table>thead {
@@ -5308,8 +5320,14 @@ Contact Area CSS
 Footer Area CSS
 =================================================*/
 .footer-area{
-  /* background-color: var(--DarkBg); */
+  /* background-color: var(--mainBg); */
   background-color: #1E1E1E;
+}
+.footer-area p, .footer-area a {
+  color: var(--whiteColor);
+}
+.footer-area a:hover {
+  color: var(--mainColor2);
 }
 
 .ft-shape{
@@ -5935,7 +5953,7 @@ Login Page CSS
 }
 
 .login-section .accounts-from {
-  background-color: var(--DarkBg);
+  background-color: var(--mainBg);
   padding: 30px;
   text-align: center;
 }
