@@ -47,9 +47,9 @@ Default CSS
   --DarkBg: #121212;
   --textColor: #ffffff;
   --subtextColor: #7A7A7A;
-  --inputField: #333333;
-  --sidebarBg: #1E1E1E;
-  --sidebarTag: #2A2A2A;
+  --inputField: #23242C;
+  --sidebarBg: #1A1B22;
+  --sidebarTag: #262732;
   --borderColor: #333333; /* #1A243D */
   --fontSize: 17px;
   --transition: .5s;
@@ -367,7 +367,7 @@ p:last-child {
 /*form-control*/
 .form-control {
   border-radius: 0;
-  background-color: #f5f5f5;
+  background-color: var(--inputField);
   -webkit-box-shadow: unset !important;
           box-shadow: unset !important;
   -webkit-transition: var(--transition);
@@ -376,8 +376,12 @@ p:last-child {
   border-radius: 3px;
   height: 60px;
   padding-left: 15px;
-  color: var(--paragraphColor);
+  color: var(--textColor);
   font-size: 18px;
+}
+.form-control:focus {
+  background-color: var(--inputField);
+  color: var(--textColor);
 }
 
 .form-control::-webkit-input-placeholder {
@@ -1120,9 +1124,9 @@ Features Area 2 CSS
 .features-section-2 .feature-box{
   background: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(3.5px);
-  padding: 75px 30px 35px;
+  padding: 35px 30px;
   position: relative;
-  border: 1px solid #101c37;
+  /* border: 1px solid #101c37; */
   margin-bottom: 30px;
   transition: var(--transition);
   z-index: 0;
@@ -1143,7 +1147,7 @@ Features Area 2 CSS
   width: calc( 100% - 4px );
   top: 1px;
   left: 1px;
-  background: rgb(16 17 40);
+  background: var(--sidebarBg);
   transition: all 300ms ease;
 }
 
@@ -1159,7 +1163,7 @@ Features Area 2 CSS
   background-repeat: no-repeat;
   background-size: 50% 50%, 50% 50%;
   background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-  background-image: linear-gradient(90deg, rgba(110, 102, 255, 0)    0%, rgb(40, 176, 255) 50%, rgba(255,255,255,0) 100%);
+  background-image: linear-gradient(90deg, rgba(110, 102, 255, 0)    0%, var(--mainColor2) 50%, rgba(255,255,255,0) 100%);
   -webkit-animation: rotate 5s linear infinite;
   animation: rotate 5s linear infinite;
 }
@@ -3111,6 +3115,7 @@ Portfolio Details CSS
 .project-dec .project-image-waper {
   margin: 30px 0 30px 0;
 }
+
 .project-dec p{
   font-size: 17px;
   color: var(--paragraphColorSecond);
@@ -3751,8 +3756,6 @@ Cart Area CSS
 
 .cart-buttons .shopping-coupon-code .form-control {
   height: 60px;
-  color: var(--whiteColor);
-  background-color: #151526 !important;
 }
 
 .cart-buttons .shopping-coupon-code button {
@@ -3851,6 +3854,9 @@ Checkout Area CSS
   position: relative;
   margin-bottom: 60px;
 }
+.custom-booking-area .user-actions {
+  background: var(--sidebarBg);
+}
 
 .user-actions i {
   color: var(--mainColor2);
@@ -3910,10 +3916,9 @@ Checkout Area CSS
   color: red;
 }
 
-.billing-details .form-control {
-  background-color: #151526 !important;
+/* .billing-details .form-control {
   color: var(--whiteColor);
-}
+} */
 
 .billing-details .form-group .nice-select {
   display: block;
@@ -4065,7 +4070,7 @@ Checkout Area CSS
 
 .order-details .order-table table {
   margin-bottom: 0;
-  --bs-table-bg: #151526;
+  --bs-table-bg: var(--sidebarBg);
 }
 
 .order-details .order-table table thead tr th {
@@ -4117,7 +4122,7 @@ Checkout Area CSS
 }
 
 .order-details .payment-box {
-  background-color: #151526;
+  background-color: var(--sidebarBg);
   margin-top: 30px;
   padding: 30px;
   border-bottom: 1px solid var(--mainColor2);
@@ -4373,7 +4378,7 @@ Products Details Area CSS
   outline: 0;
   display: block;
   border: none;
-  background-color: #151526;
+  background-color: var(--sidebarBg);
   text-align: center;
   width: 100%;
   font-size: 17px;
@@ -4710,10 +4715,9 @@ Products Details Area CSS
   text-align: left;
 }
 
-.products-details-tabs .tab-content .tab-pane .review-form-wrapper form .form-control {
-  background-color: #151526 !important;
+/* .products-details-tabs .tab-content .tab-pane .review-form-wrapper form .form-control {
   color: var(--whiteColor);
-}
+} */
 
 .products-details-tabs .tab-content .tab-pane .review-form-wrapper form .rating {
   text-align: left;
@@ -4986,7 +4990,6 @@ Products Area CSS
   display: inline-block;
   width: 225px;
   float: unset;
-  /* background: #151526; */
   background: var(--sidebarTag);
   border-color: var(--borderColor);
   color: var(--whiteColor);
@@ -5000,7 +5003,6 @@ Products Area CSS
 }
 
 .grid-sorting .ordering .nice-select .list {
-  /* background-color: #151526; */
   background: var(--sidebarTag);
   border-radius: 5px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -5078,7 +5080,6 @@ Products Area CSS
 }
 
 .grid-sorting .ordering .nice-select:hover {
-  /* background-color: #151526; */
   background: var(--sidebarTag);
 }
 /*================================================
@@ -5196,7 +5197,7 @@ Contact Area CSS
   padding: 50px 40px;
   margin-right: 30px;
   transition: var(--transition);
-  background-color: #151526;
+  background-color: var(--sidebarBg);
   border: 1px solid var(--borderColor) !important;
 }
 
@@ -5209,7 +5210,7 @@ Contact Area CSS
   font-size: var(--fontSize);
   -webkit-box-shadow: unset !important;
   box-shadow: unset !important;
-  background-color: #151526 !important;
+  background-color: var(--sidebarBg) !important;
   margin-bottom: 30px;
   border-bottom: 1px solid var(--borderColor) !important;
 }
@@ -5959,7 +5960,7 @@ Login Page CSS
   padding: 0 30px;
   text-align: justify;
   line-height: 50px;
-  background-color: #151526;
+  background-color: var(--sidebarBg);
   margin-bottom: 20px;
   font-size: 16px;
   border-radius: 5px;
@@ -5989,8 +5990,6 @@ Login Page CSS
 }
 
 .login-section .accounts-from .login-from .form-control {
-  background-color: #151526 !important;
-  color: var(--whiteColor);
   height: 50px;
   margin-bottom: 25px;
   font-size: 14px;
@@ -7121,7 +7120,8 @@ Go Top CSS
   .mypage .product-info .reservation-number {
     display: none;
   }
-  .mypage .orders-tab .product-info a {
+  .mypage .orders-tab .product-info a,
+  .mypage .whishlist-tab .product-info a {
     align-self: center;
   }
   .mypage .only-mo-reserv {
@@ -7725,7 +7725,10 @@ Go Top CSS
 }
 
 /* 마이페이지 - 위시리스트 */
-
+.delete-icon i {
+  color: var(--textColor);
+  font-size: 26px;
+}
 
 
 

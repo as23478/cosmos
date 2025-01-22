@@ -715,6 +715,25 @@
 	  }
 	});
 
+	chatBotButton.addEventListener('click', () => {
+		const width = 400;
+		const height = 846;
+
+		// 화면 중앙
+		const left = (window.screen.width / 2) - (width / 2);
+		const top = (window.screen.height / 2) - (height / 2);
+		// 새 창 열기
+		const chatbotWindow = window.open(
+			"/pages/chatbot.html", // 챗봇 내용을 표시할 HTML 파일 경로
+			"Chatbot", // 창 이름
+			`width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
+		);
+		
+			if (!chatbotWindow) {
+				alert("팝업 차단이 활성화되어 있습니다. 팝업 차단을 해제해주세요.");
+		  	}
+	});
+
 
 
 

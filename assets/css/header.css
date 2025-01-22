@@ -44,7 +44,7 @@
 .navbar-area .navbar {
   padding: 15px 20px;
 }
-.navbar-area .navbar .navbar-brand {
+.navbar-brand {
   font-family: 'Orbitron', sans-serif;
   padding: 0;
   position: relative;
@@ -52,7 +52,10 @@
   font-size: 30px;
   line-height: 1;
   padding: 0;
-  color: var(--whiteColor);
+  color: var(--textColor);
+}
+.navbar-brand:focus, .navbar-brand:hover {
+  color: var(--textColor);
 }
 
 .navbar-area.style-2 .navbar .navbar-brand {
