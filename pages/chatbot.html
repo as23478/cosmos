@@ -38,9 +38,17 @@
     
             <div class="chat-body">
                 <div class="message-box">
-                    <div class="message"><span>COSMOS 챗봇</span>입니다. 무엇을 도와드릴까요?</div>
-                    <div class="message">아래 카테고리에서 선택해주세요.</div>
-                    <div class="message" id="responseText"></div>
+                    <div class="message message-server hidden" id="chat-m1"><span>COSMOS 챗봇</span>입니다.<br>무엇을 도와드릴까요?</div>
+                    <div class="message message-server hidden" id="chat-m2">
+                        아래 카테고리에서 선택해주세요.
+                        <div class="category-box">
+                            <button class="btn-line">우주여행 패키지 문의</button>
+                            <button class="btn-line">필요한 건강검진 문의</button>
+                            <button class="btn-line">우주복, 장비 문의</button>
+                            <button class="btn-line">상담원 연결</button>
+                        </div>
+                    </div>
+                    <!-- <div class="message message-user"></div> -->
                 </div>
             </div>
     
@@ -58,11 +66,96 @@
         
 
         <script>
+            const textarea = document.getElementById('userInput');
+            const clearButton = document.querySelector('.chat-clear');
+            textarea.focus();
+
+            // 입력창 상태 업데이트
+            function updateClearButtonState() {
+                if (textarea.value.trim() !== '') {
+                    clearButton.style.display = 'flex';
+                } else {
+                    clearButton.style.display = 'none';
+                }
+            }
+
+            // 입력창 초기화 함수
+            function clearInput() {
+                textarea.value = '';
+                textarea.focus();
+                updateClearButtonState();
+            }
+
+            // 입력 이벤트 감지
+            textarea.addEventListener('input', updateClearButtonState);
+
+            // 삭제 버튼 클릭 이벤트
+            clearButton.addEventListener('click', clearInput);
+
+
+
+        /* User Message */
             async function sendMessage() {
                 const userInput = document.getElementById('userInput').value;
     
-                
+                // 입력값이 비어 있는지 확인
+                if (!userInput) {
+                    alert('메시지를 입력해주세요.');
+                    return;
+                }
+
+                // .message-box 요소 가져오기
+                const messageBox = document.querySelector('.message-box');
+
+                // 새로운 메시지 div 생성
+                const userMessage = document.createElement('div');
+                userMessage.classList.add('message', 'message-user');
+                userMessage.textContent = userInput; // 입력값 추가
+
+                // 메시지 화면에 추가
+                messageBox.appendChild(userMessage);
+
+                // 입력창 초기화
+                clearInput();
+
+                messageBox.scrollTop = messageBox.scrollHeight;
             }
+
+            document.getElementById('userInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Enter의 기본 동작 차단
+                sendMessage(); // 메시지 전송
+            }
+        });
+
+
+
+
+        // 로딩
+        const chatM1 = document.getElementById('chat-m1');
+        const chatM2 = document.getElementById('chat-m2');
+
+        function showMessage(element, delay) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    element.classList.remove('hidden');
+                    resolve();
+                }, delay);
+            });
+        }
+
+        async function displayMessages() {
+            await showMessage(chatM1, 800);
+            await showMessage(chatM2, 800);
+        }
+
+        displayMessages();
+
+
+
+
+
+
         </script>
 
         <!-- Links of JS files -->
