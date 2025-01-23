@@ -1326,12 +1326,6 @@
     font-size: 30px;
   }
 
-  .footer-widget {
-    margin-bottom: 40px;
-  }
-  .footer-widget-info .row .col-lg-2:last-child .footer-widget{
-    margin-bottom: 0px;
-  }
   .footer-top-info .content .image {
     top: -20px;
   }
@@ -1444,9 +1438,6 @@
   }
   .testimonial-section .owl-theme .owl-nav {
     right: 200px;
-  }
-  .footer-area .row .col-sm-6:last-child .footer-widget{ 
-    margin-bottom: 0px;
   }
   .copy-right-area .cpr-right {
     justify-content: space-around;
@@ -1983,12 +1974,6 @@
   .footer-widget {
     margin-bottom: 40px;
   }
-  .footer-widget-info .row .col-lg-3:last-child .footer-widget{
-    margin-bottom: 0px;
-  }
-  .footer-widget-info .row .col-lg-3:nth-child(3) .footer-widget{
-    margin-bottom: 0px;
-  }
 
   .hero-content-3 h2 {
     font-size: 55px;
@@ -2349,9 +2334,6 @@
     padding: 0px 20px;
     margin-bottom: 50px;
     text-align: center;
-  }
-  .footer-widget{
-    margin-bottom: 0px;
   }
   .footer-widget-info .subscribe-area::after{
     display: none;
@@ -2959,9 +2941,9 @@
     font-size: 16px;
     margin-bottom: 30px;
   }
-  .footer-widget-info .footer-widget span {
+  /* .footer-widget-info .footer-widget span {
     font-size: 16px;
-  }
+  } */
   .subscribe-area .subscribe-box .btn {
     padding: 12px 15px;
     font-size: 16px;

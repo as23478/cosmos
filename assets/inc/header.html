@@ -126,7 +126,7 @@
                         <button class="lang-button" data-lang="en">EN</button> -->
                     </div>
                     <div class="option-item">
-                        <a href="/pages/mypage.html" class="search-button"><i class="bx bx-user"></i></a>
+                        <a href="/pages/mypage.html" class="mypage-button"><i class="bx bx-user"></i></a>
                     </div>
                 </div>
             </div>
@@ -138,10 +138,9 @@
 <!-- Start Responsive Navbar Area -->
 <div class="responsive-navbar offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="navbarOffcanvas">
     <div class="offcanvas-header">
-        KR
-        <!-- <a class="logo d-inline-block" href="index.html">
-            Aithm
-        </a> -->
+        <div class="language-switcher">
+            <p><span>KR</span> EN</p>
+        </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -302,3 +301,14 @@
     });
 });
  </script>
+
+
+<script>
+    const themeBtns = document.querySelectorAll('.language-switcher');
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        });
+    });
+
+</script>

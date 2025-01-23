@@ -63,7 +63,7 @@ body.dark-theme {
   --sidebarBg: #1A1B22;
   --sidebarTag: #262732;
   --navBg: #05051E43;
-  --navLine: #1A243D;
+  --navLine: #10131a;
   --borderColor: #333333;
 }
 
@@ -3130,7 +3130,7 @@ Portfolio Details CSS
 
 .project-dec p{
   font-size: 17px;
-  color: var(--paragraphColorSecond);
+  color: var(--subtextColor);
   margin-bottom: 20px;
 }
 
@@ -5326,10 +5326,9 @@ Footer Area CSS
 .footer-area p, .footer-area a {
   color: var(--whiteColor);
 }
-.footer-area a:hover {
+.footer-area a:not(.navbar-brand):hover {
   color: var(--mainColor2);
 }
-
 .ft-shape{
   background-image: url(../img/banner/ft-shape.png);
   background-size: cover;
@@ -5563,6 +5562,10 @@ Footer Area CSS
   width: 100%;
   background: var(--gridColor);
   color: var(--whiteColor);
+}
+
+.footer-widget{
+  margin-bottom: 40px;
 }
 
 .footer-widget-info .footer-widget h4 {

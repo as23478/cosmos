@@ -40,14 +40,15 @@
                 <div class="message-box">
                     <div class="message"><span>COSMOS 챗봇</span>입니다. 무엇을 도와드릴까요?</div>
                     <div class="message">아래 카테고리에서 선택해주세요.</div>
+                    <div class="message" id="responseText"></div>
                 </div>
             </div>
     
             <footer class="chat-footer">
                 <button type="button" title="입력 도우미" class="chat-icon"><i class="bx bx-chat"></i></button>
-                <textarea placeholder="질문하실 내용을 입력해 주세요." rows="1" maxlength="300"></textarea>
+                <textarea id="userInput" placeholder="질문하실 내용을 입력해 주세요." rows="1" maxlength="300"></textarea>
                 <button type="button" title="입력내용 삭제" class="chat-clear"><i class="bx bx-x"></i></button>
-                <button type="button" title="전송" class="chat-icon send-btn"><i class="bx bx-send"></i></button>
+                <button onclick="sendMessage()" type="button" title="전송" class="chat-icon send-btn"><i class="bx bx-send"></i></button>
                 </div>
             </footer>
 
@@ -56,7 +57,13 @@
         <!-- End Chatbot Section -->
         
 
-
+        <script>
+            async function sendMessage() {
+                const userInput = document.getElementById('userInput').value;
+    
+                
+            }
+        </script>
 
         <!-- Links of JS files -->
         <script src="/assets/js/jquery.min.js"></script>
