@@ -42,10 +42,10 @@
                     <div class="message message-server hidden" id="chat-m2">
                         아래 카테고리에서 선택해주세요.
                         <div class="category-box">
-                            <button class="btn-line">우주여행 패키지 문의</button>
-                            <button class="btn-line">필요한 건강검진 문의</button>
-                            <button class="btn-line">우주복, 장비 문의</button>
-                            <button class="btn-line">상담원 연결</button>
+                            <button class="btn-line c-btn">우주여행 패키지 문의</button>
+                            <button class="btn-line c-btn">필요한 건강검진 문의</button>
+                            <button class="btn-line c-btn">우주복, 장비 문의</button>
+                            <button class="btn-line c-btn">상담원 연결</button>
                         </div>
                     </div>
                     <!-- <div class="message message-user"></div> -->
@@ -66,6 +66,7 @@
         
 
         <script>
+        /* 입력창 */
             const textarea = document.getElementById('userInput');
             const clearButton = document.querySelector('.chat-clear');
             textarea.focus();
@@ -94,62 +95,77 @@
 
 
 
-        /* User Message */
+        /* 메시지 입력 */
             async function sendMessage() {
-                const userInput = document.getElementById('userInput').value;
+                const userInput = document.getElementById('userInput').value.trim();
     
-                // 입력값이 비어 있는지 확인
                 if (!userInput) {
-                    alert('메시지를 입력해주세요.');
                     return;
                 }
 
-                // .message-box 요소 가져오기
                 const messageBox = document.querySelector('.message-box');
 
-                // 새로운 메시지 div 생성
                 const userMessage = document.createElement('div');
                 userMessage.classList.add('message', 'message-user');
-                userMessage.textContent = userInput; // 입력값 추가
+                userMessage.textContent = userInput;
 
-                // 메시지 화면에 추가
                 messageBox.appendChild(userMessage);
 
-                // 입력창 초기화
                 clearInput();
 
                 messageBox.scrollTop = messageBox.scrollHeight;
             }
 
             document.getElementById('userInput').addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault(); // Enter의 기본 동작 차단
-                sendMessage(); // 메시지 전송
-            }
-        });
-
-
-
-
-        // 로딩
-        const chatM1 = document.getElementById('chat-m1');
-        const chatM2 = document.getElementById('chat-m2');
-
-        function showMessage(element, delay) {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    element.classList.remove('hidden');
-                    resolve();
-                }, delay);
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Enter의 기본 동작 차단
+                    sendMessage(); // 메시지 전송
+                }
             });
-        }
 
-        async function displayMessages() {
-            await showMessage(chatM1, 800);
-            await showMessage(chatM2, 800);
-        }
 
-        displayMessages();
+
+
+        /* 로딩(서버채팅 딜레이) */
+            const chatM1 = document.getElementById('chat-m1');
+            const chatM2 = document.getElementById('chat-m2');
+
+            function showMessage(element, delay) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        element.classList.remove('hidden');
+                        resolve();
+                    }, delay);
+                });
+            }
+
+            async function displayMessages() {
+                await showMessage(chatM1, 800);
+                await showMessage(chatM2, 800);
+
+                // 사용자 입력 활성화
+                // userInput.disabled = false;
+                // sendButton.disabled = false;
+
+                // setTimeout(() => {
+                //     userInput.focus();
+                // }, 0)
+            }
+
+            displayMessages();
+
+
+
+            /* 카테고리 선택 버튼 */
+            const categoryBtns = document.querySelectorAll('.c-btn');
+
+            // 버튼에 따른 답변 정의
+            const responses = {
+                "우주여행 패키지 문의": "우주여행 패키지는 다양한 코스가 있습니다. 자세한 사항은 여기를 참고하세요.",
+                "필요한 건강검진 문의": "우주여행 전 건강검진 항목은 다음과 같습니다: 심박수, 혈압, 체력 검사.",
+                "우주복, 장비 문의": "우주복과 장비는 패키지에 포함되어 있습니다. 추가 정보는 문의하세요.",
+                "상담원 연결": "상담원이 곧 연결됩니다. 잠시만 기다려 주세요!"
+            }
 
 
 
