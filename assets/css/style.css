@@ -194,7 +194,7 @@ p:last-child {
 
 /*default-btn*/
 .default-btn {
-  background-color: var(--mainColor);
+  background: var(--gridColor);
   -webkit-transition: var(--transition);
   transition: var(--transition);
   padding: 15px 25px;
@@ -206,6 +206,9 @@ p:last-child {
   font-size: var(--fontSize);
   font-weight: 500;
   overflow: hidden;
+}
+.default-btn:hover {
+  color: white;
 }
 
 .default-btn i {
@@ -229,30 +232,10 @@ p:last-child {
   margin-right: 20px;
 }
 
-.default-btn:hover{
-  color: var(--whiteColor);
-  background: var(--blackColor)
-}
-.style-2 .option-item .default-btn{
-  background: var(--mainColor) !important;
-}
-.style-2 .option-item .default-btn:hover{
-  background: var(--blackColor) !important;
-}
-
-.default-btn.style-3{
-  background-color: var(--blackColor);
-  border-radius: 30px;
-}
-
-.default-btn.style-grid {
-  background: var(--gridColor);
-}
-
 .btn-disabled {
   background-color: #333;
   padding: 15px 25px 15px 25px;
-  color: var(--paragraphColorSecond);
+  color: var(--subtextColor);
   display: inline-block;
   border-radius: 5px;
   position: relative;
@@ -260,6 +243,10 @@ p:last-child {
   font-size: var(--fontSize);
   font-weight: 500;
   overflow: hidden;
+}
+
+.default-btn:hover.type-none {
+  filter: brightness(80%);
 }
 
 /*section-title*/
@@ -599,10 +586,6 @@ Hero Area 2 CSS
   background-position: center;
   /* padding-top: 100px; */
   padding: 100px 0;
-}
-
-.style-2 .default-btn{
-  background: var(--gridColor);
 }
 
 .hero-content-2{
@@ -1263,11 +1246,6 @@ About Area CSS
   left: 0;
   font-size: 24px;
   color: var(--mainColor2);
-}
-
-.about-content .default-btn{
-  background: var(--gridColor);
-  padding: 15px 25px 15px 25px;
 }
 
 .img-box {
@@ -2066,16 +2044,12 @@ Pricing Area CSS
 
 .pricing-table .pricing-box .default-btn span {
   position: initial;
-  background: no-repeat;
+  background: no-repeat; /* span 설정이랑 충돌나서 이래둔거같은데.. pricing-table 안쓸거면 전체삭제 */
   padding: 0;
   border: 0;
   border-radius: 0;
   font-size: 16px;
   text-transform: none;
-}
-
-.pricing-table .pricing-box .default-btn{
-  background: var(--gridColor);
 }
 
 .pricing-table .pricing-box h3{
@@ -2191,9 +2165,6 @@ Blog Area CSS
 
 .blog-section-2 .blog-content-btn{
   text-align: end;
-}
-.blog-section-2 .blog-content-btn .default-btn{
-  background: var(--gridColor);
 }
 
 .blog-section-2 .row .col-xl-4:last-child .blog-card.grid{
@@ -3791,16 +3762,6 @@ Cart Area CSS
   background-color: var(--mainColor2);
 }
 
-.cart-buttons .default-btn {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #232838 !important;
-}
-
-.cart-buttons .default-btn:hover{
-  background-color: var(--mainColor2) !important;
-}
-
 .cart-totals {
   background: #151526;
   padding: 30px;
@@ -3810,11 +3771,6 @@ Cart Area CSS
   border-radius: 5px;
   margin-top: 60px;
   margin-left: auto;
-}
-
-.cart-totals .default-btn {
-  background: var(--gridColor);
-  background-color: none;
 }
 
 .cart-totals h3 {
@@ -4195,7 +4151,6 @@ Checkout Area CSS
 
 .order-details .payment-box .default-btn {
   margin-top: 15px;
-  background: var(--gridColor);
 }
 
 .order-details .payment-box .default-btn i {
@@ -4418,7 +4373,6 @@ Products Details Area CSS
   top: -2px;
   padding-top: 14px;
   padding-bottom: 14px;
-  background: var(--gridColor);
 }
 
 .products-details-desc .products-share {
@@ -4966,7 +4920,6 @@ Products Area CSS
   opacity: 1;
   visibility: visible;
   margin-top: 0;
-  background: var(--gridColor);
 }
 
 .grid-sorting {
@@ -5251,7 +5204,6 @@ Contact Area CSS
 
 .contact-form form .default-btn {
   margin-top: 15px;
-  background: var(--gridColor);
 }
 
 .contact-form form #msgSubmit {
@@ -6018,8 +5970,6 @@ Login Page CSS
 
 .login-section .accounts-from .default-btn{
   width: 100%;
-  background: var(--gridColor);
-  color: var(--whiteColor);
 }
 
 .login-section .accounts-from .default-btn span{
