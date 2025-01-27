@@ -554,12 +554,10 @@
 				path: "/pages/info/",
 				pcSelector: ".info-link",
 				mobileSelector: ".mobile-info-button",
-				// pcSubSelector: ".info-sub-link", // PC 소분류 선택자 추가 <--이거 왜 없어도 되는거지
-  				// mobileSubSelector: ".mobile-info-sub-link", // 모바일 소분류 선택자 추가
 				subPaths: [
-					"/pages/info/info_1.html",
-					"/pages/info/info_2.html",
-					"/pages/info/info_3.html",
+					"/pages/info/space_info1-1.html",
+					"/pages/info/space_info2-1.html",
+					"/pages/info/space_info3-1.html",
 					"/pages/info/news.html",
 				],
 				},
@@ -651,38 +649,11 @@
 						// 모바일에서 <a> 태그로 된 대분류 처리 (소분류 없는 페이지)
 						if (currentPath.includes(tab.path)) {
 							mobileLink.classList.add("active");
-							// console.log(`Active class added to mobile link: ${tab.mobileSubSelector}`); 이걸로?
 							console.log(`Active class added to mobile link: ${tab.mobileSelector}`);
 						}
 					}
 				}
 			});
-  
-	  
-			//   // 모바일 대분류 처리
-			//   tabs.forEach(tab => {
-			// 	const mobileLink = document.querySelector(tab.mobileSelector);
-		
-			// 	if (mobileLink) {
-			// 	  if (mobileLink.tagName === "BUTTON") {
-			// 		// 모바일에서 button으로 된 대분류 처리 (소분류 있는 페이지)
-			// 		const isSubPathActive = tab.subPaths
-			// 		  ? tab.subPaths.some(subPath => currentPath === subPath)
-			// 		  : false;
-			// 		if (currentPath.includes(tab.path) || isSubPathActive) {
-			// 		  mobileLink.classList.add("active");
-			// 		  console.log(`Active class added to mobile button: ${tab.mobileSelector}`);
-			// 		}
-			// 	  } else if (mobileLink.tagName === "A") {
-			// 		// 모바일에서 <a> 태그로 된 대분류 처리 (소분류 없는 페이지)
-			// 		if (currentPath.includes(tab.path)) {
-			// 		  mobileLink.classList.add("active");
-			// 		  console.log(`Active class added to mobile link: ${tab.mobileSelector}`);
-			// 		}
-			// 	  }
-			// 	}
-			//   });
-		
 		}
 	});
 

@@ -18,8 +18,17 @@ function clearInput() {
 }
 
 // 이벤트 리스너
-textarea.addEventListener('input', updateClearButtonState); // 입력 이벤트 감지
-clearButton.addEventListener('click', clearInput); // 삭제 버튼 클릭 이벤트
+textarea.addEventListener('input', updateClearButtonState);
+clearButton.addEventListener('click', clearInput);
+
+// 입력창 활성화, 비활성화
+function enableInput() {
+    textarea.disabled = false;
+    textarea.focus();
+}
+function disableInput() {
+    textarea.disabled = true;
+}
 
 
 
@@ -41,14 +50,17 @@ function delay(ms) {
 }
 
 async function displayInitialMessages() {
-    await showMessage(chatM1, 800);
-    await showMessage(chatM2, 800);
-    textarea.disabled = false; // 사용자 입력 활성화
+    textarea.disabled = false;
     textarea.focus();
 }
 
 // 초기 메시지 출력 실행
-displayInitialMessages();
+(async function() {
+    disableInput();
+    await showMessage(chatM1, 800);
+    await showMessage(chatM2, 800);
+    enableInput();
+})();
 
 
 
@@ -77,9 +89,11 @@ async function sendMessage() {
     clearInput(); // 입력창 초기화
 
     // 서버 응답 가져오기
+    disableInput();
+    await delay(800);
     const botResponse = responses[userInput] || "죄송합니다, 해당 질문에 대한 답변을 찾을 수 없습니다.";
-    // await delay(800);
     addBotMessage(botResponse); // 서버 메시지 추가
+    enableInput();
 }
 
 // 엔터키로 메시지 전송
@@ -118,7 +132,7 @@ categoryBtns.forEach(button => {
         const botResponse = responses[userMessage];
 
         addUserMessage(userMessage);
-        // await delay(800);
+        await delay(800);
         addBotMessage(botResponse);
     });
 });
@@ -160,5 +174,3 @@ jQuery(function($) {
         $('.message-box').animate({ scrollTop: $('.message-box')[0].scrollHeight }, 500);
     });
 });
-
-
