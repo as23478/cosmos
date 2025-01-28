@@ -7366,7 +7366,6 @@ Go Top CSS
 }
 
 .th-product .actions .icon-btn {
-  /* --btn-size: 40px; */
   font-size: 24px;
   border: 1px solid var(--whiteColor);
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
@@ -7374,9 +7373,9 @@ Go Top CSS
   width: 40px;
   height: 40px;
   border-radius: 20%;
-  /* text-align: center;
-  line-height: 40px;
-  display: inline-block; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .th-product .actions .icon-btn:hover {
@@ -7714,6 +7713,18 @@ Go Top CSS
   font-size: 26px;
 }
 
+
+
+/* 우주정보 페이지 */
+.info-tabs {
+  display: none;
+}
+.info-tabs.active {
+  display: block;
+}
+.info-tabs h1, h2 {
+  margin-bottom: 16px;
+}
 
 
 

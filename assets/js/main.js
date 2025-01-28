@@ -437,6 +437,58 @@
 
 
 
+/* 우주정보 페이지 - 탭 전환 기능 */
+	document.querySelectorAll('.info-tab-btn').forEach(button => {
+		button.addEventListener('click', () => {
+			const tabName = button.getAttribute('data-tab');
+
+			// 모든 콘텐츠 숨기기
+			document.querySelectorAll('.info-tabs').forEach(content => {
+				content.classList.remove('active');
+			});
+
+			// 모든 버튼에서 active 제거
+			document.querySelectorAll('.info-tab-btn').forEach(btn => {
+				btn.classList.remove('active');
+			});
+
+			// 선택된 콘텐츠와 버튼 활성화
+			document.getElementById(tabName).classList.add('active');
+			button.classList.add('active');
+
+			// 배너 업데이트
+			updateBanner(tabName);
+		});
+	});
+
+/* 배너 내용 업데이트 */
+	function updateBanner(tabName) {
+		const bannerContent = {
+			"info_1_1": { title: "태양계" },
+			"info_1_2": { title: "ISS (국제우주정거장)" },
+			"info_1_3": { title: "제임스웹 우주망원경" },
+			"info_1_4": { title: "허블 우주망원경" },
+			"info_2_1": { title: "블랙홀" },
+			"info_2_2": { title: "적색거성" },
+			"info_2_3": { title: "암흑 물질" },
+			"info_3_1": { title: "우주여행의 역사" },
+			"info_3_2": { title: "우주탐사의 역사" },
+			"info_3_3": { title: "미래전망" },
+		}
+
+		const content = bannerContent[tabName];
+		if (content) {
+			const bannerTitle = document.querySelector('.banner-content h2');
+			const lastBreadcrumb = document.querySelector('.breadcrumb-item.active');
+			if (bannerTitle) {
+				bannerTitle.textContent = content.title;
+				lastBreadcrumb.textContent = content.title;
+			}
+		}
+	}
+
+
+
 
 /* 스토어 - 필터링(카테고리) */
 	// $(document).ready(function () {
@@ -536,6 +588,10 @@
 	  
 		function activateCurrentTab() {
 			const currentPath = window.location.pathname;
+			// Netlify - .html 누락 방지 (?)
+			if (!currentPath.endsWith(".html") && !currentPath.endsWith("/")) {
+				currentPath += ".html";
+			}
 			console.log("Current Path:", currentPath);
 		
 		  	// 대분류 및 소분류 정의
@@ -555,9 +611,9 @@
 				pcSelector: ".info-link",
 				mobileSelector: ".mobile-info-button",
 				subPaths: [
-					"/pages/info/space_info1-1.html",
-					"/pages/info/space_info2-1.html",
-					"/pages/info/space_info3-1.html",
+					"/pages/info/space_info_1.html",
+					"/pages/info/space_info_2.html",
+					"/pages/info/space_info_3.html",
 					"/pages/info/news.html",
 				],
 				},
@@ -654,6 +710,28 @@
 					}
 				}
 			});
+
+			// 서브메뉴 및 상위메뉴 활성화
+			$('.accordion-link').each(function () {
+				var linkPath = $(this).attr('href').split('?')[0];
+		
+				if (currentPath === linkPath) {
+					$(this).addClass('active');
+					$(this).closest('.accordion-collapse').addClass('show');
+					$(this).closest('.accordion-item').find('.accordion-button').addClass('active');
+				}
+			});
+		
+			// Bootstrap Collapse 이벤트로 동적 활성화 관리
+			$(document).on('show.bs.collapse', '.accordion-collapse', function () {
+				$(this).closest('.accordion-item').find('.accordion-button').addClass('active');
+			});
+		
+			$(document).on('hide.bs.collapse', '.accordion-collapse', function () {
+				$(this).closest('.accordion-item').find('.accordion-button').removeClass('active');
+			});
+		
+
 		}
 	});
 
@@ -794,7 +872,6 @@
 
 
 
-	
 
 	
 

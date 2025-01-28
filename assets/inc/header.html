@@ -37,19 +37,19 @@
                         <div class="dropdown-menu">
                             <ul class="">
                                 <li class="nav-item">
-                                    <a href="/pages/info/space_info1-1.html" class="nav-link sub-link-pc">
+                                    <a href="/pages/info/space_info_1.html" class="nav-link sub-link-pc">
                                         <span class="kr">우리 가까운 우주</span>
                                         <span class="en">Info1</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/pages/info/space_info2-1.html" class="nav-link sub-link-pc">
+                                    <a href="/pages/info/space_info_2.html" class="nav-link sub-link-pc">
                                         <span class="kr">우주의 미스터리</span>
                                         <span class="en">Info2</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/pages/info/space_info3-1.html" class="nav-link sub-link-pc">
+                                    <a href="/pages/info/space_info_3.html" class="nav-link sub-link-pc">
                                         <span class="kr">별을 향한 여정</span>
                                         <span class="en">Info3</span>
                                     </a>
@@ -276,31 +276,6 @@
     </div>
 </div>
 <!-- End Responsive Navbar Area -->
- <script>
-    $(document).ready(function () {
-    var currentPath = window.location.pathname;
-
-    // 서브메뉴 및 상위메뉴 활성화
-    $('.accordion-link').each(function () {
-        var linkPath = $(this).attr('href').split('?')[0];
-
-        if (currentPath === linkPath) {
-            $(this).addClass('active');
-            $(this).closest('.accordion-collapse').addClass('show');
-            $(this).closest('.accordion-item').find('.accordion-button').addClass('active');
-        }
-    });
-
-    // Bootstrap Collapse 이벤트로 동적 활성화 관리
-    $(document).on('show.bs.collapse', '.accordion-collapse', function () {
-        $(this).closest('.accordion-item').find('.accordion-button').addClass('active');
-    });
-
-    $(document).on('hide.bs.collapse', '.accordion-collapse', function () {
-        $(this).closest('.accordion-item').find('.accordion-button').removeClass('active');
-    });
-});
- </script>
 
 
 <script>
