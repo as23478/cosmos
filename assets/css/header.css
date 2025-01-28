@@ -318,12 +318,6 @@
 .responsive-navbar .offcanvas-header .close-btn:hover {
   color: var(--mainColor2);
 }
-.responsive-navbar .offcanvas-header .language-switcher p {
-  color: var(--whiteColor);
-}
-.responsive-navbar .offcanvas-header .language-switcher p span {
-  text-decoration: underline;
-}
 .responsive-navbar .offcanvas-header .btn-close {
   box-shadow: none;
 }
@@ -444,7 +438,7 @@
 .responsive-navbar .offcanvas-body .offcanvas-contact-info {
   margin-top: 30px;
   padding-top: 30px;
-  border-top: 1px solid var(--borderColor);
+  border-top: 1px solid #333333;
 }
 .responsive-navbar .offcanvas-body .offcanvas-contact-info h4 {
   margin-bottom: 25px;
@@ -649,4 +643,29 @@
 @media only screen and (max-width: 1310px) {
   .navbar-area .navbar .navbar-nav .nav-item .dropdown-menu { width: 230px; }
   .navbar-area .navbar .navbar-nav .nav-item .dropdown-menu img { display: none; }
+}
+
+
+
+/* 테마 */
+.theme-switcher {
+  height: 30px;
+  width: 30px;
+  transition: var(--transition);
+}
+
+/* 언어 */
+.language-switcher-pc, .language-switcher-mo {
+  cursor: pointer;
+}
+.language-switcher-mo p {
+  color: #7A7A7A;
+  font-size: 18px;
+}
+.language-switcher-mo .active {
+  color: var(--whiteColor);
+  text-decoration: underline;
+}
+.language-switcher-mo .lang_1 {
+  margin-right: 10px;
 }

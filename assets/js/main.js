@@ -564,28 +564,49 @@
 
 
 
-/* Include */
+/* 내비게이션 + 세션 스토리지 복원 */
 
 	$(document).ready(function () {
+		/* Include + 언어 설정 복원 */
 		$('.includeJs').each(function () {
 			const $this = $(this);
 			const filePath = $this.data('include-file');
 		
 			if (filePath) {
 				$.get(filePath)
-				.done(function (data) {
-					$this.html(data); // Include 완료
-					console.log(`File loaded: ${filePath}`);
-		
-					// Include 완료 후 PC/모바일 모두 처리
-					activateCurrentTab();
-				})
-				.fail(function (xhr, status, error) {
-					console.error(`Error loading file: ${filePath} - ${error}`);
-				});
+					.done(function (data) {
+						$this.html(data); // Include 완료
+						console.log(`File loaded: ${filePath}`);
+						
+						// Include 완료 후 실행
+						activateCurrentTab(); // 탭 활성화 함수 실행
+						
+						/* 언어 설정 복원 */
+						const savedLanguage = sessionStorage.getItem('language');
+						const pc_langBtn = document.querySelector('.language-switcher-pc');
+						console.log('언어 상태 복원. savedLanguage: ', savedLanguage);
+						console.log("PC 버튼 요소:", pc_langBtn);
+	
+						if (savedLanguage) {
+							document.body.classList.remove('kr', 'en');
+							document.body.classList.add(savedLanguage);
+	
+							// 버튼 텍스트 업데이트
+							if (pc_langBtn) {
+								pc_langBtn.textContent = savedLanguage.toUpperCase();
+								console.log("PC 버튼 텍스트 업데이트:", savedLanguage.toUpperCase());
+							}
+						} else {
+							console.log('기본 언어 유지: kr');
+						}
+					})
+					.fail(function (xhr, status, error) {
+						console.error(`Error loading file: ${filePath} - ${error}`);
+					});
 			}
 		});
 	  
+		/* 현재 페이지 표시 */
 		function activateCurrentTab() {
 			const currentPath = window.location.pathname;
 			// Netlify - .html 누락 방지 (?)
@@ -733,6 +754,18 @@
 		
 
 		}
+
+		
+		/* 테마 상태 복원 */
+		const savedTheme = sessionStorage.getItem('theme');
+        console.log('테마 상태 복원. savedTheme: ', savedTheme);
+
+        if(savedTheme === 'false') {
+            document.body.classList.remove('dark-theme');
+        }
+
+		
+		
 	});
 
 

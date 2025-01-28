@@ -38,20 +38,20 @@
                             <ul class="">
                                 <li class="nav-item">
                                     <a href="/pages/info/space_info_1.html" class="nav-link sub-link-pc">
-                                        <span class="kr">우리 가까운 우주</span>
-                                        <span class="en">Info1</span>
+                                        <span class="kr">우리의 우주</span>
+                                        <span class="en">Space Around Us</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/pages/info/space_info_2.html" class="nav-link sub-link-pc">
                                         <span class="kr">우주의 미스터리</span>
-                                        <span class="en">Info2</span>
+                                        <span class="en">Mysterious Space</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/pages/info/space_info_3.html" class="nav-link sub-link-pc">
                                         <span class="kr">별을 향한 여정</span>
-                                        <span class="en">Info3</span>
+                                        <span class="en">Journey to the Stars</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -72,7 +72,7 @@
                         <div class="dropdown-menu">
                             <ul class="">
                                 <li class="nav-item">
-                                    <a href="/pages/store/store_1.html" class="nav-link sub-link-pc">
+                                    <a href="/pages/store/store.html" class="nav-link sub-link-pc">
                                         <span class="kr">피규어 & 모형</span>
                                         <span class="en">Figures & Models</span>
                                     </a>
@@ -120,11 +120,8 @@
                     </li>
                 </ul>
                 <div class="others-option d-flex align-items-center">
-                    <div class="option-item language-switcher">
-                        <p>KR</p>
-                        <!-- <button class="lang-button" data-lang="kr">KR</button>
-                        <button class="lang-button" data-lang="en">EN</button> -->
-                    </div>
+                    <div class="option-item nav-custom theme-switcher"></div>
+                    <div class="option-item language-switcher-pc">KR</div>
                     <div class="option-item">
                         <a href="/pages/mypage.html" class="mypage-button"><i class="bx bx-user"></i></a>
                     </div>
@@ -138,8 +135,8 @@
 <!-- Start Responsive Navbar Area -->
 <div class="responsive-navbar offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="navbarOffcanvas">
     <div class="offcanvas-header">
-        <div class="language-switcher">
-            <p><span>KR</span> EN</p>
+        <div class="language-switcher-mo">
+            <p><span class="lang_1 active">KR</span> <span class="lang_2">EN</span></p>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -168,21 +165,21 @@
                     <div class="accordion-body">
                         <div class="accordion" id="navbarAccordion2">
                             <div class="accordion-item">
-                                <a href="/pages/info/--.html" class="accordion-link sub-link-mo">
-                                    <span class="kr">Info1</span>
-                                    <span class="en">Info1</span>
+                                <a href="/pages/info/space_info_1.html" class="accordion-link sub-link-mo">
+                                    <span class="kr">우리의 우주</span>
+                                    <span class="en">Space Around Us</span>
                                 </a>
                             </div>
                             <div class="accordion-item">
-                                <a href="/pages/info/--.html" class="accordion-link sub-link-mo">
-                                    <span class="kr">Info2</span>
-                                    <span class="en">Info2</span>
+                                <a href="/pages/info/space_info_2.html" class="accordion-link sub-link-mo">
+                                    <span class="kr">우주의 미스터리</span>
+                                    <span class="en">Mysterious Space</span>
                                 </a>
                             </div>
                             <div class="accordion-item">
-                                <a href="/pages/info/--.html" class="accordion-link sub-link-mo">
-                                    <span class="kr">Info3</span>
-                                    <span class="en">Info3</span>
+                                <a href="/pages/info/space_info_3.html" class="accordion-link sub-link-mo">
+                                    <span class="kr">별을 향한 여정</span>
+                                    <span class="en">Journey to the Stars</span>
                                 </a>
                             </div>
                             <div class="accordion-item">
@@ -273,17 +270,47 @@
                 <li><a href="https://www.pinterest.com" target="_blank"><i class='bx bxl-pinterest'></i></a></li>
             </ul>
         </div>
+        <div class="theme-switcher"></div>
     </div>
 </div>
 <!-- End Responsive Navbar Area -->
 
 
 <script>
-    const themeBtns = document.querySelectorAll('.language-switcher');
+    const themeBtns = document.querySelectorAll('.theme-switcher');
     themeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('dark-theme');
+
+            /* sessionStorage */
+            const themeState = document.body.classList.contains('dark-theme');
+            sessionStorage.setItem('theme', themeState); // true: dark-theme
+            
         });
     });
+
+
+    /* 언어 */
+    const langBtnPc = document.querySelector('.language-switcher-pc');
+    const langBtnMo = document.querySelector('.language-switcher-mo');
+
+    if(langBtnPc) {
+        langBtnPc.addEventListener('click', function() {
+            const currentLanguage = this.textContent.trim();
+            const newLanguage = currentLanguage === "KR" ? "EN" : "KR";
+        
+            // 버튼 텍스트 변경
+            this.textContent = newLanguage;
+        
+            // 언어 설정 변경
+            document.body.classList.remove("kr", "en");
+            document.body.classList.add(newLanguage.toLowerCase());
+
+            /* sessionStorage */
+            sessionStorage.setItem('language', newLanguage.toLowerCase()); //KR, EN
+            console.log('언어 상태 저장: ', newLanguage);
+            
+        });
+    }
 
 </script>

@@ -128,7 +128,6 @@ img {
 }
 
 p {
-  /* color: var(--paragraphColor); */
   color: var(--textColor);
   margin-bottom: 15px;
   line-height: 1.8;
@@ -7729,7 +7728,10 @@ Go Top CSS
 
 
 /* 임시 */
-.en {
+body.kr .en {
+  display: none !important;
+}
+body.en .kr {
   display: none !important;
 }
 .only-mo {
