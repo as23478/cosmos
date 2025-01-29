@@ -578,9 +578,92 @@
 						$this.html(data); // Include 완료
 						console.log(`File loaded: ${filePath}`);
 						
-						// Include 완료 후 실행
-						setTimeout(activateCurrentTab, 100); // 탭 활성화 함수
-						// activateCurrentTab(); // 탭 활성화 함수 실행
+						// Include 완료 후 실행 - 현재 페이지 표시
+						let currentPath = window.location.pathname;
+						// Netlify .html 누락 방지
+						if (!currentPath.endsWith(".html") && !currentPath.endsWith("/")) {
+							currentPath += ".html";
+						}
+						// Netlify /index.html(/)
+						if (currentPath === '/' || currentPath === '/index.html') {
+							currentPath = '/index.html';
+						}
+						console.log("Current Path:", currentPath);
+			
+						if (currentPath === '/index.html') {
+							document.querySelectorAll('.link_1_0').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath.startsWith('/pages/travel')) {
+							document.querySelectorAll('.link_2_0').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/info/space_info.html') {
+							document.querySelectorAll('.link_3_0').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/info/space_info_1.html') {
+							document.querySelectorAll('.link_3_0').forEach(e => {
+								e.classList.add('active');
+							});
+							document.querySelectorAll('.link_3_1').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/info/space_info_2.html') {
+							document.querySelectorAll('.link_3_0').forEach(e => {
+								e.classList.add('active');
+							});
+							document.querySelectorAll('.link_3_2').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/info/space_info_3.html') {
+							document.querySelectorAll('.link_3_0').forEach(e => {
+								e.classList.add('active');
+							});
+							document.querySelectorAll('.link_3_3').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/info/news.html') {
+							document.querySelectorAll('.link_3_0').forEach(e => {
+								e.classList.add('active');
+							});
+							document.querySelectorAll('.link_3_4').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/store/store.html') { // 필터링 기능 추가 후 수정
+							document.querySelectorAll('.link_4_0').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/support/support.html') {
+							document.querySelectorAll('.link_5_0').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/support/notice.html') {
+							document.querySelectorAll('.link_5_0').forEach(e => {
+								e.classList.add('active');
+							});
+							document.querySelectorAll('.link_5_1').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/support/faq.html') {
+							document.querySelectorAll('.link_5_0').forEach(e => {
+								e.classList.add('active');
+							});
+							document.querySelectorAll('.link_5_2').forEach(e => {
+								e.classList.add('active');
+							});
+						} else if (currentPath === '/pages/support/contact.html') {
+							document.querySelectorAll('.link_5_0').forEach(e => {
+								e.classList.add('active');
+							});
+							document.querySelectorAll('.link_5_3').forEach(e => {
+								e.classList.add('active');
+							});
+						} else  {
+							document.querySelectorAll('.link_1_0').forEach(e => {
+								e.classList.add('active');
+							});
+						}
 						
 					})
 					.fail(function (xhr, status, error) {
@@ -589,165 +672,6 @@
 			}
 		});
 	  
-		/* 현재 페이지 표시 */
-		function activateCurrentTab() {
-			let currentPath = window.location.pathname;
-			// Netlify .html 누락 방지
-			if (!currentPath.endsWith(".html") && !currentPath.endsWith("/")) {
-				currentPath += ".html";
-			}
-			// Netlify /index.html(/)
-			if (currentPath === '/' || currentPath === '/index.html') {
-				currentPath = '/index.html';
-			}
-			console.log("Current Path:", currentPath);
-		
-		  	// 대분류 및 소분류 정의
-		  	const tabs = [
-				{
-				path: "/index.html",
-				pcSelector: ".home-link",
-				mobileSelector: ".mobile-home-link",
-				},
-				{
-				path: "/pages/travel/",
-				pcSelector: ".travel-link",
-				mobileSelector: ".mobile-travel-link",
-				},
-				{
-				path: "/pages/info/",
-				pcSelector: ".info-link",
-				mobileSelector: ".mobile-info-button",
-				subPaths: [
-					"/pages/info/space_info_1.html",
-					"/pages/info/space_info_2.html",
-					"/pages/info/space_info_3.html",
-					"/pages/info/news.html",
-				],
-				},
-				{
-				path: "/pages/store/",
-				pcSelector: ".store-link",
-				mobileSelector: ".mobile-store-link",
-				},
-				{
-				path: "/pages/support/",
-				pcSelector: ".support-link",
-				mobileSelector: ".mobile-support-button", // 소분류가 있는 모바일 대분류는 button
-				subPaths: [
-					"/pages/support/notice.html",
-					"/pages/support/faq.html",
-					"/pages/support/contact.html",
-				],
-				},
-		  	];
-	  
-		  	// PC 대분류 처리
-			tabs.forEach(tab => {
-				const pcLink = document.querySelector(tab.pcSelector);
-	
-				if (tab.subPaths) {
-					// 소분류를 포함한 대분류
-					const isSubPathActive = tab.subPaths.some(subPath => 
-						currentPath === subPath || currentPath === subPath.replace(".html", "")
-					);
-					if ((currentPath.startsWith(tab.path) || isSubPathActive) && pcLink) {
-						pcLink.classList.add("active");
-						console.log(`Active class added to PC tab: ${tab.pcSelector}`);
-					}
-				} else {
-					// 소분류가 없는 대분류
-					if (pcLink && (currentPath.startsWith(tab.path) || currentPath === tab.path.replace(".html", ""))) {
-						pcLink.classList.add("active");
-						console.log(`Active class added to PC tab: ${tab.pcSelector}`);
-					}
-				}
-			});
-
-			// 소분류 활성화
-			tabs.forEach(tab => {
-				if (tab.subPaths) {
-					tab.subPaths.forEach(subPath => {
-						if (currentPath === subPath || currentPath === subPath.replace(".html", "")) {
-							const subLink = document.querySelector(`[href="${subPath}"]`);
-							if (subLink) {
-								subLink.classList.add("active");
-								console.log(`Active class added to sub-tab: ${subPath}`);
-							}
-	
-							// 대분류도 활성화
-							const pcLink = document.querySelector(tab.pcSelector);
-							if (pcLink) {
-								pcLink.classList.add("active");
-								console.log(`Active class added to PC parent tab: ${tab.pcSelector}`);
-							}
-						}
-					});
-				}
-			});
-
-
-		 	// 모바일 대분류 처리
-			 tabs.forEach(tab => {
-				const mobileLink = document.querySelector(tab.mobileSelector);
-	
-				if (mobileLink) {
-					if (mobileLink.tagName === "BUTTON") {
-						// 모바일에서 button으로 된 대분류 처리 (소분류 있는 페이지)
-						const isSubPathActive = tab.subPaths
-							? tab.subPaths.some(subPath => currentPath === subPath || currentPath === subPath.replace(".html", ""))
-							: false;
-	
-						if (currentPath.startsWith(tab.path) || isSubPathActive) {
-							mobileLink.classList.add("active");
-							console.log(`Active class added to mobile button: ${tab.mobileSelector}`);
-						}
-	
-						// 모바일 소분류 활성화
-						if (tab.subPaths) {
-							tab.subPaths.forEach(subPath => {
-								if (currentPath === subPath || currentPath === subPath.replace(".html", "")) {
-									const mobileSubLink = document.querySelector(`[href="${subPath}"]`);
-									if (mobileSubLink) {
-										mobileSubLink.classList.add("active");
-										console.log(`Active class added to mobile sub-tab: ${subPath}`);
-									}
-								}
-							});
-						}
-					} else if (mobileLink.tagName === "A") {
-						// 모바일에서 a태그로 된 대분류 처리 (소분류 없는 페이지)
-						if (currentPath.startsWith(tab.path) || currentPath === tab.path.replace(".html", "")) {
-							mobileLink.classList.add("active");
-							console.log(`Active class added to mobile link: ${tab.mobileSelector}`);
-						}
-					}
-				}
-			});
-
-			// 서브메뉴 및 상위메뉴 활성화
-			$('.accordion-link').each(function () {
-				var linkPath = $(this).attr('href').split('?')[0];
-	
-				if (currentPath === linkPath || currentPath === linkPath.replace(".html", "")) {
-					$(this).addClass('active');
-					$(this).closest('.accordion-collapse').addClass('show');
-					$(this).closest('.accordion-item').find('.accordion-button').addClass('active');
-				}
-			});
-		
-			// Bootstrap Collapse 이벤트로 동적 활성화 관리
-			$(document).on('show.bs.collapse', '.accordion-collapse', function () {
-				$(this).closest('.accordion-item').find('.accordion-button').addClass('active');
-			});
-		
-			$(document).on('hide.bs.collapse', '.accordion-collapse', function () {
-				$(this).closest('.accordion-item').find('.accordion-button').removeClass('active');
-			});		
-
-		}
-
-		
 		
 		/* 테마 상태 복원 */
 		const savedTheme = sessionStorage.getItem('theme');
