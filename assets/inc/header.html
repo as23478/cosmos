@@ -121,7 +121,7 @@
                 </ul>
                 <div class="others-option d-flex align-items-center">
                     <div class="option-item nav-custom theme-switcher"></div>
-                    <div class="option-item language-switcher-pc">KR</div>
+                    <div class="option-item language-switcher-pc"><span class="kr">KR</span><span class="en">EN</span></div>
                     <div class="option-item">
                         <a href="/pages/mypage.html" class="mypage-button"><i class="bx bx-user"></i></a>
                     </div>
@@ -277,6 +277,7 @@
 
 
 <script>
+    /* 테마 */
     const themeBtns = document.querySelectorAll('.theme-switcher');
     themeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -285,6 +286,7 @@
             /* sessionStorage */
             const themeState = document.body.classList.contains('dark-theme');
             sessionStorage.setItem('theme', themeState); // true: dark-theme
+            console.log('테마 상태 저장: ', themeState);
             
         });
     });
@@ -296,18 +298,17 @@
 
     if(langBtnPc) {
         langBtnPc.addEventListener('click', function() {
-            const currentLanguage = this.textContent.trim();
-            const newLanguage = currentLanguage === "KR" ? "EN" : "KR";
+            const langKr = this.querySelector('.kr');
+            const langEn = this.querySelector('.en');
+
+            const currentLanguage = document.body.classList.contains('kr') ? 'kr' : 'en';
+            const newLanguage = currentLanguage === "kr" ? "en" : "kr";
         
-            // 버튼 텍스트 변경
-            this.textContent = newLanguage;
-        
-            // 언어 설정 변경
             document.body.classList.remove("kr", "en");
-            document.body.classList.add(newLanguage.toLowerCase());
+            document.body.classList.add(newLanguage);
 
             /* sessionStorage */
-            sessionStorage.setItem('language', newLanguage.toLowerCase()); //KR, EN
+            sessionStorage.setItem('language', newLanguage); //kr, en
             console.log('언어 상태 저장: ', newLanguage);
             
         });
