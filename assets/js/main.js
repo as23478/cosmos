@@ -659,11 +659,11 @@
 							document.querySelectorAll('.link_5_3').forEach(e => {
 								e.classList.add('active');
 							});
-						} else  {
+						} /* else  {
 							document.querySelectorAll('.link_1_0').forEach(e => {
 								e.classList.add('active');
 							});
-						}
+						} */
 						
 					})
 					.fail(function (xhr, status, error) {
@@ -696,6 +696,21 @@
 		
 		
 	});
+
+
+	/* 모바일 메뉴창 외부 클릭 감지 */
+	document.addEventListener("click", function(event) {
+		const menu = document.querySelector(".responsive-navbar.offcanvas.show");
+		const closeButton = document.querySelector(".responsive-navbar .btn-close"); // 닫기 버튼(부트스트랩 기능)
+	
+		if (menu && !menu.contains(event.target) && closeButton) {
+			closeButton.click();
+		}
+	});
+	
+	
+	
+	
 
 
 

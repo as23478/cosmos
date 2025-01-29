@@ -34,7 +34,7 @@
                             <span class="kr">우주정보</span>
                             <span class="en">SpaceInfo</span>
                         </a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu custom-w500">
                             <ul class="">
                                 <li class="nav-item">
                                     <a href="/pages/info/space_info_1.html" class="nav-link sub-link-pc link_3_1">
@@ -69,7 +69,7 @@
                             <span class="kr">스토어</span>
                             <span class="en">Store</span>
                         </a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu custom-w480">
                             <ul class="">
                                 <li class="nav-item">
                                     <a href="/pages/store/store.html" class="nav-link sub-link-pc link_4_1">
@@ -136,7 +136,7 @@
 <div class="responsive-navbar offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="navbarOffcanvas">
     <div class="offcanvas-header">
         <div class="language-switcher-mo">
-            <p><span class="lang_1 active">KR</span> <span class="lang_2">EN</span></p>
+            <p><span class="lang_1">KR</span> <span class="lang_2">EN</span></p>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -185,7 +185,7 @@
                             <div class="accordion-item">
                                 <a href="/pages/info/news.html" class="accordion-link mobile-news-link link_3_4">
                                     <span class="kr">뉴스</span>
-                                    <span class="en">뉴스</span>
+                                    <span class="en">News</span>
                                 </a>
                             </div>
                         </div>
@@ -261,6 +261,11 @@
             </div>
         </div>
         <div class="offcanvas-contact-info">
+            <a href="/pages/mypage.html">
+                <h4><i class="bx bx-user"></i><span class="kr">마이페이지</span><span class="en">MyPage</span></h4>
+            </a>
+        </div>
+        <div class="offcanvas-contact-info">
             <h4>Follow On</h4>
             <ul class="social-profile list-style">
                 <li><a href="https://www.facebook.com/" target="_blank"><i class='bx bxl-facebook'></i></a></li>
@@ -294,8 +299,6 @@
 
     /* 언어 */
     const langBtnPc = document.querySelector('.language-switcher-pc');
-    const langBtnMo = document.querySelector('.language-switcher-mo');
-
     if(langBtnPc) {
         langBtnPc.addEventListener('click', function() {
             const langKr = this.querySelector('.kr');
@@ -313,5 +316,26 @@
             
         });
     }
+
+    document.querySelector('.lang_1').addEventListener('click', () => {
+        if (document.body.classList.contains('en')) {
+            document.body.classList.remove('en');
+            document.body.classList.add('kr');
+
+            /* sessionStorage */
+            sessionStorage.setItem('language', 'kr');
+            console.log('언어 상태 저장: kr');
+        }
+    })
+    document.querySelector('.lang_2').addEventListener('click', () => {
+        if (document.body.classList.contains('kr')) {
+            document.body.classList.remove('kr');
+            document.body.classList.add('en');
+
+            /* sessionStorage */
+            sessionStorage.setItem('language', 'en');
+            console.log('언어 상태 저장: en');
+        }
+    })
 
 </script>

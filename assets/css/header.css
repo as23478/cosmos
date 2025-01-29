@@ -640,11 +640,16 @@
   }
 }/*# sourceMappingURL=header.css.map */
 
+
+/* 내비게이션 이미지 */
 @media only screen and (max-width: 1310px) {
   .navbar-area .navbar .navbar-nav .nav-item .dropdown-menu { width: 230px; }
   .navbar-area .navbar .navbar-nav .nav-item .dropdown-menu img { display: none; }
 }
-
+@media only screen and (min-width: 1311px) {
+  body.en .navbar-area .navbar .navbar-nav .nav-item .dropdown-menu.custom-w500 { width: 500px; }
+  body.en .navbar-area .navbar .navbar-nav .nav-item .dropdown-menu.custom-w480 { width: 480px; }
+}
 
 
 /* 테마 */
@@ -662,10 +667,19 @@
   color: #7A7A7A;
   font-size: 18px;
 }
-.language-switcher-mo .active {
+/* .language-switcher-mo .active {
+  color: var(--whiteColor);
+  text-decoration: underline;
+} */
+body.kr .lang_1, body.en .lang_2 {
   color: var(--whiteColor);
   text-decoration: underline;
 }
 .language-switcher-mo .lang_1 {
+  margin-right: 10px; 
+}
+
+/* 모바일 마이페이지 버튼 */
+.responsive-navbar .offcanvas-body .offcanvas-contact-info i {
   margin-right: 10px;
 }
