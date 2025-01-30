@@ -749,6 +749,14 @@
 				activateTab(button);
 			}
 		}
+
+
+
+		/* 영상 로딩 속도 최적화 */
+		const videos = document.querySelectorAll(".lazy-video source");
+        videos.forEach(video => {
+            video.src = video.getAttribute("data-src"); // 나중에 로드
+        });
 		
 		
 	});
