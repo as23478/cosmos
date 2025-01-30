@@ -437,29 +437,27 @@
 
 
 
-/* 우주정보 페이지 - 탭 전환 기능 */
-	document.querySelectorAll('.info-tab-btn').forEach(button => {
-		button.addEventListener('click', () => {
-			const tabName = button.getAttribute('data-tab');
+/* 우주정보 하위페이지 - 탭 전환 함수 */
+	function activateTab(button) {
+		const tabName = button.getAttribute('data-tab');
 
-			// 모든 콘텐츠 숨기기
-			document.querySelectorAll('.info-tabs').forEach(content => {
-				content.classList.remove('active');
-			});
-
-			// 모든 버튼에서 active 제거
-			document.querySelectorAll('.info-tab-btn').forEach(btn => {
-				btn.classList.remove('active');
-			});
-
-			// 선택된 콘텐츠와 버튼 활성화
-			document.getElementById(tabName).classList.add('active');
-			button.classList.add('active');
-
-			// 배너 업데이트
-			updateBanner(tabName);
+		// 모든 콘텐츠 숨기기
+		document.querySelectorAll('.info-tabs').forEach(content => {
+			content.classList.remove('active');
 		});
-	});
+
+		// 모든 버튼에서 active 제거
+		document.querySelectorAll('.info-tab-btn').forEach(btn => {
+			btn.classList.remove('active');
+		});
+
+		// 선택된 콘텐츠와 버튼 활성화
+		document.getElementById(tabName).classList.add('active');
+		button.classList.add('active');
+
+		// 배너 업데이트
+		updateBanner(tabName);
+	}
 
 /* 배너 내용 업데이트 */
 	function updateBanner(tabName) {
@@ -557,6 +555,47 @@
 	// 	};
 	// 	filterList.init();
 	// });
+
+
+	
+	  
+	/* 챗봇 */
+	const chatBotButton = document.querySelector('.chat-bot');
+
+	// 툴팁 생성
+	chatBotButton.addEventListener('mouseenter', () => {
+	  const chatBotTooltip = document.createElement('span');
+	  chatBotTooltip.className = 'chatBotTooltip';
+	  chatBotTooltip.innerText = 'Open Chatbot';
+	  chatBotButton.appendChild(chatBotTooltip);
+	});
+	
+	// 툴팁 제거
+	chatBotButton.addEventListener('mouseleave', () => {
+	  const chatBotTooltip = chatBotButton.querySelector('.chatBotTooltip');
+	  if (chatBotTooltip) {
+		chatBotButton.removeChild(chatBotTooltip);
+	  }
+	});
+
+	chatBotButton.addEventListener('click', () => {
+		const width = 400;
+		const height = 846;
+
+		// 화면 중앙
+		const left = (window.screen.width / 2) - (width / 2);
+		const top = (window.screen.height / 2) - (height / 2);
+		// 새 창 열기
+		const chatbotWindow = window.open(
+			"/pages/chatbot.html", // 챗봇 내용을 표시할 HTML 파일 경로
+			"Chatbot", // 창 이름
+			`width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
+		);
+		
+			if (!chatbotWindow) {
+				alert("팝업 차단이 활성화되어 있습니다. 팝업 차단을 해제해주세요.");
+		  	}
+	});
 
 
 
@@ -693,12 +732,30 @@
 			console.log('기본 언어 유지: kr');
 		}
 
+
+
+		/* 우주정보 하위페이지 - 탭 전환 기능 */
+		$('.info-tab-btn').each(function() {
+			$(this).on('click', function() {
+				activateTab(this);
+			});
+		});
+	
+		// 우주정보 메인페이지 -> 하위페이지 이동
+		const hash = window.location.hash.substring(1);
+		if (hash) {
+			const button = document.querySelector(`.info-tab-btn[data-tab="${hash}"]`);
+			if (button) {
+				activateTab(button);
+			}
+		}
 		
 		
 	});
+	
 
 
-	/* 모바일 메뉴창 외부 클릭 감지 */
+/* 모바일 메뉴창 외부 클릭 감지 */
 	document.addEventListener("click", function(event) {
 		const menu = document.querySelector(".responsive-navbar.offcanvas.show");
 		const closeButton = document.querySelector(".responsive-navbar .btn-close"); // 닫기 버튼(부트스트랩 기능)
@@ -709,146 +766,50 @@
 	});
 	
 	
-	
-	
-
-
 
 
 	
-	  
-	  
-  
-  
-  
-	/* 챗봇 */
-	const chatBotButton = document.querySelector('.chat-bot');
 
-	// 툴팁 생성
-	chatBotButton.addEventListener('mouseenter', () => {
-	  const chatBotTooltip = document.createElement('span');
-	  chatBotTooltip.className = 'chatBotTooltip';
-	  chatBotTooltip.innerText = 'Open Chatbot';
-	  chatBotButton.appendChild(chatBotTooltip);
-	});
 	
-	// 툴팁 제거
-	chatBotButton.addEventListener('mouseleave', () => {
-	  const chatBotTooltip = chatBotButton.querySelector('.chatBotTooltip');
-	  if (chatBotTooltip) {
-		chatBotButton.removeChild(chatBotTooltip);
-	  }
-	});
-
-	chatBotButton.addEventListener('click', () => {
-		const width = 400;
-		const height = 846;
-
-		// 화면 중앙
-		const left = (window.screen.width / 2) - (width / 2);
-		const top = (window.screen.height / 2) - (height / 2);
-		// 새 창 열기
-		const chatbotWindow = window.open(
-			"/pages/chatbot.html", // 챗봇 내용을 표시할 HTML 파일 경로
-			"Chatbot", // 창 이름
-			`width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
-		);
-		
-			if (!chatbotWindow) {
-				alert("팝업 차단이 활성화되어 있습니다. 팝업 차단을 해제해주세요.");
-		  	}
-	});
-
-
-
-
-	$(".price_slider").slider({
-        range: true,
-        min: 10,
-        max: 100,
-        values: [10, 75],
-        slide: function (event, ui) {
-          $(".from").text("$" + ui.values[0]);
-          $(".to").text("$" + ui.values[1]);
-        }
-      });
-      $(".from").text("$" + $(".price_slider").slider("values", 0));
-      $(".to").text("$" + $(".price_slider").slider("values", 1));
+	/* 배너 업데이트 + 화면 위로 스크롤 */
 	
 
 
+	// $(".price_slider").slider({
+    //     range: true,
+    //     min: 10,
+    //     max: 100,
+    //     values: [10, 75],
+    //     slide: function (event, ui) {
+    //       $(".from").text("$" + ui.values[0]);
+    //       $(".to").text("$" + ui.values[1]);
+    //     }
+    //   });
+    //   $(".from").text("$" + $(".price_slider").slider("values", 0));
+    //   $(".to").text("$" + $(".price_slider").slider("values", 1));
 
 
-
-/* 마이페이지 - 탭 전환 기능 */
-	document.querySelectorAll('.tab-btn').forEach(button => {
-		button.addEventListener('click', () => {
-			const tabName = button.getAttribute('data-tab');
-
-			// 모든 콘텐츠 숨기기
-			document.querySelectorAll('.mypage-tabs').forEach(content => {
-				content.classList.remove('active');
-			});
-
-			// 모든 버튼에서 active 제거
-			document.querySelectorAll('.tab-btn').forEach(btn => {
-				btn.classList.remove('active');
-			});
-
-			// 선택된 콘텐츠와 버튼 활성화
-			document.getElementById(tabName).classList.add('active');
-			button.classList.add('active');
-		});
-	});
-
-	// 초기화: PC에서만 첫 번째 탭 활성화
-	function initializeTabs() {
-		const isPC = window.innerWidth >= 992; // PC 기준 너비
-		const firstTab = document.querySelector('.tab-btn[data-tab="account-tab"]');
-		const allTabs = document.querySelectorAll('.mypage-tabs');
-		const allButtons = document.querySelectorAll('.tab-btn');
-		// const tabButtons = document.querySelectorAll('.mypage-categories');
-		// const iconElement = document.querySelector('.bx-user');
-		const pcMypageTitle = document.querySelector('.widget_custom');
-		const mobileMypageTitle = document.querySelector('#mypage-title');
-
-		if (isPC && firstTab) {
-			// PC: 첫 번째 탭 활성화
-			const firstTabName = firstTab.getAttribute('data-tab');
-			allTabs.forEach(content => content.classList.remove('active'));
-			document.getElementById(firstTabName).classList.add('active');
-			// tabButtons.forEach(content => content.classList.add('active'));
-
-			// 버튼 활성화
-			allButtons.forEach(btn => btn.classList.remove('active'));
-			firstTab.classList.add('active');
-
-			// 타이틀
-			pcMypageTitle.classList.add('active');
-			mobileMypageTitle.classList.remove('active');
-		} else {
-			// 모바일: 모든 탭과 버튼 숨김
-			allTabs.forEach(content => content.classList.remove('active'));
-			allButtons.forEach(btn => btn.classList.remove('active'));
-			
-			// 사이드바
-			// tabButtons.forEach(content => content.classList.remove('active'));
-
-			// 타이틀
-			pcMypageTitle.classList.remove('active');
-			mobileMypageTitle.classList.add('active');
+	
+/* 스크롤 관련 */
+	window.onload = function() {
+		// 1. 브라우저 기본 해시 이동 방지 (URL에서 해시(#) 제거)
+		if (window.location.hash) {
+			history.replaceState(null, null, window.location.pathname + window.location.search);
 		}
-	}
-
-	// 초기화 실행
-	initializeTabs();
-
-	// 화면 크기 변경 시 다시 초기화
-	window.addEventListener('resize', initializeTabs);
-
-
-
-
+	
+		// 2. 강제로 최상단 이동
+		window.scrollTo(0, 0);
+	
+		// 3. 해시값 기반 탭 활성화
+		const hash = window.location.hash.substring(1);
+		if (hash) {
+			const button = document.querySelector(`.info-tab-btn[data-tab="${hash}"]`);
+			if (button) {
+				activateTab(button);
+			}
+		}
+	};
+	
 
 	
 
