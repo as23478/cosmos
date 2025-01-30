@@ -462,5 +462,21 @@
         <script src="/assets/js/smooth-scroll.js"></script>
 
         <script src="/assets/js/main.js"></script>
+
+
+        <script>
+            $(".price_slider").slider({
+                range: true,
+                min: 10,
+                max: 100,
+                values: [10, 75],
+                slide: function (event, ui) {
+                $(".from").text("$" + ui.values[0]);
+                $(".to").text("$" + ui.values[1]);
+                }
+            });
+            $(".from").text("$" + $(".price_slider").slider("values", 0));
+            $(".to").text("$" + $(".price_slider").slider("values", 1));
+        </script>
     </body>
 </html>

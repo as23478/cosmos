@@ -770,37 +770,19 @@
 
 	
 
-	
-	/* 배너 업데이트 + 화면 위로 스크롤 */
-	
-
-
-	// $(".price_slider").slider({
-    //     range: true,
-    //     min: 10,
-    //     max: 100,
-    //     values: [10, 75],
-    //     slide: function (event, ui) {
-    //       $(".from").text("$" + ui.values[0]);
-    //       $(".to").text("$" + ui.values[1]);
-    //     }
-    //   });
-    //   $(".from").text("$" + $(".price_slider").slider("values", 0));
-    //   $(".to").text("$" + $(".price_slider").slider("values", 1));
-
 
 	
 /* 스크롤 관련 */
 	window.onload = function() {
-		// 1. 브라우저 기본 해시 이동 방지 (URL에서 해시(#) 제거)
+		// URL에서 해시(#) 제거 + Netlify 오류 관련
 		if (window.location.hash) {
-			history.replaceState(null, null, window.location.pathname + window.location.search);
+			requestAnimationFrame(() => {
+				history.replaceState(null, null, window.location.pathname + window.location.search);
+				window.scrollTo(0, 0);
+			});
 		}
 	
-		// 2. 강제로 최상단 이동
-		window.scrollTo(0, 0);
-	
-		// 3. 해시값 기반 탭 활성화
+		// 해시값 기반 탭 활성화
 		const hash = window.location.hash.substring(1);
 		if (hash) {
 			const button = document.querySelector(`.info-tab-btn[data-tab="${hash}"]`);
