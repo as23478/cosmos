@@ -457,6 +457,11 @@
 
 		// 배너 업데이트
 		updateBanner(tabName);
+
+		// sessionStorage
+		sessionStorage.setItem('tab', tabName);
+		console.log('현재 탭 저장: ', tabName);
+		
 	}
 
 /* 배너 내용 업데이트 */
@@ -484,6 +489,73 @@
 			}
 		}
 	}
+
+
+
+/* 마이페이지 - 탭 전환 함수 */
+	function activateTab_mypage(button) {
+		const tabName = button.getAttribute('data-tab');
+
+		// 모든 콘텐츠 숨기기
+		document.querySelectorAll('.mypage-tabs').forEach(content => {
+			content.classList.remove('active');
+		});
+	
+		// 모든 버튼에서 active 제거
+		document.querySelectorAll('.tab-btn').forEach(btn => {
+			btn.classList.remove('active');
+		});
+	
+		// 선택된 콘텐츠와 버튼 활성화
+		document.getElementById(tabName).classList.add('active');
+		button.classList.add('active');
+	
+		// sessionStorage
+		sessionStorage.setItem('tab', button.dataset.tab);
+		console.log('현재 탭 저장: ', button.dataset.tab);
+	}
+
+	// 마이페이지 초기화 함수: PC에서만 첫 번째 탭 활성화
+	function initializeTabs() {
+		const isPC = window.innerWidth >= 992; // PC 기준 너비
+		const firstTab = document.querySelector('.tab-btn[data-tab="account-tab"]');
+		const allTabs = document.querySelectorAll('.mypage-tabs');
+		const allButtons = document.querySelectorAll('.tab-btn');
+		// const tabButtons = document.querySelectorAll('.mypage-categories');
+		// const iconElement = document.querySelector('.bx-user');
+		const pcMypageTitle = document.querySelector('.widget_custom');
+		const mobileMypageTitle = document.querySelector('#mypage-title');
+
+		if (isPC && firstTab) {
+			// PC: 첫 번째 탭 활성화
+			const firstTabName = firstTab.getAttribute('data-tab');
+			allTabs.forEach(content => content.classList.remove('active'));
+			document.getElementById(firstTabName).classList.add('active');
+			// tabButtons.forEach(content => content.classList.add('active'));
+
+			// 버튼 활성화
+			allButtons.forEach(btn => btn.classList.remove('active'));
+			firstTab.classList.add('active');
+
+			// 타이틀
+			pcMypageTitle.classList.add('active');
+			mobileMypageTitle.classList.remove('active');
+		} else {
+			// 모바일: 모든 탭과 버튼 숨김
+			allTabs.forEach(content => content.classList.remove('active'));
+			allButtons.forEach(btn => btn.classList.remove('active'));
+			
+			// 사이드바
+			// tabButtons.forEach(content => content.classList.remove('active'));
+
+			// 타이틀
+			pcMypageTitle.classList.remove('active');
+			mobileMypageTitle.classList.add('active');
+		}
+	}
+
+	
+
 
 
 
@@ -562,40 +634,42 @@
 	/* 챗봇 */
 	const chatBotButton = document.querySelector('.chat-bot');
 
-	// 툴팁 생성
-	chatBotButton.addEventListener('mouseenter', () => {
-	  const chatBotTooltip = document.createElement('span');
-	  chatBotTooltip.className = 'chatBotTooltip';
-	  chatBotTooltip.innerText = 'Open Chatbot';
-	  chatBotButton.appendChild(chatBotTooltip);
-	});
-	
-	// 툴팁 제거
-	chatBotButton.addEventListener('mouseleave', () => {
-	  const chatBotTooltip = chatBotButton.querySelector('.chatBotTooltip');
-	  if (chatBotTooltip) {
-		chatBotButton.removeChild(chatBotTooltip);
-	  }
-	});
-
-	chatBotButton.addEventListener('click', () => {
-		const width = 400;
-		const height = 846;
-
-		// 화면 중앙
-		const left = (window.screen.width / 2) - (width / 2);
-		const top = (window.screen.height / 2) - (height / 2);
-		// 새 창 열기
-		const chatbotWindow = window.open(
-			"/pages/chatbot.html", // 챗봇 내용을 표시할 HTML 파일 경로
-			"Chatbot", // 창 이름
-			`width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
-		);
+	if(chatBotButton) {
+		// 툴팁 생성
+		chatBotButton.addEventListener('mouseenter', () => {
+		  const chatBotTooltip = document.createElement('span');
+		  chatBotTooltip.className = 'chatBotTooltip';
+		  chatBotTooltip.innerText = 'Open Chatbot';
+		  chatBotButton.appendChild(chatBotTooltip);
+		});
 		
-			if (!chatbotWindow) {
-				alert("팝업 차단이 활성화되어 있습니다. 팝업 차단을 해제해주세요.");
-		  	}
-	});
+		// 툴팁 제거
+		chatBotButton.addEventListener('mouseleave', () => {
+		  const chatBotTooltip = chatBotButton.querySelector('.chatBotTooltip');
+		  if (chatBotTooltip) {
+			chatBotButton.removeChild(chatBotTooltip);
+		  }
+		});
+	
+		chatBotButton.addEventListener('click', () => {
+			const width = 400;
+			const height = 846;
+	
+			// 화면 중앙
+			const left = (window.screen.width / 2) - (width / 2);
+			const top = (window.screen.height / 2) - (height / 2);
+			// 새 창 열기
+			const chatbotWindow = window.open(
+				"/pages/chatbot.html", // 챗봇 내용을 표시할 HTML 파일 경로
+				"Chatbot", // 창 이름
+				`width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
+			);
+			
+				if (!chatbotWindow) {
+					alert("팝업 차단이 활성화되어 있습니다. 팝업 차단을 해제해주세요.");
+				  }
+		});
+	}
 
 
 
@@ -703,7 +777,7 @@
 								e.classList.add('active');
 							});
 						} */
-						
+
 					})
 					.fail(function (xhr, status, error) {
 						console.error(`Error loading file: ${filePath} - ${error}`);
@@ -733,6 +807,39 @@
 		}
 
 
+		// 초기화 실행
+		if(document.body.classList.contains('my')) {
+			initializeTabs();
+		}
+
+		/* 탭 복원 */
+		const savedTab = sessionStorage.getItem('tab');
+		console.log('저장된 탭 복원. savedTab: ', savedTab);
+
+		if(savedTab.includes('info_')) {
+			let targetButton = $('.info-tab-btn[data-tab="' + savedTab + '"]');
+			console.log('targetButton: ', targetButton);
+			console.log('targetButton.length: ', targetButton.length);
+			console.log('targetButton.get(0): ', targetButton.get(0));
+        
+			if (targetButton.length) {
+				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
+				activateTab(targetButton.get(0)); // 첫 번째 요소를 넘김
+			}
+		} else if(savedTab.includes('-tab')) {
+			let targetButton = $('.tab-btn[data-tab="' + savedTab + '"]');
+			console.log('targetButton: ', targetButton);
+			console.log('targetButton.length: ', targetButton.length);
+			console.log('targetButton.get(0): ', targetButton.get(0));
+        
+			if (targetButton.length) {
+				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
+				activateTab_mypage(targetButton.get(0)); // 첫 번째 요소를 넘김
+			}
+		}
+		
+
+
 
 		/* 우주정보 하위페이지 - 탭 전환 기능 */
 		$('.info-tab-btn').each(function() {
@@ -742,13 +849,33 @@
 		});
 	
 		// 우주정보 메인페이지 -> 하위페이지 이동
-		const hash = window.location.hash.substring(1);
+		const hash = window.location.hash.substring(1); // '#' 제거
+		console.log('hash: ', hash);
+		
 		if (hash) {
 			const button = document.querySelector(`.info-tab-btn[data-tab="${hash}"]`);
 			if (button) {
 				activateTab(button);
 			}
+
+			// 마이페이지 탭 활성화 (mypage-tabs, tab-btn)
+			const $mypageTab = $('#' + hash);
+			if ($mypageTab.length) {
+				$('.mypage-tabs').removeClass('active');
+				$('.tab-btn').removeClass('active');
+	
+				$mypageTab.addClass('active');
+				$('.tab-btn[data-tab="' + hash + '"]').addClass('active');
+			}
 		}
+
+
+		/* 마이페이지 - 탭 전환 기능 */
+		$('.tab-btn').each(function() {
+			$(this).on('click', function() {
+				activateTab_mypage(this);
+			});
+		})
 
 
 

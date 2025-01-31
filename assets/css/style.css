@@ -49,6 +49,7 @@ Default CSS
   --inputField: #EDEDED;
   --sidebarBg: #FAFAFA;
   --sidebarTag: #E0E0E0;
+  --sidebarLine: #E9E9E9;
   --navBg: #ffffff;
   --navLine : #ffffff;
   --borderColor: #B9B9BA;
@@ -64,6 +65,7 @@ body.dark-theme {
   --inputField: #23242C;
   --sidebarBg: #1A1B22;
   --sidebarTag: #262732;
+  --sidebarLine: #1A1B22;
   --navBg: #05051E43;
   --navLine: #10131a;
   --borderColor: #333333;
@@ -649,6 +651,12 @@ Hero Area 2 CSS
   font-size: 64px;
   font-weight: 700;
   color: var(--whiteColor);
+}
+@media only screen and (max-width: 1000px) {
+  .hero-content-2 h2 .sub-head {font-size: 58px;}
+}
+@media only screen and (max-width: 767px) {
+  .hero-content-2 h2 .sub-head {font-size: 48px;}
 }
 
 .hero-content-2 h2 span{
@@ -2487,7 +2495,7 @@ Blog Area CSS
 }
 
 .blog-card .blog-info h3 a {
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-size: 28px;
 }
 
@@ -2496,7 +2504,7 @@ Blog Area CSS
 }
 
 .blog-card .blog-info .btn-link {
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-size: 18px;
 }
 
@@ -3363,7 +3371,7 @@ Service Area CSS
   font-size: 24px;
   margin-bottom: 5px;
   line-height: 31px;
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .process-wrap .process-content .process-item-wrap .process-item .process-info p {
@@ -3578,13 +3586,13 @@ Section Banner Area CSS
   background-image: url(../img/banner/section-bg-1.png);
 }
 .sbg-2{
-  background-image: url(../img/banner/section-bg-2.png);
+  background-image: url(../img/banner/section-bg-2.jpg);
 }
 .sbg-3{
-  background-image: url(../img/banner/info2_bg.png);
+  background-image: url(../img/banner/store-section-bg.jpg);
 }
 .sbg-4{
-  background-image: url(../img/banner/info1_bg.png);
+  background-image: url(../img/banner/info-section-bg.jpg);
 }
 .sbg-5{
   background-image: url(../img/banner/section-bg-5.png);
@@ -4973,6 +4981,7 @@ Products Area CSS
   border-radius: 5px;
   padding: 10px;
   margin: 0 0 24px 0;
+  border: 1px solid var(--sidebarLine);
 }
 
 .grid-sorting .result-count p {
@@ -5191,12 +5200,12 @@ Contact Area CSS
 
 .contact-content h2 {
   font-size: 55px;
-  color: var(--whiteColor);
+  color: var(--textColor);
   margin-bottom: 30px;
 }
 
 .contact-content p{
-  color: var(--paragraphColorSecond);
+  color: var(--subtextColor);
 }
 
 .contact-content {
@@ -5260,23 +5269,23 @@ Contact Area CSS
 }
 
 .contact-content p {
-  color: var(--paragraphColorSecond);
+  color: var(--subtextColor);
   font-size: 18px;
 }
 
 .contact-info-box i {
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-size: 40px;
   display: block;
   margin-bottom: 50px;
 }
 .contact-info-box h4 {
-  color: var(--whiteColor);
+  color: var(--textColor);
   margin-bottom: 12px;
 }
 
 .contact-info-box h4 a{
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-size: 20px;
 }
 
@@ -6021,22 +6030,29 @@ Login Page CSS
   color: var(--whiteColor);
 }
 
+.login-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
 .pass-btn {
   display: block;
-  color:  var(--mainColor2);
+  color:  var(--textColor);
   text-align: start;
   font-size: 13px;
   margin-bottom: 30px;
-}
-
-.pass-btn:hover{
-  color:  var(--whiteColor);
 }
 
 .log-img.login-bg {
   height: 100%;
   width: 100%;
 }
+.login-section .sign-up-with label {
+  color: var(--subtextColor);
+  margin-bottom: 10px;
+}
+
+
 /*================================================
 Error CSS
 =================================================*/
@@ -6102,7 +6118,7 @@ Faq CSS
   font-weight: 700;
   padding-bottom: 3px;
   padding-top: 3px;
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .faq-answer {
@@ -6111,7 +6127,7 @@ Faq CSS
   overflow: hidden;
   transition: 0.3s ease-in-out;
   padding: 0px 20px;
-  color: var(--paragraphColorSecond);
+  color: var(--subtextColor);
 }
 
 .faq-answer.active {
@@ -6415,6 +6431,7 @@ Go Top CSS
   margin-bottom: 40px;
   position: relative;
   border-radius: 5px;
+  border: 1px solid var(--sidebarLine);
 }
 
 .wtcode .widget_title {
@@ -6780,7 +6797,7 @@ Go Top CSS
 .cart_table td:before,
 .cart_table th {
   font-family: var(--title-font);
-  color: var(--title-color);
+  color: var(--textColor);
   font-weight: 800;
   border: none;
   padding: 27px 15px;
@@ -6801,11 +6818,17 @@ Go Top CSS
 
 .cart_table td {
   border: none;
-  border-bottom: 1px solid #f3f3f3;
-  color: #8b8b8b;
+  border-bottom: 1px solid var(--borderColor);
+  color: var(--textColor);
   padding: 20px 10px;
   position: relative;
   vertical-align: middle;
+}
+.cart_table td .amount, .cart_table td .remove {
+  color: var(--subtextColor);
+}
+.cart_table td .remove:hover {
+  color: var(--textColor);
 }
 
 .cart_table .product-quantity {
@@ -6944,18 +6967,18 @@ Go Top CSS
   width: max-content;
 }
 
-.cart_totals {
+/* .cart_totals {
   background-color: var(color);
-}
+} */
 
 .cart_totals th,
 .cart_totals td {
   vertical-align: top;
   padding: 20px 20px;
   border: none;
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid #ecf0f1; /* ? */
   font-size: 14px;
-  color: var(--title-color);
+  color: var(--textColor);
   width: 55%;
 }
 
@@ -7074,14 +7097,14 @@ Go Top CSS
     width: 100%;
     padding-left: 25%;
     text-align: right;
-    border: 1px solid #f3f3f3;
+    border: 1px solid var(--borderColor);
     border-bottom: none;
   }
   .cart_table td::before {
     display: block;
   }
   .cart_table td:last-child {
-    border-bottom: 1px solid #f3f3f3;
+    border-bottom: 1px solid var(--borderColor);
   }
   .cart_table td.actions {
     padding-left: 15px;
@@ -7193,7 +7216,7 @@ Go Top CSS
   position: relative;
   padding: 11px 20px 11px 50px;
   background-color: var(--mainColor);
-  color: var(--textColor);
+  color: var(--whiteColor);
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -7294,7 +7317,7 @@ Go Top CSS
 
 .wtcode .th-product .price {
   display: block;
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-weight: 500;
   margin-bottom: -0.4em;
   font-family: var(--fontFamily);
@@ -7799,3 +7822,11 @@ body.en .kr {
   height: 100%;
   object-fit: cover;
 }
+
+
+/* .order-table tr {
+  border-color: var(--borderColor);
+}
+.order-table tr td {
+  border: none;
+} */

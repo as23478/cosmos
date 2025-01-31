@@ -438,6 +438,83 @@
 
                     </div>
 
+                     <!--  페이지 초기화 방지 -->
+                    <!-- <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".info-tab-btn");
+    const tabContents = document.querySelectorAll(".info-tabs");
+    const bannerTitle = document.querySelector(".banner-content h2"); // 상단 제목
+    const breadcrumbActive = document.querySelector(".breadcrumb-item.active"); // 네비게이션
+    const storageKey = "selectedTab";
+
+    // 페이지 로드 시 저장된 탭 불러오기
+    const savedTab = localStorage.getItem(storageKey);
+    if (savedTab) {
+        buttons.forEach(button => {
+            if (button.dataset.tab === savedTab) {
+                button.classList.add("active");
+            } else {
+                button.classList.remove("active");
+            }
+        });
+
+        tabContents.forEach(content => {
+            if (content.id === savedTab) {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        });
+
+        // 탭에 맞는 제목 & 네비게이션 업데이트
+        updateTitleAndBreadcrumb(savedTab);
+    }
+
+    // 버튼 클릭 이벤트 처리
+    buttons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // 모든 버튼에서 'active' 제거, 모든 탭 숨기기
+            buttons.forEach(btn => btn.classList.remove("active"));
+            tabContents.forEach(content => (content.style.display = "none"));
+
+            // 클릭한 버튼 활성화 및 해당 탭 표시
+            this.classList.add("active");
+            const contentId = this.dataset.tab;
+            const content = document.getElementById(contentId);
+            if (content) content.style.display = "block";
+
+            // LocalStorage에 선택한 탭 저장
+            localStorage.setItem(storageKey, contentId);
+
+            // 제목 및 네비게이션 업데이트
+            updateTitleAndBreadcrumb(contentId);
+        });
+    });
+
+    // 제목과 네비게이션 업데이트 함수
+    function updateTitleAndBreadcrumb(tabId) {
+        const titles = {
+            "info_1_1": "태양계",
+            "info_1_2": "ISS (국제 우주정거장)",
+            "info_1_3": "제임스웹 우주망원경",
+            "info_1_4": "허블 우주망원경"
+        };
+
+        if (bannerTitle && breadcrumbActive) {
+            bannerTitle.textContent = titles[tabId] || "우주 정보";
+            breadcrumbActive.textContent = titles[tabId] || "우주 정보";
+        }
+    }
+});
+
+
+                    </script> -->
+                    <!-- // 페이지 초기화 방지 -->
+
+
 
                     <!-- 사이드바 -->
                     <div class="col-xl-3 col-lg-4">
@@ -451,10 +528,10 @@
                             <div class="widget widget_categories">
                                 <h3 class="widget_title">우리의 우주</h3>
                                 <ul>
-                                    <li><a href="#" class="info-tab-btn active" data-tab="info_1_1">태양계</a></li>
-                                    <li><a href="#" class="info-tab-btn" data-tab="info_1_2">ISS</a></li>
-                                    <li><a href="#" class="info-tab-btn" data-tab="info_1_3">제임스웹 우주망원경</a></li>
-                                    <li><a href="#" class="info-tab-btn" data-tab="info_1_4">허블 우주망원경</a></li>
+                                    <li><a href="#" class="info-tab-btn tab-btn-all active" data-tab="info_1_1">태양계</a></li>
+                                    <li><a href="#" class="info-tab-btn tab-btn-all" data-tab="info_1_2">ISS</a></li>
+                                    <li><a href="#" class="info-tab-btn tab-btn-all" data-tab="info_1_3">제임스웹 우주망원경</a></li>
+                                    <li><a href="#" class="info-tab-btn tab-btn-all" data-tab="info_1_4">허블 우주망원경</a></li>
                                 </ul>
                             </div>
                             <div class="widget  ">
@@ -485,7 +562,6 @@
             </div>           
         </div>
         <!-- End Info Section -->
-
 
 
 
