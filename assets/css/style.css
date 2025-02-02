@@ -1973,7 +1973,7 @@ Gallery Area CSS
 }
 
 .gallery-section .controls ul li{
-  color: #f1f1f1;
+  color: var(--textColor);
   opacity: .7;
   background: transparent;
   display: inline;
@@ -2213,7 +2213,7 @@ Blog Area CSS
 
 .blog-section-2 .blog-content-2 p{
   font-size: 17px;
-  color: var(--paragraphColorSecond);
+  color: var(--subtextColor);
 }
 
 .blog-section-2 .blog-content-btn{
