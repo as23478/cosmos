@@ -7974,3 +7974,7 @@ body.en .kr {
   display: block;
 }
 
+.wtcode .tagcloud a.active {
+  background: var(--mainColor2);
+  color: var(--whiteColor);
+}

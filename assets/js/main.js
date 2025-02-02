@@ -581,6 +581,67 @@
 		console.log('현재 탭 저장: ', button.dataset.filter);
 	}
 
+
+	/* 스토어 - 태그 함수 */
+	
+	function activateTab_store2(button) {
+		// 다른 모든 태그 필터 비활성화
+		document.querySelectorAll('.tag-filter').forEach(btn => {
+			btn.classList.remove('active');
+		});
+
+		// 선택된 태그 필터 활성화
+		button.classList.add('active');
+
+		const tag = button.getAttribute('data-tag');
+		filterItems(tag); // 아이템 필터링 함수 호출
+	}
+
+	// function filterItems(tag) {
+	// 	// 모든 아이템에서 active 클래스 제거
+	// 	document.querySelectorAll('.item').forEach(item => {
+	// 		item.classList.remove('active');
+	// 	});
+	
+	// 	// 해당 태그를 정확히 포함하는 아이템에만 active 클래스 추가
+	// 	document.querySelectorAll('.item').forEach(item => {
+	// 		// 각 아이템의 data-tag를 가져와서 공백으로 태그 분리
+	// 		let tags = item.getAttribute('data-tag').split(/\s+/); // 정규식을 사용하여 모든 공백 처리
+	// 		if (tags.includes(tag)) { // includes 메소드로 태그 포함 여부 확인
+	// 			item.classList.add('active');
+	// 		}
+	// 	});
+	
+	// 	// 아이템이 없는 경우를 대비한 처리 (선택적)
+	// 	if (document.querySelectorAll('.item.active').length === 0) {
+	// 		console.log('No items matched the filter:', tag);
+	// 	}
+	// }
+	
+	
+	
+	function filterItems(tag) {
+		console.log(`Filtering items with tag: ${tag}`);
+
+		const items = document.querySelectorAll(`.item[data-tag*="${tag}"]`);
+		console.log(`Found items: ${items.length}`);
+
+		// 모든 아이템에서 active 클래스 제거
+		document.querySelectorAll('.item').forEach(item => {
+			item.classList.remove('active');
+		});
+
+		// 해당 태그를 가진 아이템에만 active 클래스 추가
+		items.forEach(item => {
+			item.classList.add('active');
+		});
+
+		// 아이템이 없는 경우를 대비한 처리 (선택적)
+		if (items.length === 0) {
+			console.log('No items matched the filter:', tag);
+		}
+	}
+
 	
 
 
@@ -961,6 +1022,17 @@
 		$('.filter-btn').each(function() {
 			$(this).on('click', function() {
 				activateTab_store(this);
+			});
+		});
+
+		/* 스토어 - Tags */
+		$('.tag-filter').on('click', function(e) {
+			e.preventDefault(); // 기본 링크 동작 방지
+			activateTab_store2(this);
+			// let allButton = $('.filter-btn[data-filter="all"]')[0];
+			// activateTab_store(allButton); // 'All' 상태 활성화 함수 호출
+			document.querySelectorAll('.filter-btn').forEach(btn => {
+				btn.classList.remove('active');
 			});
 		});
 
