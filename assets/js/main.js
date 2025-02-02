@@ -816,7 +816,7 @@
 		const savedTab = sessionStorage.getItem('tab');
 		console.log('저장된 탭 복원. savedTab: ', savedTab);
 
-		if(savedTab.includes('info_')) {
+		if(savedTab && savedTab.includes('info_')) {
 			let targetButton = $('.info-tab-btn[data-tab="' + savedTab + '"]');
 			console.log('targetButton: ', targetButton);
 			console.log('targetButton.length: ', targetButton.length);
@@ -826,7 +826,7 @@
 				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
 				activateTab(targetButton.get(0)); // 첫 번째 요소를 넘김
 			}
-		} else if(savedTab.includes('-tab')) {
+		} else if(savedTab && savedTab.includes('-tab')) {
 			let targetButton = $('.tab-btn[data-tab="' + savedTab + '"]');
 			console.log('targetButton: ', targetButton);
 			console.log('targetButton.length: ', targetButton.length);

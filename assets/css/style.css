@@ -7830,3 +7830,139 @@ body.en .kr {
 .order-table tr td {
   border: none;
 } */
+
+
+/* 공지사항 */
+.notice-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.notice-table th, .notice-table td {
+  border: 1px solid var(--borderColor);
+  padding: 8px;
+  text-align: center;
+}
+.notice-table th {
+  background-color: var(--sidebarBg);
+}
+.notice-table .num {
+  width: 10%;
+  border-left: none;
+}
+.notice-table .title {
+  width: 70%;
+}
+.notice-table .date {
+  width: 20%;
+  border-right: none;
+}
+.notice-table tbody .title {
+  text-align: left;
+}
+
+.notice-list {
+  padding: 0;
+  margin: 0;
+}
+.notice-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--borderColor);
+  text-decoration: none;
+  color: var(--textColor);
+  padding: 15px 0;
+  gap: 20px;
+}
+.notice-list a:hover {
+  color: var(--textColor);
+}
+.notice-item:first-child {
+  border-top: 1px solid var(--borderColor);
+}
+.notice-list .num {
+  font-size: 24px;
+  width: 10%;
+  text-align: center;
+}
+.notice-text {
+  width: 80%;
+}
+.notice-date {
+  color: var(--subtextColor);
+}
+.notice-list .icon {
+  width: 10%;
+  text-align: center;
+}
+.notice-list .icon i {
+  font-size: 24px;
+}
+
+@media(min-width: 768px) {
+  .notice-list.only-mo-notice {display: none;}
+}
+@media(max-width: 767px) {
+  .notice-table.only-pc-notice {display: none;}
+}
+
+
+.notice-section .pagenation{
+  text-align:center;
+  margin-top:50px;
+}
+.notice-section .pagenation i{
+  font-size: 20px;
+}
+.notice-section .pagenation > div{
+  vertical-align:middle;
+  display:inline-block;
+}
+.notice-section .pagenation .page_track {
+  margin: 0 20px;
+}
+.notice-section .pagenation .page_track a {
+    font-size: 18px;
+    color: var(--textColor);
+    position: relative;
+    text-align: center;
+    min-width: 20px;
+    padding: 0 5px;
+    margin-right: 10px;
+}
+.notice-section .pagenation .page_track a:last-child {
+    margin-right: 0;
+}
+.notice-section .pagenation .page_track a:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+.notice-section .pagenation .page_track a:hover:after {
+    display: block;
+}
+.notice-section .pagenation .page_track a.now{
+  cursor: initial;
+}
+.notice-section .pagenation .page_track a.now:after {
+    display: block;
+}
+
+.custom-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.custom-title .default-btn {
+  height: 100%;
+}
+
+.custom-2 .contact-content {
+  margin-bottom: 10px;
+}
+.custom-2 .default-btn {
+  margin-bottom: 20px;
+}
