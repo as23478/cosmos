@@ -554,6 +554,33 @@
 		}
 	}
 
+
+
+/* 스토어 페이지 - 탭 전환 함수 */
+	function activateTab_store(button) {
+		const filter = $(button).data('filter');
+		console.log('스토어 filter: ', filter);
+
+		if(filter === 'all'){
+			$('.item').addClass('active');
+		} else {
+			$('.item').removeClass('active');
+			$(filter).addClass('active');
+		}
+	
+		// 모든 버튼에서 active 제거
+		document.querySelectorAll('.filter-btn').forEach(btn => {
+			btn.classList.remove('active');
+		});
+
+		// 선택된 콘텐츠와 버튼 활성화
+		button.classList.add('active');
+	
+		// sessionStorage
+		sessionStorage.setItem('tab', button.dataset.filter);
+		console.log('현재 탭 저장: ', button.dataset.filter);
+	}
+
 	
 
 
@@ -596,7 +623,7 @@
 	// 	filterList.init();
 	// });
 
-	$(document).ready(function () {
+	/* $(document).ready(function () {
 		$('.filter-container').mixItUp({
 			selectors: {
 				target: '.item' // 필터링 대상
@@ -608,7 +635,7 @@
 				duration: 300 // 애니메이션 효과
 			}
 		});
-	});
+	}); */
 	
 	
 	// $(function () {
@@ -673,6 +700,156 @@
 
 
 
+	/* 탭 복원 함수 */
+	function restoreTab() {
+		const savedTab = sessionStorage.getItem('tab');
+		console.log('저장된 탭 복원. savedTab: ', savedTab);
+
+		if(savedTab && savedTab.includes('info_')) {
+			// 우주정보 페이지
+			let targetButton = $('.info-tab-btn[data-tab="' + savedTab + '"]');
+			// console.log('targetButton: ', targetButton);
+			// console.log('targetButton.length: ', targetButton.length);
+			// console.log('targetButton.get(0): ', targetButton.get(0));
+        
+			if (targetButton.length) {
+				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
+				activateTab(targetButton.get(0)); // 첫 번째 요소를 넘김
+			}
+
+		} else if(savedTab && savedTab.includes('-tab')) {
+			// 마이페이지
+			let targetButton = $('.tab-btn[data-tab="' + savedTab + '"]');
+			// console.log('targetButton: ', targetButton);
+			// console.log('targetButton.length: ', targetButton.length);
+			// console.log('targetButton.get(0): ', targetButton.get(0));
+        
+			if (targetButton.length) {
+				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
+				activateTab_mypage(targetButton.get(0)); // 첫 번째 요소를 넘김
+			}
+
+		} else if(savedTab && savedTab.includes('item')) {
+			// 스토어 페이지
+			let targetButton = $('.filter-btn[data-filter="' + savedTab + '"]');
+			// console.log('targetButton: ', targetButton);
+			// console.log('targetButton.length: ', targetButton.length);
+			// console.log('targetButton.get(0): ', targetButton.get(0));
+        
+			if (targetButton.length) {
+				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
+				activateTab_store(targetButton.get(0)); // 첫 번째 요소를 넘김
+			}
+		}
+	}
+
+	/* 현재 페이지 active 함수 */
+	function showCurrentPage() {
+		let currentPath = window.location.pathname;
+		// Netlify .html 누락 방지
+		if (!currentPath.endsWith(".html") && !currentPath.endsWith("/")) {
+			currentPath += ".html";
+		}
+		// Netlify /index.html(/)
+		if (currentPath === '/' || currentPath === '/index.html') {
+			currentPath = '/index.html';
+		}
+		// console.log("Current Path:", currentPath);
+
+		if (currentPath === '/index.html') {
+			document.querySelectorAll('.link_1_0').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath.startsWith('/pages/travel')) {
+			document.querySelectorAll('.link_2_0').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/info/space_info.html') {
+			document.querySelectorAll('.link_3_0').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/info/space_info_1.html') {
+			document.querySelectorAll('.link_3_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_3_1').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/info/space_info_2.html') {
+			document.querySelectorAll('.link_3_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_3_2').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/info/space_info_3.html') {
+			document.querySelectorAll('.link_3_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_3_3').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/info/news.html') {
+			document.querySelectorAll('.link_3_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_3_4').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/store/store.html') {
+			document.querySelectorAll('.link_4_0').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/store/store.html#figure-model') { // 오류
+			document.querySelectorAll('.link_4_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_4_1').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/store/store.html#badge-sticker') {
+			document.querySelectorAll('.link_4_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_4_2').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/store/store.html#clothing') {
+			document.querySelectorAll('.link_4_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_4_3').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/support/support.html') {
+			document.querySelectorAll('.link_5_0').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/support/notice.html') {
+			document.querySelectorAll('.link_5_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_5_1').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/support/faq.html') {
+			document.querySelectorAll('.link_5_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_5_2').forEach(e => {
+				e.classList.add('active');
+			});
+		} else if (currentPath === '/pages/support/contact.html') {
+			document.querySelectorAll('.link_5_0').forEach(e => {
+				e.classList.add('active');
+			});
+			document.querySelectorAll('.link_5_3').forEach(e => {
+				e.classList.add('active');
+			});
+		}
+	}
+
+
 
 
 
@@ -689,94 +866,13 @@
 				$.get(filePath)
 					.done(function (data) {
 						$this.html(data); // Include 완료
-						console.log(`File loaded: ${filePath}`);
+						// console.log(`File loaded: ${filePath}`);
 						
 						// Include 완료 후 실행 - 현재 페이지 표시
-						let currentPath = window.location.pathname;
-						// Netlify .html 누락 방지
-						if (!currentPath.endsWith(".html") && !currentPath.endsWith("/")) {
-							currentPath += ".html";
-						}
-						// Netlify /index.html(/)
-						if (currentPath === '/' || currentPath === '/index.html') {
-							currentPath = '/index.html';
-						}
-						console.log("Current Path:", currentPath);
-			
-						if (currentPath === '/index.html') {
-							document.querySelectorAll('.link_1_0').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath.startsWith('/pages/travel')) {
-							document.querySelectorAll('.link_2_0').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/info/space_info.html') {
-							document.querySelectorAll('.link_3_0').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/info/space_info_1.html') {
-							document.querySelectorAll('.link_3_0').forEach(e => {
-								e.classList.add('active');
-							});
-							document.querySelectorAll('.link_3_1').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/info/space_info_2.html') {
-							document.querySelectorAll('.link_3_0').forEach(e => {
-								e.classList.add('active');
-							});
-							document.querySelectorAll('.link_3_2').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/info/space_info_3.html') {
-							document.querySelectorAll('.link_3_0').forEach(e => {
-								e.classList.add('active');
-							});
-							document.querySelectorAll('.link_3_3').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/info/news.html') {
-							document.querySelectorAll('.link_3_0').forEach(e => {
-								e.classList.add('active');
-							});
-							document.querySelectorAll('.link_3_4').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/store/store.html') { // 필터링 기능 추가 후 수정
-							document.querySelectorAll('.link_4_0').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/support/support.html') {
-							document.querySelectorAll('.link_5_0').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/support/notice.html') {
-							document.querySelectorAll('.link_5_0').forEach(e => {
-								e.classList.add('active');
-							});
-							document.querySelectorAll('.link_5_1').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/support/faq.html') {
-							document.querySelectorAll('.link_5_0').forEach(e => {
-								e.classList.add('active');
-							});
-							document.querySelectorAll('.link_5_2').forEach(e => {
-								e.classList.add('active');
-							});
-						} else if (currentPath === '/pages/support/contact.html') {
-							document.querySelectorAll('.link_5_0').forEach(e => {
-								e.classList.add('active');
-							});
-							document.querySelectorAll('.link_5_3').forEach(e => {
-								e.classList.add('active');
-							});
-						} /* else  {
-							document.querySelectorAll('.link_1_0').forEach(e => {
-								e.classList.add('active');
-							});
-						} */
+						showCurrentPage();
+
+						// 탭 복원
+						restoreTab();
 
 					})
 					.fail(function (xhr, status, error) {
@@ -811,32 +907,7 @@
 		if(document.body.classList.contains('my')) {
 			initializeTabs();
 		}
-
-		/* 탭 복원 */
-		const savedTab = sessionStorage.getItem('tab');
-		console.log('저장된 탭 복원. savedTab: ', savedTab);
-
-		if(savedTab && savedTab.includes('info_')) {
-			let targetButton = $('.info-tab-btn[data-tab="' + savedTab + '"]');
-			console.log('targetButton: ', targetButton);
-			console.log('targetButton.length: ', targetButton.length);
-			console.log('targetButton.get(0): ', targetButton.get(0));
-        
-			if (targetButton.length) {
-				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
-				activateTab(targetButton.get(0)); // 첫 번째 요소를 넘김
-			}
-		} else if(savedTab && savedTab.includes('-tab')) {
-			let targetButton = $('.tab-btn[data-tab="' + savedTab + '"]');
-			console.log('targetButton: ', targetButton);
-			console.log('targetButton.length: ', targetButton.length);
-			console.log('targetButton.get(0): ', targetButton.get(0));
-        
-			if (targetButton.length) {
-				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
-				activateTab_mypage(targetButton.get(0)); // 첫 번째 요소를 넘김
-			}
-		}
+		
 		
 
 
@@ -857,6 +928,14 @@
 			if (button) {
 				activateTab(button);
 			}
+			
+			// 스토어 탭 활성화 (내비게이션)
+			const storeButton = document.querySelector(`.filter-btn[data-filter=".item-${hash}"]`);
+			console.log('스토어 활성화. storeButton: ', storeButton);
+			
+			if (storeButton) {
+				activateTab_store(storeButton);
+			}
 
 			// 마이페이지 탭 활성화 (mypage-tabs, tab-btn)
 			const $mypageTab = $('#' + hash);
@@ -875,7 +954,15 @@
 			$(this).on('click', function() {
 				activateTab_mypage(this);
 			});
-		})
+		});
+
+
+		/* 스토어 - 탭 전환 기능 */
+		$('.filter-btn').each(function() {
+			$(this).on('click', function() {
+				activateTab_store(this);
+			});
+		});
 
 
 

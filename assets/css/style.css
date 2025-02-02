@@ -7966,3 +7966,11 @@ body.en .kr {
 .custom-2 .default-btn {
   margin-bottom: 20px;
 }
+
+.store-section .item {
+  display: none;
+}
+.store-section .item.active {
+  display: block;
+}
+

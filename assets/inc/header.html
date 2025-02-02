@@ -65,22 +65,22 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="/pages/store/store.html" class="nav-link main-link-pc store-link link_4_0">
+                        <a href="/pages/store/store.html" class="nav-link main-link-pc store-link link_4_0 store-link">
                             <span class="kr">스토어</span>
                             <span class="en">Store</span>
                         </a>
-                        <div class="dropdown-menu custom-w480">
+                        <div class="dropdown-menu custom-w480"> 
                             <ul class="">
                                 <li class="nav-item">
-                                    <a href="/pages/store/store.html" class="nav-link sub-link-pc link_4_1">
+                                    <a href="/pages/store/store.html#figure-model" class="nav-link sub-link-pc link_4_1 store-link">
                                         <span class="kr">피규어 & 모형</span>
                                         <span class="en">Figures & Models</span>
                                     </a>
-                                    <a href="/pages/store/store.html" class="nav-link sub-link-pc link_4_2">
+                                    <a href="/pages/store/store.html#badge-sticker" class="nav-link sub-link-pc link_4_2 store-link">
                                         <span class="kr">뱃지 & 스티커</span>
                                         <span class="en">Badges & Stickers</span>
                                     </a>
-                                    <a href="/pages/store/store.html" class="nav-link sub-link-pc link_4_3">
+                                    <a href="/pages/store/store.html#clothing" class="nav-link sub-link-pc link_4_3 store-link">
                                         <span class="kr">의류 & 패션</span>
                                         <span class="en">Clothing & Fashion</span>
                                     </a>
@@ -198,7 +198,7 @@
                     <span class="en">Store</span>
                 </a> -->
 
-                <button class="accordion-button collapsed main-link-mo mobile-store-button link_4_0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <button class="accordion-button collapsed main-link-mo mobile-store-button link_4_0 store-link" id="store-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     <span class="kr">스토어</span>
                     <span class="en">Store</span>
                 </button>
@@ -207,19 +207,19 @@
                     <div class="accordion-body">
                         <div class="accordion" id="navbarAccordion3">
                             <div class="accordion-item">
-                                <a href="/pages/store/store.html" class="accordion-link sub-link-mo link_4_1">
+                                <a href="/pages/store/store.html#figure-model" class="accordion-link sub-link-mo link_4_1 store-link">
                                     <span class="kr">피규어 & 모형</span>
                                     <span class="en">Figures & Models</span>
                                 </a>
                             </div>
                             <div class="accordion-item">
-                                <a href="/pages/store/store.html" class="accordion-link sub-link-mo link_4_2">
+                                <a href="/pages/store/store.html#badge-sticker" class="accordion-link sub-link-mo link_4_2 store-link">
                                     <span class="kr">뱃지 & 스티커</span>
                                     <span class="en">Badges & Stickers</span>
                                 </a>
                             </div>
                             <div class="accordion-item">
-                                <a href="/pages/store/store.html" class="accordion-link sub-link-mo link_4_3">
+                                <a href="/pages/store/store.html#clothing" class="accordion-link sub-link-mo link_4_3 store-link">
                                     <span class="kr">의류 & 패션</span>
                                     <span class="en">Clothing & Fashion</span>
                                 </a>
@@ -295,6 +295,7 @@
             
         });
     });
+    
 
 
     /* 언어 */
@@ -337,5 +338,30 @@
             console.log('언어 상태 저장: en');
         }
     })
+
+
+    /* 스토어 */
+    const storeLinks = document.querySelectorAll('.store-link');
+    
+    storeLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            let filter;
+            if (this.classList.contains('link_4_0')) {
+                filter = 'all';
+            } else if (this.classList.contains('link_4_1')) {
+                filter = '.item-figure, .item-model';
+            } else if (this.classList.contains('link_4_2')) {
+                filter = '.item-badge, .item-sticker';
+            } else if (this.classList.contains('link_4_3')) {
+                filter = '.item-clothing';
+            }
+
+            // sessionStorage
+            if (filter) {
+                sessionStorage.setItem('tab', filter);
+                console.log('(Nav)현재 탭 저장: ', filter);
+            }
+        });
+    });
 
 </script>
