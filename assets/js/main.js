@@ -586,6 +586,8 @@
 		// sessionStorage
 		sessionStorage.setItem('tab', button.dataset.filter);
 		// console.log('현재 탭 저장: ', button.dataset.filter);
+
+		navActive_Store();
 	}
 
 
@@ -723,6 +725,25 @@
 
 
 
+	/* 탭 복원 - 스토어 */
+	function navActive_Store() {
+		let savedTab = sessionStorage.getItem('tab');
+
+		if(savedTab.includes('figure')) {
+			document.querySelectorAll('.link_4_1').forEach(e => e.classList.add('active'));
+			document.querySelectorAll('.link_4_2').forEach(e => e.classList.remove('active'));
+			document.querySelectorAll('.link_4_3').forEach(e => e.classList.remove('active'));
+		} else if(savedTab.includes('badge')) {
+			document.querySelectorAll('.link_4_1').forEach(e => e.classList.remove('active'));
+			document.querySelectorAll('.link_4_2').forEach(e => e.classList.add('active'));
+			document.querySelectorAll('.link_4_3').forEach(e => e.classList.remove('active'));
+		} else if(savedTab.includes('clothing')) {
+			document.querySelectorAll('.link_4_1').forEach(e => e.classList.remove('active'));
+			document.querySelectorAll('.link_4_2').forEach(e => e.classList.remove('active'));
+			document.querySelectorAll('.link_4_3').forEach(e => e.classList.add('active'));
+		}
+	}
+
 	/* 탭 복원 함수 */
 	function restoreTab() {
 		const savedTab = sessionStorage.getItem('tab');
@@ -768,10 +789,8 @@
 
 	/* 현재 페이지 active 함수 */
 	function showCurrentPage() {
-		console.log('showCurrentPage 실행');
-		
 		let currentPath = window.location.pathname;
-		let savedTab = sessionStorage.getItem('tab');
+		
 		// Netlify .html 누락 방지
 		if (!currentPath.endsWith(".html") && !currentPath.endsWith("/")) {
 			currentPath += ".html";
@@ -826,13 +845,7 @@
 			document.querySelectorAll('.link_4_0').forEach(e => {
 				e.classList.add('active');
 			});
-			if(savedTab.includes('figure')) {
-				document.querySelectorAll('.link_4_1').forEach(e => e.classList.add('active'));
-			} else if(savedTab.includes('badge')) {
-				document.querySelectorAll('.link_4_2').forEach(e => e.classList.add('active'));
-			} else if(savedTab.includes('clothing')) {
-				document.querySelectorAll('.link_4_3').forEach(e => e.classList.add('active'));
-			}
+			navActive_Store();
 		} else if (currentPath === '/pages/support/support.html') {
 			document.querySelectorAll('.link_5_0').forEach(e => {
 				e.classList.add('active');
