@@ -575,6 +575,12 @@
 
 		// 선택된 콘텐츠와 버튼 활성화
 		button.classList.add('active');
+		document.querySelectorAll('.tag-filter').forEach(tag => {
+			tag.classList.remove('active');
+		});
+
+		updateFiltering();
+		
 	
 		// sessionStorage
 		sessionStorage.setItem('tab', button.dataset.filter);
@@ -583,7 +589,6 @@
 
 
 	/* 스토어 - 태그 함수 */
-	
 	function activateTab_store2(button) {
 		// 다른 모든 태그 필터 비활성화
 		document.querySelectorAll('.tag-filter').forEach(btn => {
@@ -596,29 +601,6 @@
 		const tag = button.getAttribute('data-tag');
 		filterItems(tag); // 아이템 필터링 함수 호출
 	}
-
-	// function filterItems(tag) {
-	// 	// 모든 아이템에서 active 클래스 제거
-	// 	document.querySelectorAll('.item').forEach(item => {
-	// 		item.classList.remove('active');
-	// 	});
-	
-	// 	// 해당 태그를 정확히 포함하는 아이템에만 active 클래스 추가
-	// 	document.querySelectorAll('.item').forEach(item => {
-	// 		// 각 아이템의 data-tag를 가져와서 공백으로 태그 분리
-	// 		let tags = item.getAttribute('data-tag').split(/\s+/); // 정규식을 사용하여 모든 공백 처리
-	// 		if (tags.includes(tag)) { // includes 메소드로 태그 포함 여부 확인
-	// 			item.classList.add('active');
-	// 		}
-	// 	});
-	
-	// 	// 아이템이 없는 경우를 대비한 처리 (선택적)
-	// 	if (document.querySelectorAll('.item.active').length === 0) {
-	// 		console.log('No items matched the filter:', tag);
-	// 	}
-	// }
-	
-	
 	
 	function filterItems(tag) {
 		console.log(`Filtering items with tag: ${tag}`);
@@ -636,90 +618,41 @@
 			item.classList.add('active');
 		});
 
-		// 아이템이 없는 경우를 대비한 처리 (선택적)
-		if (items.length === 0) {
-			console.log('No items matched the filter:', tag);
-		}
+		updateFiltering();
 	}
 
+	/* 스토어 - 금액 필터링 */
+	function filterPrice(minPrice, maxPrice) {
+		$(".item").each(function () {
+			var price = parseFloat($(this).find(".price").text().replace('$', ''));
 	
-
-
-
-
-
-/* 스토어 - 필터링(카테고리) */
-	// $(document).ready(function () {
-	// 	$('.filter').on('click', function (e) {
-	// 		e.preventDefault(); // 기본 링크 동작 방지
-	// 		const filter = $(this).data('filter');
-	
-	// 		$('.item').hide(); // 모든 항목 숨기기
-	// 		if (filter === 'all') {
-	// 			$('.item').show(); // '전체' 클릭 시 모든 항목 표시
-	// 		} else {
-	// 			$('.' + filter).show(); // 선택된 카테고리 항목만 표시
-	// 		}
-	// 	});
-	// });
-
-	// $(function () {
-	// 	var filterList = {
-	// 		init: function () {
-	// 			$('.item-grid').mixItUp({
-	// 				selectors: {
-	// 					target: '.item',
-	// 					filter: '.filter'
-	// 				},
-	// 				load: {
-	// 					filter: 'all',          // 초기 필터링 설정
-	// 					sort: 'default:asc'     // 초기 정렬 상태 유지
-	// 				},
-	// 				animation: {
-	// 					duration: 300          // 애니메이션 속도 (ms)
-	// 				}
-	// 			});
-	// 		}
-	// 	};
-	// 	filterList.init();
-	// });
-
-	/* $(document).ready(function () {
-		$('.filter-container').mixItUp({
-			selectors: {
-				target: '.item' // 필터링 대상
-			},
-			load: {
-				filter: 'all' // 초기 로드 시 모든 항목 표시
-			},
-			animation: {
-				duration: 300 // 애니메이션 효과
+			if (price >= minPrice && price <= maxPrice) {
+				$(this).addClass("price-active");
+			} else {
+				$(this).removeClass("price-active");
 			}
 		});
-	}); */
 	
+		updateFiltering();
+	}
 	
-	// $(function () {
-	// 	var filterList = {
-	// 		init: function () {
-	// 			$('.item-grid').mixItUp({
-	// 				selectors: {
-	// 				target: '.item',
-	// 				filter: '.filter'	
-	// 			},
-	// 			load: {
-	// 			  filter: 'all'
-	// 			}     
-	// 			});								
-	// 		}
-	// 	};
-	// 	filterList.init();
-	// });
+	function updateFiltering() {
+		console.log('updateFiltering 함수 실행');
+		$(".item").each(function () {
+			if ($(this).hasClass("active") && $(this).hasClass("price-active")) {
+				$(this).addClass("visible");
+			} else {
+				$(this).removeClass("visible");
+			}
+		});
+	}
+	
+
 
 
 	
 	  
-	/* 챗봇 */
+	/* 챗봇 */	
 	const chatBotButton = document.querySelector('.chat-bot');
 
 	if(chatBotButton) {
@@ -1035,6 +968,34 @@
 				btn.classList.remove('active');
 			});
 		});
+
+		/* 스토어 - 금액 필터링 */
+		if ($(".store-section").length) {
+
+			$(".price_slider").slider({
+				range: true,
+				min: 0,
+				max: 500,
+				values: [0, 500],
+				slide: function (event, ui) {
+					$(".from").text("$" + ui.values[0]);
+					$(".to").text("$" + ui.values[1]);
+					filterPrice(ui.values[0], ui.values[1]);
+				}
+			});
+	
+			// 초기 가격 설정
+			$(".from").text("$" + $(".price_slider").slider("values", 0));
+			$(".to").text("$" + $(".price_slider").slider("values", 1));
+	
+			// 초기 상품 목록 필터링 (페이지 로드 시 실행)
+			setTimeout(function () {
+				$(".price_slider").slider("values", 0, $(".price_slider").slider("values", 0));
+				$(".price_slider").slider("values", 1, $(".price_slider").slider("values", 1));
+				$(".price_slider").trigger("slide"); // ✅ 슬라이더 이벤트 강제 실행
+				filterPrice($(".price_slider").slider("values", 0), $(".price_slider").slider("values", 1)); // ✅ 필터링 실행
+			}, 100)
+		}
 
 
 

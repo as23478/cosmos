@@ -5934,7 +5934,7 @@ Footer Area CSS
 Login Page CSS
 =================================================*/
 .login-bg{
-  background-image: url(../img/banner/background-13.png);
+  background-image: url(../img/all-img/login_1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -7970,7 +7970,7 @@ body.en .kr {
 .store-section .item {
   display: none;
 }
-.store-section .item.active {
+.store-section .item.visible {
   display: block;
 }
 
