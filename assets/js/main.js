@@ -460,7 +460,7 @@
 
 		// sessionStorage
 		sessionStorage.setItem('tab', tabName);
-		console.log('현재 탭 저장: ', tabName);
+		// console.log('현재 탭 저장: ', tabName);
 		
 	}
 
@@ -512,7 +512,7 @@
 	
 		// sessionStorage
 		sessionStorage.setItem('tab', button.dataset.tab);
-		console.log('현재 탭 저장: ', button.dataset.tab);
+		// console.log('현재 탭 저장: ', button.dataset.tab);
 	}
 
 	// 마이페이지 초기화 함수: PC에서만 첫 번째 탭 활성화
@@ -559,7 +559,7 @@
 /* 스토어 페이지 - 탭 전환 함수 */
 	function activateTab_store(button) {
 		const filter = $(button).data('filter');
-		console.log('스토어 filter: ', filter);
+		// console.log('스토어 filter: ', filter);
 
 		if(filter === 'all'){
 			$('.item').removeClass('active');
@@ -585,7 +585,7 @@
 	
 		// sessionStorage
 		sessionStorage.setItem('tab', button.dataset.filter);
-		console.log('현재 탭 저장: ', button.dataset.filter);
+		// console.log('현재 탭 저장: ', button.dataset.filter);
 	}
 
 
@@ -604,10 +604,10 @@
 	}
 	
 	function filterItems(tag) {
-		console.log(`Filtering items with tag: ${tag}`);
+		// console.log(`Filtering items with tag: ${tag}`);
 
 		const items = document.querySelectorAll(`.item[data-tag*="${tag}"]`);
-		console.log(`Found items: ${items.length}`);
+		// console.log(`Found items: ${items.length}`);
 
 		// 모든 아이템에서 active 클래스 제거
 		document.querySelectorAll('.item').forEach(item => {
@@ -638,7 +638,7 @@
 	}
 	
 	function updateFiltering() {
-		console.log('updateFiltering 함수 실행');
+		// console.log('updateFiltering 함수 실행');
 		$(".item").each(function () {
 			if ($(this).hasClass("active") && $(this).hasClass("price-active")) {
 				$(this).addClass("visible");
@@ -736,7 +736,7 @@
 			// console.log('targetButton.get(0): ', targetButton.get(0));
         
 			if (targetButton.length) {
-				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
+				// console.log('저장된 탭 버튼 클릭 실행:', savedTab);
 				activateTab(targetButton.get(0)); // 첫 번째 요소를 넘김
 			}
 
@@ -748,7 +748,7 @@
 			// console.log('targetButton.get(0): ', targetButton.get(0));
         
 			if (targetButton.length) {
-				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
+				// console.log('저장된 탭 버튼 클릭 실행:', savedTab);
 				activateTab_mypage(targetButton.get(0)); // 첫 번째 요소를 넘김
 			}
 
@@ -760,7 +760,7 @@
 			// console.log('targetButton.get(0): ', targetButton.get(0));
         
 			if (targetButton.length) {
-				console.log('저장된 탭 버튼 클릭 실행:', savedTab);
+				// console.log('저장된 탭 버튼 클릭 실행:', savedTab);
 				activateTab_store(targetButton.get(0)); // 첫 번째 요소를 넘김
 			}
 		}
@@ -768,6 +768,8 @@
 
 	/* 현재 페이지 active 함수 */
 	function showCurrentPage() {
+		console.log('showCurrentPage 실행');
+		
 		let currentPath = window.location.pathname;
 		let savedTab = sessionStorage.getItem('tab');
 		// Netlify .html 누락 방지
@@ -903,13 +905,13 @@
 
 		/* 언어 설정 복원 */
 		const savedLanguage = sessionStorage.getItem('language');
-		console.log('언어 상태 복원. savedLanguage: ', savedLanguage);
+		// console.log('언어 상태 복원. savedLanguage: ', savedLanguage);
 
 		if (savedLanguage) {
 			document.body.classList.remove('kr', 'en');
 			document.body.classList.add(savedLanguage);
 		} else {
-			console.log('기본 언어 유지: kr');
+			// console.log('기본 언어 유지: kr');
 		}
 
 
@@ -931,7 +933,7 @@
 	
 		// 우주정보 메인페이지 -> 하위페이지 이동
 		const hash = window.location.hash.substring(1); // '#' 제거
-		console.log('hash: ', hash);
+		// console.log('hash: ', hash);
 		
 		if (hash) {
 			const button = document.querySelector(`.info-tab-btn[data-tab="${hash}"]`);
