@@ -12,6 +12,7 @@
                             <a href="https://twitter.com/" target="_blank"><i class='bx bxl-twitter'></i></a>
                             <a href="https://www.linkedin.com/" target="_blank"><i class='bx bxl-linkedin'></i></a>
                             <a href="https://www.instagram.com/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                            <a href="javascript:void(0)" class="theme-switcher"><i class="bx bx-bulb"></i></a>
                         </div>
                     </div>
                 </div>
@@ -70,3 +71,20 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    /* 테마 */
+    const themeBtns = document.querySelectorAll('.theme-switcher');
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+
+            /* sessionStorage */
+            const themeState = document.body.classList.contains('dark-theme');
+            sessionStorage.setItem('theme', themeState); // true: dark-theme
+            console.log('테마 상태 저장: ', themeState);
+            
+        });
+    });
+</script>

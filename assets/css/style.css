@@ -3595,7 +3595,7 @@ Section Banner Area CSS
   background-image: url(../img/banner/info-section-bg.jpg);
 }
 .sbg-5{
-  background-image: url(../img/banner/section-bg-5.png);
+  background-image: url(../img/banner/term-section.jpg);
 }
 .sbg-6{
   background-image: url(../img/banner/section-bg-6.png);
@@ -4985,12 +4985,12 @@ Products Area CSS
 }
 
 .grid-sorting .result-count p {
-  color: var(--paragraphColorSecond);
+  color: var(--textColor);
   font-size: 17px;
 }
 .grid-sorting .result-count p .count {
   font-weight: 700;
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .grid-sorting .ordering {
@@ -5968,19 +5968,19 @@ Login Page CSS
 }
 
 .login-section .accounts-from .logo {
-  color: var(--whiteColor);
+  color: var(--textColor);
   margin-bottom: 30px;
   font-size: 35px;
-  font-weight: 800;
+  /* font-weight: 800; */
 }
 
 .login-section .accounts-from span {
-  color: var(--paragraphColor);
+  color: var(--subtextColor);
   font-size: 13px;
 }
 
 .login-section .accounts-from .sign-up-with .s-btn {
-  color: var(--whiteColor);
+  color: var(--textColor);
   width: 100%;
   display: inline-block;
   height: 50px;
@@ -5991,6 +5991,7 @@ Login Page CSS
   margin-bottom: 20px;
   font-size: 16px;
   border-radius: 5px;
+  border: 1px solid var(--sidebarLine);
 }
 
 .login-section .accounts-from .sign-up-with .s-btn:hover{
@@ -6164,21 +6165,21 @@ Cookie CSS
 }
 
 .cookie-content h2 {
-  color: var(--whiteColor);
+  color: var(--textColor);
   margin-bottom: 25px;
 }
 
 .cookie-content p{
-  color: var(--paragraphColorSecond);
+  color: var(--textColor);
 }
 
 .cookie-content p a{
-  color: var(--whiteColor);
+  color: var(--textColor);
   text-decoration: underline;
 }
 
 .cookie-content .notice {
-  background: #453f62;
+  background: var(--sidebarTag);
   padding: 30px;
   border-radius: 5px;
   margin-bottom: 30px;
@@ -6189,7 +6190,7 @@ Cookie CSS
 }
 
 .cookie-content .notice i {
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-size: 70px;
 }
 
@@ -6200,7 +6201,7 @@ Cookie CSS
 }
 
 .cookie-content .pera-list ul li {
-  color: var(--paragraphColorSecond);
+  color: var(--textColor);
   margin-bottom: 20px;
 }
 
@@ -6209,7 +6210,7 @@ Cookie CSS
 }
 
 .cookie-content .pera-list ul li b{
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .cookie-content .pera-list .style-1{
@@ -7907,21 +7908,22 @@ body.en .kr {
 }
 
 
-.notice-section .pagenation{
+/* Notice Section + Store */
+.pagenation{
   text-align:center;
   margin-top:50px;
 }
-.notice-section .pagenation i{
+.pagenation i{
   font-size: 20px;
 }
-.notice-section .pagenation > div{
+.pagenation > div{
   vertical-align:middle;
   display:inline-block;
 }
-.notice-section .pagenation .page_track {
+.pagenation .page_track {
   margin: 0 20px;
 }
-.notice-section .pagenation .page_track a {
+.pagenation .page_track a {
     font-size: 18px;
     color: var(--textColor);
     position: relative;
@@ -7930,10 +7932,10 @@ body.en .kr {
     padding: 0 5px;
     margin-right: 10px;
 }
-.notice-section .pagenation .page_track a:last-child {
+.pagenation .page_track a:last-child {
     margin-right: 0;
 }
-.notice-section .pagenation .page_track a:after {
+.pagenation .page_track a:after {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -7941,13 +7943,13 @@ body.en .kr {
     width: 100%;
     height: 2px;
 }
-.notice-section .pagenation .page_track a:hover:after {
+.pagenation .page_track a:hover:after {
     display: block;
 }
-.notice-section .pagenation .page_track a.now{
+.pagenation .page_track a.now{
   cursor: initial;
 }
-.notice-section .pagenation .page_track a.now:after {
+.pagenation .page_track a.now:after {
     display: block;
 }
 

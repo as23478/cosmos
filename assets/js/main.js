@@ -562,7 +562,8 @@
 		console.log('스토어 filter: ', filter);
 
 		if(filter === 'all'){
-			$('.item').addClass('active');
+			$('.item').removeClass('active');
+    		$('.item:lt(9)').addClass('active'); // 처음 9개만 active
 		} else {
 			$('.item').removeClass('active');
 			$(filter).addClass('active');
@@ -645,6 +646,34 @@
 				$(this).removeClass("visible");
 			}
 		});
+
+		updateCount();
+	}
+
+
+	/* 스토어 - 카운트 */
+	function updateCount() {
+		const itemsPerPage = 9; // 한 번에 표시할 개수
+		const itemsContainer = document.querySelector(".filter-container");
+		const allItems = Array.from(itemsContainer.children);
+		const visibleItems = allItems.filter(item => item.classList.contains("item") && item.classList.contains("visible"));
+		const totalCountElement = document.querySelector(".count");
+		const resultCountElement = document.querySelector(".result-count p");
+
+		let totalItems = visibleItems.length;
+		let currentStart = 1;
+		let currentEnd = Math.min(itemsPerPage, totalItems);
+		
+		// 총 상품 개수 업데이트
+		totalCountElement.textContent = totalItems;
+
+		// 표시 중인 범위 업데이트
+		if (visibleItems.length < 9) {
+			resultCountElement.innerHTML = `총 <span class="count">${totalItems}</span> 개 중 ${currentStart}-${currentEnd}개 표시`;
+		} else {
+			resultCountElement.innerHTML = `총 <span class="count">14</span> 개 중 ${currentStart}-${currentEnd}개 표시`;
+		}
+		// console.log("innerHTML 업데이트: ", resultCountElement.innerHTML);
 	}
 	
 
@@ -740,6 +769,7 @@
 	/* 현재 페이지 active 함수 */
 	function showCurrentPage() {
 		let currentPath = window.location.pathname;
+		let hash = window.location.hash;
 		// Netlify .html 누락 방지
 		if (!currentPath.endsWith(".html") && !currentPath.endsWith("/")) {
 			currentPath += ".html";
@@ -794,27 +824,13 @@
 			document.querySelectorAll('.link_4_0').forEach(e => {
 				e.classList.add('active');
 			});
-		} else if (currentPath === '/pages/store/store.html#figure-model') { // 오류
-			document.querySelectorAll('.link_4_0').forEach(e => {
-				e.classList.add('active');
-			});
-			document.querySelectorAll('.link_4_1').forEach(e => {
-				e.classList.add('active');
-			});
-		} else if (currentPath === '/pages/store/store.html#badge-sticker') {
-			document.querySelectorAll('.link_4_0').forEach(e => {
-				e.classList.add('active');
-			});
-			document.querySelectorAll('.link_4_2').forEach(e => {
-				e.classList.add('active');
-			});
-		} else if (currentPath === '/pages/store/store.html#clothing') {
-			document.querySelectorAll('.link_4_0').forEach(e => {
-				e.classList.add('active');
-			});
-			document.querySelectorAll('.link_4_3').forEach(e => {
-				e.classList.add('active');
-			});
+			if (hash === '#figure-model') {
+				document.querySelectorAll('.link_4_1').forEach(e => e.classList.add('active'));
+			} else if (hash === '#badge-sticker') {
+				document.querySelectorAll('.link_4_2').forEach(e => e.classList.add('active'));
+			} else if (hash === '#clothing') {
+				document.querySelectorAll('.link_4_3').forEach(e => e.classList.add('active'));
+			}
 		} else if (currentPath === '/pages/support/support.html') {
 			document.querySelectorAll('.link_5_0').forEach(e => {
 				e.classList.add('active');
@@ -992,9 +1008,16 @@
 			setTimeout(function () {
 				$(".price_slider").slider("values", 0, $(".price_slider").slider("values", 0));
 				$(".price_slider").slider("values", 1, $(".price_slider").slider("values", 1));
-				$(".price_slider").trigger("slide"); // ✅ 슬라이더 이벤트 강제 실행
-				filterPrice($(".price_slider").slider("values", 0), $(".price_slider").slider("values", 1)); // ✅ 필터링 실행
+				$(".price_slider").trigger("slide"); // 슬라이더 이벤트 강제 실행
+				filterPrice($(".price_slider").slider("values", 0), $(".price_slider").slider("values", 1)); // 필터링 실행
 			}, 100)
+
+
+			// count 함수
+			updateCount();
+
+			$('.item').removeClass('active');
+    		$('.item:lt(9)').addClass('active'); // 처음 9개만 active
 		}
 
 
