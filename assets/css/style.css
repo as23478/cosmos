@@ -5332,6 +5332,9 @@ Footer Area CSS
 .footer-area p, .footer-area a {
   color: var(--whiteColor);
 }
+.footer-area p, .footer-area a:hover {
+  color: var(--whiteColor);
+}
 .footer-area a:not(.navbar-brand):hover {
   color: var(--mainColor2);
 }
@@ -5461,7 +5464,7 @@ Footer Area CSS
 }
 
 .footer-widget-info{
-  border-bottom: 1px solid var(--borderColor);
+  border-bottom: 1px solid #333;
   position: relative;
 }
 
@@ -5475,7 +5478,7 @@ Footer Area CSS
   content: '';
   height: 250px;
   width: 1px;
-  background-color: var(--borderColor);
+  background-color: #333;
   top: 20px;
   right: 50px;
 }
@@ -7979,4 +7982,11 @@ body.en .kr {
 .wtcode .tagcloud a.active {
   background: var(--mainColor2);
   color: var(--whiteColor);
+}
+
+@media(min-width: 1200px) {
+  .mypage .product-info {
+    display: flex !important;
+    align-items: center;
+  }
 }

@@ -27,27 +27,6 @@
         <header data-include-file="/assets/inc/header.html" class="includeJs"></header>
 
 
-        <!-- Start Section Banner Section -->
-        <!-- <div class="section-banner sbg-3 ptb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="banner-content">
-                            <h2>마이페이지</h2>
-                            <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/index.html">홈</a></li>
-                                    <li class="breadcrumb-item active">마이페이지</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- End Section Banner Section -->
-
-
         <!-- Start Mypage Section -->
         <div class="ptb-100">
             <div class="container">
@@ -57,10 +36,6 @@
                         <aside class="sidebar-area sidebar-shop">
                             <div class="widget widget_custom">
                                 <h3><i class="bx bx-user" id="mypage-icon"></i>마이페이지</h3>
-                                <!-- <form class="search-form">
-                                    <input type="text" placeholder="검색어 입력">
-                                    <button type="submit"><i class="bx bx-search"></i></button>
-                                </form> -->
                             </div>
                             <div class="widget widget_categories mypage-categories">
                                 <h3 class="widget_title" id="mypage-title">마이페이지</h3>
@@ -131,7 +106,6 @@
                                             <th class="cart-col-schedule">일정</th>
                                             <th class="cart-col-count">탑승인원</th>
                                             <th class="cart-col-airline">항공사</th>
-                                            <!-- <th class="cart-col-price">가격</th> -->
                                             <th class="cart-col-status">예약상태</th>
                                         </tr>
                                     </thead>
@@ -141,7 +115,7 @@
                                                 <a class="reservation-number" href="/pages/travel/travel_details_1.html">예약번호</a>
                                             </td>
                                             <td data-title="상품이름" class="product-info">
-                                                <a class="productimage" href="/pages/travel/travel_details_1.html"><img width="91" height="91" src="/assets/img/travel/travel_1.png" alt="Image"></a>
+                                                <a class="productimage" href="/pages/travel/travel_details_1.html"><img width="91" height="91" src="/assets/img/travel/travel_2.png" alt="Image"></a>
                                                 <div class="product-details">
                                                     <a class="productname" href="/pages/travel/travel_details_1.html">스페이스벌룬</a>
                                                     <a class="reservation-number" href="/pages/travel/travel_details_1.html">예약번호</a>
@@ -149,16 +123,26 @@
                                             </td>
                                             <td data-title="일정">2025.10.19-</td>
                                             <td data-title="탑승인원">1</td>
-                                            <td data-title="항공사">Space Perspective</td>
-                                            <!-- <td data-title="가격"><span class="amount"><bdi><span>$</span>300</bdi>USD</span></td> -->
+                                            <td data-title="항공사">Iwaya Giken</td>
                                             <td data-title="예약상태">예약완료</td>
                                         </tr>
-                                        
-                                        <!-- <tr>
-                                            <td colspan="6" class="actions">
-                                                <a href="/store.html" class="default-btn">쇼핑 계속하기</a>
+
+                                        <tr class="cart_item">
+                                            <td data-title="예약번호" class="only-mo-reserv">
+                                                <a class="reservation-number" href="/pages/travel/travel_details_1.html">예약번호</a>
                                             </td>
-                                        </tr> -->
+                                            <td data-title="상품이름" class="product-info">
+                                                <a class="productimage" href="/pages/travel/travel_details_1.html"><img width="91" height="91" src="/assets/img/travel/travel_1.png" alt="Image"></a>
+                                                <div class="product-details">
+                                                    <a class="productname" href="/pages/travel/travel_details_1.html">풍선 우주선</a>
+                                                    <a class="reservation-number" href="/pages/travel/travel_details_1.html">예약번호</a>
+                                                </div>
+                                            </td>
+                                            <td data-title="일정">2025.10.19-</td>
+                                            <td data-title="탑승인원">1</td>
+                                            <td data-title="항공사">Iwaya Giken</td>
+                                            <td data-title="예약상태">예약완료</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </form>
@@ -186,7 +170,7 @@
                                                 <p>예약번호</p>
                                             </td>
                                             <td data-title="상품이름" class="product-info">
-                                                <a class="productimage" href="store/store_details_1.html"><img width="91" height="91" src="/assets/img/store/store1_product_1.png" alt="Image"></a>
+                                                <a class="productimage" href="store/store_details_1.html"><img width="91" height="91" src="/assets/img/store/store1_product_1.png" alt="Image" style="height: 91px;"></a>
                                                 <a class="productname" href="store/store_details_1.html">SpaceX IVA Suit Figure</a>
                                             </td>
                                             <td data-title="수량">1</td>
@@ -197,11 +181,37 @@
                                             </td>
                                         </tr>
                                         
-                                        <!-- <tr>
-                                            <td colspan="6" class="actions">
-                                                <a href="/store.html" class="default-btn">쇼핑 계속하기</a>
+                                        <tr class="cart_item">
+                                            <td data-title="예약번호">
+                                                <p class="only-pc-date">2024.12.26</p>
+                                                <p>예약번호</p>
                                             </td>
-                                        </tr> -->
+                                            <td data-title="상품이름" class="product-info">
+                                                <a class="productimage" href="store/store_details_1.html"><img width="91" height="91" src="/assets/img/store/store1_product_2.png" alt="Image" style="height: 91px;"></a>
+                                                <a class="productname" href="store/store_details_1.html">SpaceX Dragon Scale Model</a>
+                                            </td>
+                                            <td data-title="수량">1</td>
+                                            <td data-title="금액"><span class="amount"><bdi><span>$</span>300</bdi>USD</span></td>
+                                            <td data-title="진행상태">
+                                                <p>배송중</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart_item">
+                                            <td data-title="예약번호">
+                                                <p class="only-pc-date">2024.12.26</p>
+                                                <p>예약번호</p>
+                                            </td>
+                                            <td data-title="상품이름" class="product-info">
+                                                <a class="productimage" href="store/store_details_1.html"><img width="91" height="91" src="/assets/img/store/store2_product_1.png" alt="Image" style="height: 91px;"></a>
+                                                <a class="productname" href="store/store_details_1.html">Polaris Dawn Mission Patch</a>
+                                            </td>
+                                            <td data-title="수량">1</td>
+                                            <td data-title="금액"><span class="amount"><bdi><span>$</span>15</bdi>USD</span></td>
+                                            <td data-title="진행상태">
+                                                <p>배송완료</p>
+                                            </td>
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </form>
@@ -234,7 +244,7 @@
                                                 <i class="bx bx-x"></i>
                                             </td>
                                             <td data-title="상품명" class="product-info">
-                                                <a class="productimage" href="store/store_details_1.html"><img width="91" height="91" src="/assets/img/store/store1_product_1.png" alt="Image"></a>
+                                                <a class="productimage" href="store/store_details_1.html"><img width="91" height="91" src="/assets/img/store/store1_product_1.png" alt="Image" style="height: 91px;"></a>
                                                 <a class="productname" href="store/store_details_1.html">SpaceX IVA Suit Figure</a>
                                             </td>
                                             <td data-title="금액"><span class="amount"><bdi><span>$</span>300</bdi>USD</span></td>

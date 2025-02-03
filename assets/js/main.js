@@ -769,7 +769,7 @@
 	/* 현재 페이지 active 함수 */
 	function showCurrentPage() {
 		let currentPath = window.location.pathname;
-		let hash = window.location.hash;
+		let savedTab = sessionStorage.getItem('tab');
 		// Netlify .html 누락 방지
 		if (!currentPath.endsWith(".html") && !currentPath.endsWith("/")) {
 			currentPath += ".html";
@@ -824,11 +824,11 @@
 			document.querySelectorAll('.link_4_0').forEach(e => {
 				e.classList.add('active');
 			});
-			if (hash === '#figure-model') {
+			if(savedTab.includes('figure')) {
 				document.querySelectorAll('.link_4_1').forEach(e => e.classList.add('active'));
-			} else if (hash === '#badge-sticker') {
+			} else if(savedTab.includes('badge')) {
 				document.querySelectorAll('.link_4_2').forEach(e => e.classList.add('active'));
-			} else if (hash === '#clothing') {
+			} else if(savedTab.includes('clothing')) {
 				document.querySelectorAll('.link_4_3').forEach(e => e.classList.add('active'));
 			}
 		} else if (currentPath === '/pages/support/support.html') {
