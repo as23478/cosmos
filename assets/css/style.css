@@ -5946,6 +5946,9 @@ Login Page CSS
 .login-section{
   position: relative;
 }
+.login-section p{
+  color: var(--whiteColor);
+}
 
 .login-section::after{
   position: absolute;
@@ -5965,13 +5968,13 @@ Login Page CSS
 }
 
 .login-section .accounts-from {
-  background-color: var(--mainBg);
+  background-color: #121212;
   padding: 30px;
   text-align: center;
 }
 
 .login-section .accounts-from .logo {
-  color: var(--textColor);
+  color: var(--whiteColor);
   margin-bottom: 30px;
   font-size: 35px;
   /* font-weight: 800; */
@@ -5983,18 +5986,17 @@ Login Page CSS
 }
 
 .login-section .accounts-from .sign-up-with .s-btn {
-  color: var(--textColor);
+  color: var(--whiteColor);
   width: 100%;
   display: inline-block;
   height: 50px;
   padding: 0 30px;
   text-align: justify;
   line-height: 50px;
-  background-color: var(--sidebarBg);
+  background-color: #1A1B22;
   margin-bottom: 20px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid var(--sidebarLine);
 }
 
 .login-section .accounts-from .sign-up-with .s-btn:hover{
@@ -6024,6 +6026,8 @@ Login Page CSS
   height: 50px;
   margin-bottom: 25px;
   font-size: 14px;
+  background-color: #23242C;
+  color: var(--whiteColor);
 }
 
 .login-section .accounts-from .default-btn{
@@ -6041,7 +6045,7 @@ Login Page CSS
 
 .pass-btn {
   display: block;
-  color:  var(--textColor);
+  color:  var(--whiteColor);
   text-align: start;
   font-size: 13px;
   margin-bottom: 30px;
