@@ -36,8 +36,8 @@
                             <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/index.html">홈</a></li>
+                                    <li class="breadcrumb-item"><a href="store.html">스토어</a></li>
                                     <li class="breadcrumb-item"><a href="cart.html">장바구니</a></li>
-                                    <!-- <li class="breadcrumb-item"><a href="/index.html">Figure & Model</a></li> -->
                                     <li class="breadcrumb-item active" aria-current="page">결제하기</li>
                                 </ol>
                             </nav>
@@ -170,16 +170,16 @@
                                             
                                         </p>
                                         <p>
+                                            <input type="radio" id="check-payment" name="radio-group">
+                                            <label for="check-payment">수표결제</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="credit-card" name="radio-group">
+                                            <label for="credit-card">신용카드</label>
+                                        </p>
+                                        <p>
                                             <input type="radio" id="paypal" name="radio-group">
-                                            <label for="paypal">수표결제</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="cash-on-delivery" name="radio-group">
-                                            <label for="cash-on-delivery">신용카드</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="cash-on-delivery" name="radio-group">
-                                            <label for="cash-on-delivery">Paypal</label>
+                                            <label for="paypal">Paypal</label>
                                         </p>
                                     </div>
                                     <button type="submit" class="default-btn"><i class='bx bx-paper-plane'></i> <span>결제하기</span></button>

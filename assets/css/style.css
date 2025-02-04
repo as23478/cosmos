@@ -315,7 +315,7 @@ p:last-child {
   margin-bottom: 0;
   font-size: 48px;
   font-weight: 800;
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .sub-title-2 p{
@@ -3535,11 +3535,11 @@ Services Details Area CSS
 .services-details-overview .services-details-desc h2 {
   margin-bottom: 15px;
   font-size: 55px;
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .services-details-overview .services-details-desc p {
-  color: var(--paragraphColorSecond);
+  color: var(--subtextColor);
   font-size: 17px;
 }
 
@@ -3552,7 +3552,7 @@ Services Details Area CSS
   font-size: 24px;
   padding-left: 30px;
   position: relative;
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .services-details-overview .services-details-desc .features-text h3 i {
@@ -3869,7 +3869,7 @@ Cart Area CSS
 Checkout Area CSS
 =================================================*/
 .user-actions {
-  background: #151526;
+  background: var(--sidebarBg);
   padding: 15px 20px;
   border-bottom: 2px solid var(--mainColor2);
   position: relative;
@@ -3889,7 +3889,7 @@ Checkout Area CSS
 
 .user-actions span {
   display: inline-block;
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-weight: 500;
   font-size: 17px;
 }
@@ -3905,7 +3905,7 @@ Checkout Area CSS
 }
 
 .billing-details .title {
-  color: var(--whiteColor);
+  color: var(--textColor);
   margin-bottom: 50px;
   position: relative;
   padding-left: 15px;
@@ -3926,7 +3926,7 @@ Checkout Area CSS
 }
 
 .billing-details .form-group label {
-  color: var(--whiteColor);
+  color: var(--textColor);
   display: block;
   margin-bottom: 10px;
   font-weight: 700;
@@ -4056,7 +4056,7 @@ Checkout Area CSS
 
 .billing-details .form-check .form-check-input {
   margin-top: 0.2rem;
-  --bs-form-check-bg: #151526;
+  --bs-form-check-bg: var(--mainBg);
   border-color: var(--borderColor);
 }
 
@@ -4065,7 +4065,7 @@ Checkout Area CSS
 }
 
 .order-details .title {
-  color: var(--whiteColor);
+  color: var(--textColor);
   margin-bottom: 50px;
   position: relative;
   padding-left: 15px;
@@ -4133,12 +4133,12 @@ Checkout Area CSS
 }
 
 .order-details .order-table table tbody tr td.order-subtotal span, .order-details .order-table table tbody tr td.order-shipping span, .order-details .order-table table tbody tr td.total-price span {
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-weight: 500;
 }
 
 .order-details .order-table table tbody tr td.shipping-price, .order-details .order-table table tbody tr td.order-subtotal-price, .order-details .order-table table tbody tr td.product-subtotal {
-  color: var(--whiteColor);
+  color: var(--textColor);
   font-weight: 500;
 }
 
@@ -4157,7 +4157,7 @@ Checkout Area CSS
   padding-left: 27px;
   cursor: pointer;
   display: block;
-  color: var(--whiteColor);
+  color: var(--textColor);
   position: relative;
   margin-bottom: 8px;
   font-weight: 700;
@@ -4514,7 +4514,7 @@ Products Details Area CSS
 }
 
 .products-details-tabs .nav .nav-item .nav-link:hover, .products-details-tabs .nav .nav-item .nav-link.active {
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .products-details-tabs .nav .nav-item .nav-link:hover::before, .products-details-tabs .nav .nav-item .nav-link.active::before {
@@ -4940,7 +4940,7 @@ Products Area CSS
 }
 
 .single-products-box .products-content h3 a{
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .single-products-box .products-content h3 a:hover{
@@ -4961,7 +4961,7 @@ Products Area CSS
 }
 
 .single-products-box .products-content .price .new-price {
-  color: var(--whiteColor);
+  color: var(--textColor);
 }
 
 .single-products-box:hover .products-image .main-image img {
@@ -6061,7 +6061,7 @@ Login Page CSS
 Error CSS
 =================================================*/
 .error-section{
-  background-image: url(../img/banner/background-12.png);
+  background-image: url(../img/banner/404.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -7989,4 +7989,21 @@ body.en .kr {
     display: flex !important;
     align-items: center;
   }
+}
+
+.cookie-section .date {
+  color: var(--subtextColor);
+}
+.cookie-section .pera-list.title {
+  border-bottom: 1px solid var(--borderColor);
+}
+.cookie-section .pera-list.text p {
+  font-size: 18px;
+}
+.cookie-section .pera-list.text span {
+  font-weight: 600;
+  font-size: 22px;
+}
+.cookie-section .pera-list.text ul {
+  padding-top: 0;
 }
