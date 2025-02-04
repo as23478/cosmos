@@ -4,7 +4,6 @@
 /*================================================
 Default CSS
 =================================================*/
-/* 이거 왜가져왔었더라.. */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 @font-face {
@@ -26,10 +25,6 @@ Default CSS
 
 
 :root {
-  /* --fontFamily: 'DM Sans', sans-serif;
-  --headingFont: 'Plus Jakarta Sans', sans-serif; */
-  /* --fontFamily: 'CustomFont', sans-serif;
-  --headingFont: 'CustomFontHeading', sans-serif; */
   --fontFamily: 'Catamaran', 'Pretendard', sans-serif;
   --headingFont: 'Orbitron', 'Pretendard', sans-serif;
   --mainColor: #6600FF;
@@ -38,7 +33,6 @@ Default CSS
   --mainColor4: #D6C8FF;
   --secounderyColor: #F2EDEB;
   --paragraphColor: #7A7A7A;
-  /* --paragraphColorSecond: #B9B9BA; */
   --paragraphColorSecond: #cecece;
   --gridColor: linear-gradient(94deg, var(--mainColor2) 21.18%, #6941FF 104.4%);
   --whiteColor: #ffffff;
@@ -78,7 +72,7 @@ body {
   margin: 0;
   font-size: var(--fontSize);
   font-family: var(--fontFamily);
-  color: var(--textColor); /*  */
+  color: var(--textColor);
 }
 
 .container-fluid{
@@ -96,13 +90,12 @@ body.dark-theme-2{
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   font-family: var(--headingFont);
-  color: var(--textColor); /*  */
+  color: var(--textColor);
 }
 
 a {
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  /* color: var(--blackColor); */
   color: var(--textColor);
   text-decoration: none;
   outline: 0 !important;
@@ -587,10 +580,6 @@ Hero Area 2 CSS
 .hero-section-2{
   position: relative;
   overflow: hidden;
-  /* background-image: url(../img/banner/background-main.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center; */
   padding: 100px 0;
   height: 485px;
 }
@@ -605,29 +594,10 @@ Hero Area 2 CSS
   z-index: -1;
   filter: brightness(80%);
 }
-/* .hero-section-2::before, .hero-section-2::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 20%;
-  z-index: 0;
-  pointer-events: none;
-}
-.hero-section-2::before {
-  top: 0;
-  background: linear-gradient(to bottom, var(--gradientColor), transparent);
-}
 
-.hero-section-2::after {
-  bottom: -10px;
-  background: linear-gradient(to top, var(--gradientColor), transparent);
-} */
 
 .hero-content-2{
-  /* text-align: center; */
   max-width: 900px;
-  /* margin: auto; */
 }
 
 .hero-content-2 .sub-title-2 p::before {
@@ -642,11 +612,6 @@ Hero Area 2 CSS
 }
 
 .hero-content-2 h2 .sub-head{
-  /* background: var(--gridColor);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent; */
   display: inline-block;
   font-size: 64px;
   font-weight: 700;
@@ -1105,7 +1070,6 @@ Text Animation Area CSS
 Features Area CSS
 =================================================*/
 .features-section{
-  /* background-image: url(../img/banner/background-2.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1152,33 +1116,22 @@ Features Area CSS
 Features Area 2 CSS
 =================================================*/
 .features-section-2{
-  /* background-image: url(../img/banner/background-5.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-
-/* .features-section-2 > .container > .row {
-  overflow: hidden; 삭제
-} */
 
 .features-section-2 .feature-box{
   background: var(--featureColor);
   backdrop-filter: blur(3.5px);
   padding: 35px 30px;
   position: relative;
-  /* border: 1px solid #101c37; */
   margin-bottom: 30px;
   transition: var(--transition);
   z-index: 0;
   overflow: hidden;
-  display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; /* 이거 수정 */
-  /* border-bottom: 1px solid transparent; */
+  display: flex; flex-direction: column; justify-content: space-between; min-height: 100%;
 }
-
-/* .features-section-2 .feature-box::after {
-  content: ''; display: block; height: 20px; 삭제
-} */
 
 .features-section-2 .feature-box:hover:before{
   position: absolute;
@@ -1726,7 +1679,6 @@ body.dark-theme .brand-section-2 .single-brand {
 Team Area CSS
 =================================================*/
 .team-section{
-  /* background-image: url(../img/banner/background-7.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1759,7 +1711,7 @@ Team Area CSS
   height: 60px;
   width: 60px;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.01); /* 수정 */
+  background: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(3.5px);
   border: 1px solid var(--borderColor);
   color: var(--textColor);
@@ -2040,126 +1992,9 @@ Gallery Area CSS
 }
 
 /*================================================
-Pricing Area CSS
+Pricing Area CSS 삭제. 재확인
 =================================================*/
-.pricing-section {
-  background-image: url(../img/banner/background-9.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
-.pricing-section .img-box {
-  height: 655px;
-}
-
-.pricing-content h2{
-  color: var(--textColor);
-  font-size: 55px;
-}
-
-.pricing-content p{
-  color: var(--paragraphColorSecond);
-  margin-bottom: 30px;
-  font-size: 17px;
-}
-
-.pricing-content {
-  padding-left: 60px;
-}
-
-.pricing-table .pricing-box {
-  padding: 75px 30px 30px;
-  background: rgb(5 5 30 / 23%);
-  backdrop-filter: blur(6.5px);
-  border-radius: 6px;
-  position: relative;
-  border: 1px solid rgb(10, 137, 116);
-}
-
-.pricing-table .pricing-box.active{
-  background: rgb(30 179 152 / 19%);
-  border: 1px solid #1eb398;
-}
-
-.pricing-table .pricing-box span{
-  position: absolute;
-  right: 15px;
-  top: 20px;
-  padding: 8px 14px;
-  background-color: #1eb398;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--whiteColor);
-  text-transform: uppercase;
-}
-
-.pricing-table .pricing-box .default-btn span {
-  position: initial;
-  background: no-repeat; /* span 설정이랑 충돌나서 이래둔거같은데.. pricing-table 안쓸거면 전체삭제 */
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  font-size: 16px;
-  text-transform: none;
-}
-
-.pricing-table .pricing-box h3{
-  color: var(--textColor);
-  margin-bottom: 20px;
-}
-
-.pricing-table .pricing-box p {
-  color: var(--paragraphColorSecond);
-  margin-bottom: 30px;
-}
-
-.pricing-table .pricing-box .price-number {
-  margin-bottom: 20px;
-}
-
-.pricing-table .pricing-box .price-number h3 {
-  color: var(--textColor);
-  font-size: 30px;
-}
-
-.pricing-table .pricing-box .price-number p{
-  color: var(--paragraphColorSecond);
-}
-
-.pricing-table .pricing-box .price-fetures {
-    margin-bottom: 40px;
-}
-
-.pricing-table .pricing-box .price-fetures ul{
-  padding: 0;
-  list-style: none;
-}
-.pricing-table .pricing-box .price-fetures ul li {
-  color: var(--textColor);
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.pricing-section .price-wrap .price-video-wrap {
-  width: 100%;
-  height: 655px;
-  margin-left: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.pricing-section .price-wrap .price-video-wrap .price-video {
-  position: absolute;
-  z-index: 0;
-  -o-object-fit: cover;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
 
 /*================================================
 Blog Area CSS
@@ -2549,7 +2384,7 @@ Blog Area CSS
 }
 
 .blog-card .blog-img img {
-  aspect-ratio: 430 / 390; /* 비율 설정 실패? 특정 사이즈 오류 - 미디어쿼리 확인 */
+  aspect-ratio: 430 / 390;
   object-fit: cover;
 }
 
@@ -2774,7 +2609,6 @@ blockquote p, .blockquote p {
 
 .blog-details-dec .article-footer .article-tags span {
   display: inline-block;
-  /* color: var(--blackColor); */
   margin-right: 3px;
   position: relative;
   top: 3px;
@@ -3333,7 +3167,6 @@ Service Area CSS
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  /* background-image: url(../img/banner/background-7.png); */
 }
 .process-wrap .process-content .process-item-wrap {
   margin: 38px 0 0;
@@ -3936,10 +3769,6 @@ Checkout Area CSS
 .billing-details .form-group label .required {
   color: red;
 }
-
-/* .billing-details .form-control {
-  color: var(--whiteColor);
-} */
 
 .billing-details .form-group .nice-select {
   display: block;
@@ -4734,10 +4563,6 @@ Products Details Area CSS
   text-align: left;
 }
 
-/* .products-details-tabs .tab-content .tab-pane .review-form-wrapper form .form-control {
-  color: var(--whiteColor);
-} */
-
 .products-details-tabs .tab-content .tab-pane .review-form-wrapper form .rating {
   text-align: left;
   overflow: hidden;
@@ -4976,7 +4801,6 @@ Products Area CSS
 }
 
 .grid-sorting {
-  /* margin-bottom: 40px; */
   background: var(--sidebarBg);
   border-radius: 5px;
   padding: 10px;
@@ -5326,7 +5150,6 @@ Contact Area CSS
 Footer Area CSS
 =================================================*/
 .footer-area{
-  /* background-color: var(--mainBg); */
   background-color: #1E1E1E;
 }
 .footer-area p, .footer-area a {
@@ -5586,11 +5409,6 @@ Footer Area CSS
   padding: 10px;
 }
 
-/* .footer-widget-info .footer-widget h2 {
-  font-size: 38px;
-  color: var(--whiteColor);
-} */
-
 .footer-widget-info .footer-widget ul {
   padding: 0;
   list-style: none;
@@ -5626,18 +5444,9 @@ Footer Area CSS
   vertical-align: middle;
   margin-right: 15px;
   fill: currentColor;
-  /* transition: 0.5s; */
 }
-/* .footer-widget-info .footer-widget ul li a:hover::before {
-  fill: var(--mainColor2);
-} */
-
-/* .footer-widget-info .footer-widget ul li a:hover::before {
-  filter: invert(0.5); 
-} */
 
 .footer-widget-info .footer-widget ul li a:hover::before {
-  /* filter: invert(0.2) sepia(1) hue-rotate(290deg) saturate(3); */ /* 원하는 색상 조정 */
   filter: invert(0.2) sepia(1) hue-rotate(220deg) saturate(9) brightness(1.1);
 
 }
@@ -5651,13 +5460,6 @@ Footer Area CSS
   left: -35px;
   top: 2px;
 }
-
-/* .footer-widget-info .footer-widget span {
-  color: var(--paragraphColorSecond);
-  font-size: 17px;
-  display: block;
-  margin-bottom: 30px;
-} */
 
 .footer-widget-info .footer-widget .ft-mail {
   color: var(--paragraphColorSecond);
@@ -5855,13 +5657,6 @@ Footer Area CSS
   position: relative;
 }
 
-/* .footer-area-3 .footer-top-info .right-content span {
-  position: absolute;
-  content: '';
-  top: 10px;
-  right: 37%;
-} */
-
 .footer-area-3 .footer-top-info .right-content ul{
   list-style: none;
   padding: 0;
@@ -5977,7 +5772,6 @@ Login Page CSS
   color: var(--whiteColor);
   margin-bottom: 30px;
   font-size: 35px;
-  /* font-weight: 800; */
 }
 
 .login-section .accounts-from span {
@@ -6239,7 +6033,6 @@ Go Top CSS
   cursor: pointer;
   bottom: 20px;
   right: 20px;
-  /* background: var(--gridColor); */
   background: #555;
   color: var(--whiteColor);
   z-index: 4;
@@ -6249,8 +6042,6 @@ Go Top CSS
   opacity: 0;
   visibility: hidden;
   font-size: 27px;
-  /* -webkit-transition: var(--transition);
-  transition: var(--transition); */
   -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
@@ -6275,7 +6066,6 @@ Go Top CSS
 }
 
 .go-top:hover {
-  /* background-color: var(--blackColor); */
   background: #888;
   color: var(--whiteColor);
 }
@@ -6293,11 +6083,7 @@ Go Top CSS
   width: 43px;
   text-align: center;
   height: 45px;
-  /* opacity: 0; */
-  /* visibility: hidden; */
   font-size: 27px;
-  /* -webkit-transition: var(--transition);
-  transition: var(--transition); */
   -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
@@ -6316,8 +6102,6 @@ Go Top CSS
 }
 
 .chat-bot.active {
-  /* opacity: 1; */
-  /* visibility: visible; */
   bottom: 85px;
 }
 
@@ -6369,18 +6153,6 @@ Go Top CSS
   border-radius: 4px;
 }
 
-/* .wtcode .widget_categories a::before { 이거 화살표 뺀다했고
-  content: "\f061";
-  position: absolute;
-  right: 25px;
-  top: 17px;
-  font-family: var(--icon-font);
-  font-weight: 600;
-  color: var(--mainColor2);
-  -webkit-transition: all ease 0.4s;
-  transition: all ease 0.4s;
-} */
-
 .wtcode .widget_categories li {
   display: block;
   position: relative;
@@ -6390,21 +6162,6 @@ Go Top CSS
   border-bottom: none;
 }
 
-/* .widget_categories li > span {
-  color: var(--whiteColor);
-  background-color: #272A34;
-  font-weight: 600;
-  text-align: center;
-  position: absolute;
-  right: 24px;
-  top: 15px;
-  -webkit-transition: all ease 0.4s;
-  transition: all ease 0.4s;
-  pointer-events: none;
-  min-width: 20px;
-  text-align: right;
-} */
-
 .wtcode .widget_categories a.active {
   background-color: var(--mainColor2);
   color: var(--whiteColor);
@@ -6412,29 +6169,15 @@ Go Top CSS
 
 .wtcode .widget_categories a:not(.active):hover {
   color: var(--mainColor2);
-  /* background-color: var(--mainColor2); */
 }
 
 .wtcode .widget_categories a.active:hover {
   box-shadow: inset 0 0 3px #000000;
 }
 
-/* .wtcode .widget_categories a:hover:before {
-  color: var(--whiteColor);
-} */
-
-/* .wtcode .widget_categories a:hover ~ span {
-  color: var(--whiteColor);
-  background-color: var(--mainColor2);
-} */
-
-/* .widget_categories .children {
-  margin-left: 10px;
-} */
-
 
 .wtcode .widget {
-  padding: var(--widget-padding-y, 40px) var(--widget-padding-x, 40px); /*  */
+  padding: var(--widget-padding-y, 40px) var(--widget-padding-x, 40px);
   background-color: var(--sidebarBg);
   margin-bottom: 40px;
   position: relative;
@@ -6503,7 +6246,6 @@ Go Top CSS
 
 .wtcode .price_slider_wrapper .price_label span {
   display: inline-block;
-  /* color: var(--textColor); */
 }
 
 .wtcode .price_slider_wrapper .ui-slider {
@@ -6704,85 +6446,6 @@ Go Top CSS
 }
 
 
-
-/* store - sorting */
-/* .wtcode .th-sort-bar {
-  padding: 10px;
-  margin: 0 0 24px 0;
-  background-color: var(--sidebarBg);
-  border-radius: 5px;
-}
-
-.wtcode .th-sort-bar .row {
-  --bs-gutter-x: 0;
-  --bs-gutter-y: 15px;
-}
-
-.wtcode .th-sort-bar select {
-  height: 50px;
-  border: 1px solid var(--borderColor);
-  background-color: var(--sidebarTag);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  min-width: 250px;
-  font-size: 16px;
-  margin: 0;
-  color: var(--body-color);
-}
-
-.wtcode .th-sort-bar .nice-select {
-  display: inline-block;
-  width: 225px;
-  float: unset;
-  background: var(--sidebarBg);
-  border-color: var(--borderColor);
-  color: var(--whiteColor);
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-  padding: 0 0 0 12px;
-  height: 50px;
-  line-height: 45px;
-  font-size: 17px;
-  font-weight: 500;
-}
-
-.wtcode .th-sort-bar .nice-select .option {
-  background: var(--sidebarBg);
-}
-
-.wtcode .th-sort-bar .nice-select .option:hover {
-  background: var(--sidebarBg);
-}
-
-.wtcode .th-sort-bar .woocommerce-result-count {
-  padding-left: 15px;
-  margin-bottom: 0;
-  color: var(--body-color);
-}
-
-.wtcode .th-sort-bar .nav a {
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  line-height: 50px;
-  border: 1px solid var(--borderColor);
-  background-color: var(--whiteColor);
-  text-align: center;
-  position: relative;
-  font-family: var(--title-font);
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: capitalize;
-  color: var(--body-color);
-  margin: 0 0 0 10px;
-}
-
-.wtcode .th-sort-bar .nav a.active, .th-sort-bar .nav a:hover {
-  color: var(--mainColor2);
-} */
-
-
 /*------------------- 4.00. Cart  -------------------*/
 .woocommerce-cart-form {
   text-align: center;
@@ -6975,16 +6638,12 @@ Go Top CSS
   width: max-content;
 }
 
-/* .cart_totals {
-  background-color: var(color);
-} */
-
 .cart_totals th,
 .cart_totals td {
   vertical-align: top;
   padding: 20px 20px;
   border: none;
-  border-bottom: 1px solid #ecf0f1; /* ? */
+  border-bottom: 1px solid #ecf0f1;
   font-size: 14px;
   color: var(--textColor);
   width: 55%;
@@ -7054,7 +6713,6 @@ Go Top CSS
 
 
 .cart_table .qty-btn {
-  /* border: 2px solid var(--textColor) !important; */
   background-color: transparent;
   color: #b8c6d0;
   padding: 0;
@@ -7316,7 +6974,7 @@ Go Top CSS
 
 .wtcode .th-product .product-title a {
   color: inherit;
-  white-space: pre-wrap; /* 줄바꿈(임시) */
+  white-space: pre-wrap;
 }
 
 .wtcode .th-product .product-title a:hover {
@@ -7331,13 +6989,7 @@ Go Top CSS
   font-family: var(--fontFamily);
 }
 
-/* .th-product .price del {
-  margin-left: 10px;
-  color: #a9a9a9;
-} */
-
 .wtcode .th-product .product-img {
-  /* --space: 20px; */
   background-color: var(--sidebarBg);
   overflow: hidden;
   position: relative;
@@ -7348,17 +7000,11 @@ Go Top CSS
 }
 
 .wtcode .th-product .product-img:before {
-  /* --space: 20px; */
   content: '';
-  /* height: calc(100% - var(--space)*2);
-  width: calc(100% - var(--space)*2); */
   height: 100%;
   width: 100%;
   border-radius: inherit;
   position: absolute;
-  /* top: var(--space);
-  left: var(--space); */
-  /* background-color: var(--title-color); */
   background: #00000080;
   z-index: 1;
   -webkit-transform: scaleX(0);
@@ -7378,20 +7024,6 @@ Go Top CSS
       -ms-transform: scale(1);
           transform: scale(1);
 }
-
-/* .th-product .product-img .tag {
-  font-size: 14px;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background-color: var(--theme-color);
-  color: var(--white-color);
-  padding: 0 12px;
-  min-width: 60px;
-  z-index: 3;
-  border-radius: 3px;
-  line-height: 24px;
-} */
 
 .th-product .star-rating {
   margin: 0 auto 5px auto;
@@ -7729,10 +7361,6 @@ Go Top CSS
 }
 
 /* 마이페이지 - 여행 예약 내역 */
-.mypage .product-info {
-  /* display: flex; */
-}
-
 .mypage .productimage {
   margin-right: 10px;
 }
@@ -7761,10 +7389,6 @@ Go Top CSS
   background-color: #595959;
   color: var(--whiteColor);
 }
-
-/* .mypage .orders-tab .product-info {
-  justify-content: center;
-} */
 
 .mypage .orders-tab .only-pc-date {
   display: block;
@@ -7830,14 +7454,6 @@ body.en .kr {
   height: 100%;
   object-fit: cover;
 }
-
-
-/* .order-table tr {
-  border-color: var(--borderColor);
-}
-.order-table tr td {
-  border: none;
-} */
 
 
 /* 공지사항 */

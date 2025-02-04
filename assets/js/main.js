@@ -460,7 +460,6 @@
 
 		// sessionStorage
 		sessionStorage.setItem('tab', tabName);
-		// console.log('현재 탭 저장: ', tabName);
 		
 	}
 
@@ -512,7 +511,6 @@
 	
 		// sessionStorage
 		sessionStorage.setItem('tab', button.dataset.tab);
-		// console.log('현재 탭 저장: ', button.dataset.tab);
 	}
 
 	// 마이페이지 초기화 함수: PC에서만 첫 번째 탭 활성화
@@ -521,8 +519,6 @@
 		const firstTab = document.querySelector('.tab-btn[data-tab="account-tab"]');
 		const allTabs = document.querySelectorAll('.mypage-tabs');
 		const allButtons = document.querySelectorAll('.tab-btn');
-		// const tabButtons = document.querySelectorAll('.mypage-categories');
-		// const iconElement = document.querySelector('.bx-user');
 		const pcMypageTitle = document.querySelector('.widget_custom');
 		const mobileMypageTitle = document.querySelector('#mypage-title');
 
@@ -531,7 +527,6 @@
 			const firstTabName = firstTab.getAttribute('data-tab');
 			allTabs.forEach(content => content.classList.remove('active'));
 			document.getElementById(firstTabName).classList.add('active');
-			// tabButtons.forEach(content => content.classList.add('active'));
 
 			// 버튼 활성화
 			allButtons.forEach(btn => btn.classList.remove('active'));
@@ -544,9 +539,6 @@
 			// 모바일: 모든 탭과 버튼 숨김
 			allTabs.forEach(content => content.classList.remove('active'));
 			allButtons.forEach(btn => btn.classList.remove('active'));
-			
-			// 사이드바
-			// tabButtons.forEach(content => content.classList.remove('active'));
 
 			// 타이틀
 			pcMypageTitle.classList.remove('active');
@@ -559,7 +551,6 @@
 /* 스토어 페이지 - 탭 전환 함수 */
 	function activateTab_store(button) {
 		const filter = $(button).data('filter');
-		// console.log('스토어 filter: ', filter);
 
 		if(filter === 'all'){
 			$('.item').removeClass('active');
@@ -585,7 +576,6 @@
 	
 		// sessionStorage
 		sessionStorage.setItem('tab', button.dataset.filter);
-		// console.log('현재 탭 저장: ', button.dataset.filter);
 
 		navActive_Store();
 	}
@@ -606,10 +596,7 @@
 	}
 	
 	function filterItems(tag) {
-		// console.log(`Filtering items with tag: ${tag}`);
-
 		const items = document.querySelectorAll(`.item[data-tag*="${tag}"]`);
-		// console.log(`Found items: ${items.length}`);
 
 		// 모든 아이템에서 active 클래스 제거
 		document.querySelectorAll('.item').forEach(item => {
@@ -640,7 +627,6 @@
 	}
 	
 	function updateFiltering() {
-		// console.log('updateFiltering 함수 실행');
 		$(".item").each(function () {
 			if ($(this).hasClass("active") && $(this).hasClass("price-active")) {
 				$(this).addClass("visible");
@@ -675,7 +661,6 @@
 		} else {
 			resultCountElement.innerHTML = `총 <span class="count">14</span> 개 중 ${currentStart}-${currentEnd}개 표시`;
 		}
-		// console.log("innerHTML 업데이트: ", resultCountElement.innerHTML);
 	}
 	
 
@@ -747,42 +732,26 @@
 	/* 탭 복원 함수 */
 	function restoreTab() {
 		const savedTab = sessionStorage.getItem('tab');
-		console.log('저장된 탭 복원. savedTab: ', savedTab);
 
 		if(savedTab && savedTab.includes('info_')) {
 			// 우주정보 페이지
 			let targetButton = $('.info-tab-btn[data-tab="' + savedTab + '"]');
-			// console.log('targetButton: ', targetButton);
-			// console.log('targetButton.length: ', targetButton.length);
-			// console.log('targetButton.get(0): ', targetButton.get(0));
-        
 			if (targetButton.length) {
-				// console.log('저장된 탭 버튼 클릭 실행:', savedTab);
-				activateTab(targetButton.get(0)); // 첫 번째 요소를 넘김
+				activateTab(targetButton.get(0));
 			}
 
 		} else if(savedTab && savedTab.includes('-tab')) {
 			// 마이페이지
 			let targetButton = $('.tab-btn[data-tab="' + savedTab + '"]');
-			// console.log('targetButton: ', targetButton);
-			// console.log('targetButton.length: ', targetButton.length);
-			// console.log('targetButton.get(0): ', targetButton.get(0));
-        
 			if (targetButton.length) {
-				// console.log('저장된 탭 버튼 클릭 실행:', savedTab);
-				activateTab_mypage(targetButton.get(0)); // 첫 번째 요소를 넘김
+				activateTab_mypage(targetButton.get(0));
 			}
 
 		} else if(savedTab && savedTab.includes('item')) {
 			// 스토어 페이지
 			let targetButton = $('.filter-btn[data-filter="' + savedTab + '"]');
-			// console.log('targetButton: ', targetButton);
-			// console.log('targetButton.length: ', targetButton.length);
-			// console.log('targetButton.get(0): ', targetButton.get(0));
-        
 			if (targetButton.length) {
-				// console.log('저장된 탭 버튼 클릭 실행:', savedTab);
-				activateTab_store(targetButton.get(0)); // 첫 번째 요소를 넘김
+				activateTab_store(targetButton.get(0));
 			}
 		}
 	}
@@ -799,7 +768,6 @@
 		if (currentPath === '/' || currentPath === '/index.html') {
 			currentPath = '/index.html';
 		}
-		// console.log("Current Path:", currentPath);
 
 		if (currentPath === '/index.html') {
 			document.querySelectorAll('.link_1_0').forEach(e => {
@@ -891,7 +859,6 @@
 				$.get(filePath)
 					.done(function (data) {
 						$this.html(data); // Include 완료
-						// console.log(`File loaded: ${filePath}`);
 						
 						// Include 완료 후 실행 - 현재 페이지 표시
 						showCurrentPage();
@@ -909,7 +876,6 @@
 		
 		/* 테마 상태 복원 */
 		const savedTheme = sessionStorage.getItem('theme');
-        console.log('테마 상태 복원. savedTheme: ', savedTheme);
 
         if(savedTheme === 'false') {
             document.body.classList.remove('dark-theme');
@@ -918,13 +884,10 @@
 
 		/* 언어 설정 복원 */
 		const savedLanguage = sessionStorage.getItem('language');
-		// console.log('언어 상태 복원. savedLanguage: ', savedLanguage);
 
 		if (savedLanguage) {
 			document.body.classList.remove('kr', 'en');
 			document.body.classList.add(savedLanguage);
-		} else {
-			// console.log('기본 언어 유지: kr');
 		}
 
 
@@ -946,7 +909,6 @@
 	
 		// 우주정보 메인페이지 -> 하위페이지 이동
 		const hash = window.location.hash.substring(1); // '#' 제거
-		// console.log('hash: ', hash);
 		
 		if (hash) {
 			const button = document.querySelector(`.info-tab-btn[data-tab="${hash}"]`);
@@ -956,7 +918,6 @@
 			
 			// 스토어 탭 활성화 (내비게이션)
 			const storeButton = document.querySelector(`.filter-btn[data-filter=".item-${hash}"]`);
-			console.log('스토어 활성화. storeButton: ', storeButton);
 			
 			if (storeButton) {
 				activateTab_store(storeButton);
@@ -991,10 +952,8 @@
 
 		/* 스토어 - Tags */
 		$('.tag-filter').on('click', function(e) {
-			e.preventDefault(); // 기본 링크 동작 방지
+			e.preventDefault();
 			activateTab_store2(this);
-			// let allButton = $('.filter-btn[data-filter="all"]')[0];
-			// activateTab_store(allButton); // 'All' 상태 활성화 함수 호출
 			document.querySelectorAll('.filter-btn').forEach(btn => {
 				btn.classList.remove('active');
 			});
@@ -1051,7 +1010,7 @@
 /* 모바일 메뉴창 외부 클릭 감지 */
 	document.addEventListener("click", function(event) {
 		const menu = document.querySelector(".responsive-navbar.offcanvas.show");
-		const closeButton = document.querySelector(".responsive-navbar .btn-close"); // 닫기 버튼(부트스트랩 기능)
+		const closeButton = document.querySelector(".responsive-navbar .btn-close");
 	
 		if (menu && !menu.contains(event.target) && closeButton) {
 			closeButton.click();
